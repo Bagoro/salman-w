@@ -62,7 +62,7 @@ body {
 	margin-top: 16px;
 	margin-bottom: 16px;
 }
-#HTML2, #HTML3 {
+#HTML3 {
 	text-align: center;
 }
 /****************
@@ -257,8 +257,17 @@ input {
 /****************
 * CUSTOM
 ****************/
-.cse-input {
-	width: 140px;
+.gsc-control-cse {
+	border: none !important;
+	padding: 0 !important;
+	background-color: transparent !important;
+}
+form.gsc-search-box {
+	margin-bottom: 0 !important;
+	padding: 0 !important;
+}
+td.gsc-search-button {
+	display: none;
 }
 .demo-canvas {
 	margin: 16px 0;
