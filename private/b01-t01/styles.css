@@ -36,7 +36,7 @@ body {
 }
 #adsense-custom-1 {
 	float: right;
-	margin-top: 16px;
+	margin-top: 40px;
 	margin-bottom: 16px;
 }
 #bu-related-posts {
@@ -295,7 +295,7 @@ input {
 	margin: 16px 0;
 	text-align: center;
 }
-.demo-canvas-ibwrap iframe {
+.demo-canvas-ibwrap iframe, .demo-canvas-ibwrap object, .demo-canvas-ibwrap embed {
 	border-color: #CCCCCC #333333 #333333 #CCCCCC;
 	border-style: solid;
 	border-width: 1px;
