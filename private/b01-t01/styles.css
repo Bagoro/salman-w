@@ -291,21 +291,16 @@ input {
 	padding: 8px;
 	box-shadow: 2px 2px 2px #999999;
 }
-.demo-canvas-outer {
-	position: relative;
-	margin: -16px -4px;
-	padding: 16px 4px;
-	overflow: hidden;
+.demo-canvas-ibwrap {
+	margin: 16px 0;
+	text-align: center;
 }
-.demo-canvas-inner {
-	float: left;
-	position: relative;
-	left: 50%;
-}
-.demo-canvas-inner .demo-canvas {
-	position: relative;
-	left: -50%;
-	margin: 0;
+.demo-canvas-ibwrap iframe {
+	border-color: #CCCCCC #333333 #333333 #CCCCCC;
+	border-style: solid;
+	border-width: 1px;
+	padding: 8px;
+	box-shadow: 2px 2px 2px #999999;
 }
 #bu-related-posts h4 {
 	border-bottom: 1px dotted;
