@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<script type="text/javascript" src="../demoengine/demoengine.js"></script>
+	<link rel="stylesheet" type="text/css" href="../demoengine/demoengine.css">
+	<title>jQuery UI Datepicker: Parse and Format Dates</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css">
+</head>
+<body>
+	<input id="datepicker" type="text">
+	<p id="dateoutput"></p>
+	<script type="text/javascript">
+		/*
+		 * jQuery UI Datepicker: Parse and Format Dates
+		 * http://salman-w.blogspot.com/2013/01/jquery-ui-datepicker-examples.html
+		 */
+		$(function() {
+			$("#datepicker").datepicker({
+				dateFormat: "dd-mm-yy",
+				onSelect: function(dateText, inst) {
+					var date = $.datepicker.parseDate(inst.settings.dateFormat || $.datepicker._defaults.dateFormat, dateText, inst.settings);
+					var dateText1 = $.datepicker.formatDate("D, d M yy", date, inst.settings);
+					date.setDate(date.getDate() + 7);
+					var dateText2 = $.datepicker.formatDate("D, d M yy", date, inst.settings);
+					$("#dateoutput").html("Chosen date is <b>" + dateText1 + "</b>; chosen date + 7 days yields <b>" + dateText2 + "</b>");
+				}
+			});
+		});
+	</script>
+</body>
+</html>
