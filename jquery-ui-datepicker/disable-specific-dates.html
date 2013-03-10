@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<script type="text/javascript" src="../demoengine/demoengine.js"></script>
+	<link rel="stylesheet" type="text/css" href="../demoengine/demoengine.css">
+	<title>jQuery UI Datepicker: Disable Specific Dates</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css">
+</head>
+<body>
+	<input id="datepicker" type="text">
+	<script type="text/javascript">
+		/*
+		 * jQuery UI Datepicker: Disable Specific Dates
+		 * http://salman-w.blogspot.com/2013/01/jquery-ui-datepicker-examples.html
+		 */
+		$(function() {
+			var date1 = new Date;
+			date1.setHours(0, 0, 0, 0);
+			date1.setDate(10);
+			var date2 = new Date;
+			date2.setHours(0, 0, 0, 0);
+			date2.setDate(23);
+			$("#datepicker").datepicker({
+				beforeShowDay: function(date) {
+					return [date < date1 || date > date2, ""];
+				}
+			});
+		});
+	</script>
+</body>
+</html>
