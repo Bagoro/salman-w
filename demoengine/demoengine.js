@@ -91,9 +91,9 @@
 			a_popout.target = "_blank";
 			a_popout.innerHTML = "Open in new window";
 			div_demoengine.appendChild(a_popout);
-			div_source = document.createElement("div");
-			div_demoengine.appendChild(div_source);
 		}
+		div_source = document.createElement("div");
+		div_demoengine.appendChild(div_source);
 		var prettyXHR = 2, prettyFID;
 		ajaxRequest(window.location.href, function() {
 			div_source.innerHTML = "<PRE class=prettyprint>" + this.responseText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</PRE>";
