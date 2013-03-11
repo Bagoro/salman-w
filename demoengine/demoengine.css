@@ -3,6 +3,12 @@ body {
 	padding: 10px;
 	font: 12px sans-serif;
 }
+body.active > * {
+	display: none;
+}
+body.active > #demoengine {
+	display: block;
+}
 #demoengine {
 	margin: -10px -10px 10px;
 	height: 36px;
@@ -41,21 +47,14 @@ body {
 	left: 0;
 	right: 0;
 	z-index: 999;
-	background-color: #E0E0E0;
-	background-color: rgba(224, 224, 224, 0.6);
+	background-color: #F0F0F0;
 }
 #demoengine div.active {
 	display: block;
 }
 #demoengine pre {
-	position: absolute;
-	top: 20px;
-	bottom: 20px;
-	left: 20px;
-	right: 20px;
 	margin: 0;
+	border: none;
 	padding: 10px;
-	overflow: auto;
-	background-color: #F8F8F8;
-	box-shadow: 0 0 8px #000000;
+	background-color: #F0F0F0;
 }

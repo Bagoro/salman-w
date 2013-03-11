@@ -56,7 +56,7 @@
 		document.documentElement.firstChild.appendChild(e);
 	}
 	addEvent(window, "load", function() {
-		var div_demoengine, a_output, a_source, div_source;
+		var div_demoengine, a_output, a_source, a_popout, div_source;
 		div_demoengine = document.createElement("div");
 		div_demoengine.id = "demoengine";
 		document.body.insertBefore(div_demoengine, document.body.firstChild);
@@ -65,6 +65,7 @@
 		a_output.href = "#";
 		a_output.innerHTML = "Output";
 		a_output.onclick = function() {
+			removeClass(document.body, "active");
 			addClass(a_output, "active");
 			removeClass(a_source, "active");
 			removeClass(div_source, "active");
@@ -76,16 +77,24 @@
 		a_source.href = "#";
 		a_source.innerHTML = "Source";
 		a_source.onclick = function() {
+			addClass(document.body, "active");
 			removeClass(a_output, "active");
 			addClass(a_source, "active");
 			addClass(div_source, "active");
 			return false;
 		};
 		div_demoengine.appendChild(a_source);
-		div_source = document.createElement("div");
-		div_demoengine.appendChild(div_source);
-		var prettyXHR = 2,
-			prettyFID;
+		if (top !== self) {
+			a_popout = document.createElement("a");
+			a_popout.className = "corner-l corner-r";
+			a_popout.href = window.location.href;
+			a_popout.target = "_blank";
+			a_popout.innerHTML = "Open in new window";
+			div_demoengine.appendChild(a_popout);
+			div_source = document.createElement("div");
+			div_demoengine.appendChild(div_source);
+		}
+		var prettyXHR = 2, prettyFID;
 		ajaxRequest(window.location.href, function() {
 			div_source.innerHTML = "<PRE class=prettyprint>" + this.responseText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</PRE>";
 			prettyXHR--;
