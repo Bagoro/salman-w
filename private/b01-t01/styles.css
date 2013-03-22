@@ -15,12 +15,19 @@ body {
 	display: none;
 }
 #header-wrap {
-	float: left;
-	width: 368px;
+	position: relative;
+	border-bottom: 1px solid #000000;
+	background-color: #E1E3EB;
+	box-shadow: 0 0 8px #000000;
+	text-align: center;
 }
 #Header1 {
-	padding: 16px;
-	text-align: center;
+	float: left;
+	padding-top: 8px;
+	width: 272px;
+}
+#HTML1 {
+	margin-left: 272px;
 }
 #middle-wrap {
 	margin-left: 368px;
@@ -45,16 +52,19 @@ body {
 }
 #sidebar-wrap {
 	float: left;
-	margin-top: 72px;
 	margin-left: -368px;
 	width: 368px;
 }
 #sidebar-box1 {
-	float: left;
 	margin-left: 16px;
-	width: 160px;
+	width: 336px;
 }
-#BlogArchive1 {
+#HTML2 {
+	z-index: 1;
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
+#HTML3 {
 	margin-top: 16px;
 	margin-bottom: 16px;
 }
@@ -63,22 +73,19 @@ body {
 	margin-left: 16px;
 	width: 160px;
 }
-#HTML2 {
-	z-index: 1;
-}
-#Label1 {
-	margin-top: 16px;
+#BlogArchive1 {
 	margin-bottom: 16px;
 }
 #Profile1 {
-	margin-top: 16px;
 	margin-bottom: 16px;
 }
 #sidebar-box3 {
-	clear: both;
+	float: left;
+	margin-left: 16px;
+	width: 160px;
 }
-#HTML3 {
-	text-align: center;
+#Label1 {
+	margin-bottom: 16px;
 }
 #middle-hack {
 	clear: both;
@@ -172,6 +179,9 @@ a:hover {
 code {
 	font-family: Lucida Console, monospace;
 	color: #008000;
+}
+#header-wrap img {
+	vertical-align: bottom;
 }
 input {
 	font-family: Arial, sans-serif;
@@ -338,7 +348,4 @@ input {
 form.gsc-search-box {
 	margin-bottom: 0 !important;
 	padding: 0 !important;
-}
-td.gsc-search-button {
-	display: none;
 }
