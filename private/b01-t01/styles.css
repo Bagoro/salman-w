@@ -24,7 +24,7 @@ body {
 }
 #Header1 {
 	float: left;
-	padding-top: 8px;
+	padding-top: 10px;
 	width: 272px;
 }
 #HTML1 {
@@ -104,7 +104,7 @@ body {
 * ELEMENTS
 ****************/
 h1 {
-	font: 1.2em Georgia, serif;
+	font: 1.6em/1 Georgia, serif;
 }
 #header-wrap h1 {
 	margin: 0;
