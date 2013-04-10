@@ -7,8 +7,8 @@
 	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v=3&amp;sensor=false&amp;key=AIzaSyD3VSb2IYSKdPdcDWFffqh0pGy9S47Klzk"></script>
 </head>
 <body>
-	<div id="mapdiv" style="float: left; width: 50%; height: 300px;"></div>
-	<div id="svpdiv" style="float: left; width: 50%; height: 300px;"></div>
+	<div id="mapdiv" style="float: left; width: 50%; height: 400px;"></div>
+	<div id="svpdiv" style="float: left; width: 50%; height: 400px;"></div>
 	<div style="clear: both;"></div>
 	<script type="text/javascript">
 		/*
@@ -27,7 +27,7 @@
 			var svp = new google.maps.StreetViewPanorama(document.getElementById("svpdiv"), {
 				position: pos
 			});
-			// bind  a street view panorama to the map
+			// bind a street view panorama to the map
 			map.setStreetView(svp);
 		});
 	</script>
