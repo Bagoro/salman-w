@@ -326,6 +326,7 @@ input {
 }
 #bu-related-posts span {
 	display: block;
+	margin: 0 auto 8px;
 	border: 1px solid #333333;
 	width: 72px;
 	height: 72px;
