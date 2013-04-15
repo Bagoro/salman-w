@@ -43,14 +43,8 @@ body {
 #Blog1 {
 	padding: 16px;
 }
-#adsense-custom-1 {
-	float: right;
-	margin-top: 40px;
-	margin-bottom: 16px;
-}
 #bu-related-posts {
-	margin-top: 32px;
-	margin-right: 352px;
+	margin: 16px 0;
 }
 #sidebar-wrap {
 	float: left;
@@ -66,19 +60,15 @@ body {
 	margin-top: 16px;
 	margin-bottom: 16px;
 }
-#HTML3 {
-	margin-top: 16px;
-	margin-bottom: 16px;
-}
 #sidebar-box2 {
 	float: left;
 	margin-left: 16px;
 	width: 160px;
 }
-#BlogArchive1 {
+#HTML3 {
 	margin-bottom: 16px;
 }
-#Profile1 {
+#BlogArchive1 {
 	margin-bottom: 16px;
 }
 #sidebar-box3 {
@@ -87,6 +77,9 @@ body {
 	width: 160px;
 }
 #Label1 {
+	margin-bottom: 16px;
+}
+#Profile1 {
 	margin-bottom: 16px;
 }
 #middle-hack {
@@ -319,20 +312,20 @@ input {
 }
 #bu-related-posts ul {
 	padding: 0;
+	overflow: hidden;
 	list-style-type: none;
 }
 #bu-related-posts li {
-	padding-bottom: 16px;
-	padding-left: 80px;
-	overflow: hidden;
+	float: left;
+	margin: 0 0.5%;
+	width: 19%;
+	text-align: center;
 }
 #bu-related-posts a {
 	display: block;
 }
 #bu-related-posts span {
 	display: block;
-	float: left;
-	margin-left: -80px;
 	border: 1px solid #333333;
 	width: 72px;
 	height: 72px;
