@@ -91,10 +91,13 @@ body {
 #footer-wrap {
 	clear: both;
 	margin-left: 368px;
+	text-align: center;
 }
 #HTML5 {
-	padding: 16px;
-	text-align: center;
+	margin: 16px 0;
+}
+#HTML6 {
+	margin: 16px 0;
 }
 /****************
 * ELEMENTS
