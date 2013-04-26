@@ -23,7 +23,7 @@
 	</style>
 </head>
 <body>
-<table id="todo-table-id" class="todo-table-class" border="1" cellpadding="4" cellspacing="0">
+	<table id="todo-table-id" class="todo-table-class" border="1" cellpadding="4" cellspacing="0">
 		<tr>
 			<th colspan="2" rowspan="2">Example Report</th>
 			<th colspan="12">2011</th>
@@ -727,11 +727,10 @@
 				for (i = 0; i < pageCount; i++) {
 					printPage = $("<div></div>").css({
 						"overflow": "hidden",
-						"width": (i === pageCount - 1) ? (tableWidth % pageWidth || pageWidth) : pageWidth,
-						"page-break-after": (i === pageCount - 1) ? "auto" : "always"
+						"width": (i < pageCount - 1) ? pageWidth : (tableWidth % pageWidth || pageWidth),
+						"page-break-after": (i < pageCount - 1) ? "always" : "auto"
 					}).appendTo(printWrap);
-					table.clone().removeAttr("id").appendTo(printPage);
-					printPage.children("table").css({
+					table.clone().removeAttr("id").appendTo(printPage).css({
 						"position": "relative",
 						"left": -i * pageWidth
 					});

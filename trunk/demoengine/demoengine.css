@@ -12,7 +12,7 @@ body.active > #demoengine {
 #demoengine {
 	margin: -10px -10px 10px;
 	height: 36px;
-	background-color: #5C9CCC;
+	background-color: #F5A927;
 }
 #demoengine a {
 	display: block;
@@ -22,13 +22,13 @@ body.active > #demoengine {
 	padding-left: 10px;
 	padding-right: 10px;
 	line-height: 24px;
-	color: #3E6E9E;
-	background-color: #DFEFFC;
+	color: #444444;
+	background-color: #F0F0F0;
 	text-decoration: none;
 }
 #demoengine a.active {
-	color: #E00060;
-	background-color: #F5F8F8;
+	color: #E01000;
+	background-color: #FFFFFF;
 }
 #demoengine a.corner-l {
 	margin-left: 10px;
