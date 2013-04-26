@@ -6,24 +6,24 @@
 	<title>HTML: Print Wide HTML Tables</title>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
 	<style type="text/css">
-		.todo-table-class {
+		.style1 {
 			border-collapse: collapse;
 		}
-		.todo-table-class th {
+		.style1 th {
 			background-color: #DDDDDD;
 			white-space: nowrap;
 		}
-		.todo-table-class .d {
+		.style1 .d {
 			white-space: nowrap;
 		}
-		.todo-table-class .n {
+		.style1 .n {
 			padding-left: 20px;
 			text-align: right;
 		}
 	</style>
 </head>
 <body>
-	<table id="todo-table-id" class="todo-table-class" border="1" cellpadding="4" cellspacing="0">
+	<table id="table1" class="style1" border="1" cellpadding="4" cellspacing="0">
 		<tr>
 			<th colspan="2" rowspan="2">Example Report</th>
 			<th colspan="12">2011</th>
@@ -709,15 +709,15 @@
 			<td class="n">272198.82</td>
 		</tr>
 	</table>
-	<input type="button" id="todo-button-id" value="Print this table">
+	<input type="button" id="print-button" value="Make this table printable">
 	<script type="text/javascript">
 		/*
 		 * HTML: Print Wide HTML Tables
-		 * todo url
+		 * http://salman-w.blogspot.com/2013/04/printing-wide-html-tables.html
 		 */
 		$(function() {
-			$("#todo-button-id").on("click", function() {
-				var table = $("#todo-table-id"),
+			$("#print-button").on("click", function() {
+				var table = $("#table1"),
 					tableWidth = table.outerWidth(),
 					pageWidth = 600,
 					pageCount = Math.ceil(tableWidth / pageWidth),
