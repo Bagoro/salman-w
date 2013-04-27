@@ -85,6 +85,10 @@ body {
 #Profile1 {
 	margin-bottom: 16px;
 }
+#adsense-wrap {
+}
+#HTML5 {
+}
 #middle-hack {
 	clear: both;
 }
@@ -92,9 +96,6 @@ body {
 	clear: both;
 	margin-left: 368px;
 	text-align: center;
-}
-#HTML5 {
-	margin: 16px 0;
 }
 #HTML6 {
 	margin: 16px 0;
