@@ -16,10 +16,10 @@ body {
 }
 #header-wrap {
 	position: relative;
-	border-bottom: 1px solid #000000;
+	border-bottom: 1px solid #808080;
 	height: 90px;
-	background-color: #E0E0E0;
-	box-shadow: 0 0 8px #000000;
+	background-color: #D6D6D6;
+	background-image: linear-gradient(#F0F0F0, #D6D6D6);
 	text-align: center;
 }
 #Header1 {
@@ -86,9 +86,10 @@ body {
 	margin-bottom: 16px;
 }
 #adsense-wrap {
-	clear: right;
-}
-#HTML5 {
+	float: right;
+	margin-top: -162px;
+	width: 100%;
+	text-align: center;
 }
 #cleared-wrap {
 	clear: both;
@@ -263,7 +264,7 @@ input {
 	text-align: center;
 }
 #blog-pager {
-	margin: 16px auto;
+	margin: 92px auto 16px;
 	border-radius: 16px;
 	width: 480px;
 	line-height: 2;
