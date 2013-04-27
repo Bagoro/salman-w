@@ -18,6 +18,7 @@ body {
 	position: relative;
 	border-bottom: 1px solid #808080;
 	height: 90px;
+	overflow: hidden;
 	background-color: #D6D6D6;
 	background-image: linear-gradient(#F0F0F0, #D6D6D6);
 	text-align: center;
@@ -86,13 +87,17 @@ body {
 	margin-bottom: 16px;
 }
 #adsense-wrap {
-	float: right;
-	margin-top: -162px;
-	width: 100%;
+	clear: right;
+	position: relative;
+	top: -162px;
+	margin-bottom: -60px;
+	height: 60px;
+	overflow: hidden;
 	text-align: center;
 }
 #cleared-wrap {
 	clear: both;
+	height: 1px;
 }
 #footer-wrap {
 	margin-left: 368px;
