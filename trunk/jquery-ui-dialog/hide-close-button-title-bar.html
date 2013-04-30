@@ -1,0 +1,55 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<script type="text/javascript" src="../demoengine/demoengine.js"></script>
+	<link rel="stylesheet" type="text/css" href="../demoengine/demoengine.css">
+	<title>jQuery UI Dialog: Hide the Close Button/Title Bar</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css">
+	<style type="text/css">
+		.dlg-no-close .ui-dialog-titlebar-close {
+			display: none;
+		}
+		.dlg-no-title .ui-dialog-titlebar {
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="dialog1" title="Dialog 1">
+		<p>This dialog has <code>.dlg-no-close</code> class applied to it. The close button is hidden via CSS.</p>
+		<p>Press Esc to dismiss the dialog.</p>
+	</div>
+	<div id="dialog2" title="Dialog 2">
+		<p>This dialog has <code>.dlg-no-title</code> class applied to it. The title bar is hidden via CSS.</p>
+		<p>Press Esc to dismiss the dialog.</p>
+	</div>
+	<input type="button" id="button1" value="Open dialog 1">
+	<input type="button" id="button2" value="Open dialog 2">
+	<script type="text/javascript">
+		/*
+		 * jQuery UI Dialog: Hide the Close Button/Title Bar
+		 * http://salman-w.blogspot.com/2013/05/jquery-ui-dialog-examples.html
+		 */
+		$(function() {
+			$("#dialog1").dialog({
+				autoOpen: false,
+				modal: true,
+				dialogClass: "dlg-no-close"
+			});
+			$("#dialog2").dialog({
+				autoOpen: false,
+				modal: true,
+				dialogClass: "dlg-no-title"
+			});
+			$("#button1").on("click", function() {
+				$("#dialog1").dialog("open");
+			});
+			$("#button2").on("click", function() {
+				$("#dialog2").dialog("open");
+			});
+		});
+	</script>
+</body>
+</html>
