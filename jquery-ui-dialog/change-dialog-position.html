@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<script type="text/javascript" src="../demoengine/demoengine.js"></script>
+	<link rel="stylesheet" type="text/css" href="../demoengine/demoengine.css">
+	<title>jQuery UI Dialog: Change Dialog Position</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css">
+</head>
+<body>
+	<div id="dialog" title="Dialog">
+		<p>The bottom right corner of the dialog is aligned with the bottom right corner of the window.</p>
+	</div>
+	<script type="text/javascript">
+		/*
+		 * jQuery UI Dialog: Change Dialog Position
+		 * http://salman-w.blogspot.com/2013/05/jquery-ui-dialog-examples.html
+		 */
+		$(function() {
+			$("#dialog").dialog({
+				position: {
+					my: "right bottom",
+					at: "right bottom",
+					of: window
+				}
+			});
+		});
+	</script>
+</body>
+</html>

@@ -728,7 +728,7 @@
 					printPage = $("<div></div>").css({
 						"overflow": "hidden",
 						"width": pageWidth,
-						"page-break-after": (i < pageCount - 1) ? "always" : "auto"
+						"page-break-before": i === 0 ? "auto" : "always"
 					}).appendTo(printWrap);
 					table.clone().removeAttr("id").appendTo(printPage).css({
 						"position": "relative",
