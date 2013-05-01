@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<script type="text/javascript" src="../demoengine/demoengine.js"></script>
+	<link rel="stylesheet" type="text/css" href="../demoengine/demoengine.css">
+	<title>jQuery UI Dialog: Size to Fit Content</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-darkness/jquery-ui.css">
+</head>
+<body>
+	<div id="dialog" title="Dialog"></div>
+	<ul>
+		<li><a href="photo-1.jpg" class="dialogify" data-width="450" data-height="300">Dialogify Photo 1</a></li>
+		<li><a href="photo-2.jpg" class="dialogify" data-width="300" data-height="400">Dialogify Photo 2</a></li>
+	</ul>
+	<script type="text/javascript">
+		/*
+		 * jQuery UI Dialog: Size to Fit Content
+		 * http://salman-w.blogspot.com/2013/05/jquery-ui-dialog-examples.html
+		 */
+		$(function() {
+			$("#dialog").dialog({
+				autoOpen: false,
+				resizable: false,
+				width: "auto"
+			});
+			$(".dialogify").on("click", function(e) {
+				e.preventDefault();
+				$("#dialog").html("<img src='" + $(this).prop("href") + "' width='" + $(this).attr("data-width") + "' height='" + $(this).attr("data-height") + "'>");
+				$("#dialog").dialog("option", "position", {
+					my: "center",
+					at: "center",
+					of: window
+				});
+				if ($("#dialog").dialog("isOpen") == false) {
+					$("#dialog").dialog("open");
+				}
+			});
+		});
+	</script>
+</body>
+</html>
