@@ -181,9 +181,6 @@ a {
 a:hover {
 	color: #33CC33;
 }
-#header-wrap a {
-	color: inherit;
-}
 code {
 	font-family: Lucida Console, monospace;
 	color: #008000;
