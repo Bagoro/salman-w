@@ -15,11 +15,11 @@ body {
 	display: none;
 }
 #header-wrap {
-	position: relative;
-	border-bottom: 1px solid #808080;
+	padding-top: 8px;
+	padding-bottom: 8px;
 	height: 90px;
-	background-color: #D6D6D6;
-	background-image: linear-gradient(#F0F0F0, #D6D6D6);
+	color: #FFFFFF;
+	background-color: #000000;
 	text-align: center;
 }
 #Header1 {
@@ -180,6 +180,9 @@ a {
 }
 a:hover {
 	color: #33CC33;
+}
+#header-wrap a {
+	color: inherit;
 }
 code {
 	font-family: Lucida Console, monospace;
