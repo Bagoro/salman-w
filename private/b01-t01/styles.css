@@ -17,7 +17,6 @@ body {
 #header-wrap {
 	padding-top: 8px;
 	padding-bottom: 8px;
-	height: 90px;
 	color: #FFFFFF;
 	background-color: #000000;
 	text-align: center;
@@ -90,7 +89,6 @@ body {
 	position: relative;
 	top: -162px;
 	margin-bottom: -60px;
-	height: 60px;
 	text-align: center;
 }
 #cleared-wrap {
@@ -174,6 +172,9 @@ form {
 #sidebar-wrap li, .BlogArchive #ArchiveList ul.flat li {
 	padding: 0;
 	text-indent: -16px;
+}
+.widget-content > ins {
+	vertical-align: bottom;
 }
 a {
 	color: #4D9BD6;
