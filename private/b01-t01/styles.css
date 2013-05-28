@@ -84,6 +84,15 @@ body {
 #Profile1 {
 	margin-bottom: 16px;
 }
+#sidebar-box4 {
+	clear: both;
+	margin-left: 16px;
+	width: 336px;
+}
+#PlusFollowers1 {
+	margin-top: 16px;
+	margin-bottom: 16px;
+}
 #adsense-wrap {
 	clear: right;
 	position: relative;
