@@ -1,0 +1,65 @@
+/****************
+* LAYOUT
+****************/
+body {
+	font: 100% Arial, sans-serif;
+	background-color: #CCCCCC;
+}
+.section {
+	margin: 0;
+}
+.widget {
+	margin: 0;
+}
+#navbar {
+	display: none;
+}
+#layout-wrap {
+	margin: 0 auto;
+	width: 980px;
+}
+#header-wrap {
+	background-color: #333333;
+}
+#Header1 {
+}
+#HTML1 {
+}
+#middle-wrap {
+	background-color: #666666;
+}
+#content-wrap {
+	float: left;
+	padding: 10px;
+	width: 730px;
+	background-color: #666aaa;
+}
+#HTML2 {
+}
+#Blog1 {
+}
+#sidebar-wrap {
+	float: left;
+	padding: 5px;
+	width: 220px;
+	background-color: #666ccc;
+}
+#HTML3 {
+}
+#BlogArchive1 {
+}
+#Label1 {
+}
+#HTML4 {
+}
+#Profile1 {
+}
+#PlusFollowers1 {
+}
+#cleared-wrap {
+}
+#footer-wrap {
+	background-color: #999999;
+}
+#HTML5 {
+}
