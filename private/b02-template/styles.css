@@ -50,6 +50,7 @@ body {
 	width: 220px;
 }
 #sidebar {
+	color: #FFFFFF;
 }
 #HTML3 {
 }
@@ -93,7 +94,9 @@ h2 {
 	font: bold 0.8em Arial, sans-serif;
 }
 #sidebar h2 {
-	margin: 10px -10px;
+	margin-bottom: 10px;
+	margin-left: -10px;
+	margin-right: -10px;
 	padding: 10px;
 	background-color: #5EBBEA;
 }
@@ -114,4 +117,16 @@ a {
 }
 a:hover {
 	color: #33CC33;
+}
+/****************
+* CUSTOM
+****************/
+.gsc-control-cse {
+	border: none !important;
+	padding: 0 !important;
+	background-color: transparent !important;
+}
+form.gsc-search-box {
+	margin-bottom: 0 !important;
+	padding: 0 !important;
 }
