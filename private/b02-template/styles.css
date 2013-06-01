@@ -41,6 +41,7 @@ body {
 #content {
 }
 #HTML1 {
+	margin-bottom: 10px;
 }
 #Blog1 {
 }
@@ -52,9 +53,10 @@ body {
 #sidebar {
 	color: #FFFFFF;
 }
-#HTML3 {
-}
 #HTML2 {
+	margin-bottom: 10px;
+}
+#HTML3 {
 }
 #Label1 {
 }
@@ -91,7 +93,8 @@ h1 {
 	margin: 0;
 }
 h2 {
-	font: bold 0.8em Arial, sans-serif;
+	font-size: 0.9em;
+	line-height: 1;
 }
 #sidebar h2 {
 	margin-bottom: 10px;
@@ -100,8 +103,11 @@ h2 {
 	padding: 10px;
 	background-color: #5EBBEA;
 }
+h3 {
+	font: 1.5em Georgia, serif;
+}
 p {
-	margin: 16px 0;
+	margin: 10px 0;
 }
 #header p {
 	margin: 0;
@@ -117,6 +123,16 @@ a {
 }
 a:hover {
 	color: #33CC33;
+}
+/****************
+* BLOGGER
+****************/
+.post-header {
+	border-bottom: 1px solid #CCCCCC;
+	padding: 10px;
+	font-size: 0.9em;
+	line-height: 1;
+	background-color: #F0F0F0;
 }
 /****************
 * CUSTOM
