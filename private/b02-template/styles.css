@@ -32,7 +32,7 @@ body {
 	width: 730px;
 }
 #header {
-	margin-bottom: 10px;
+	margin-bottom: 16px;
 	height: 60px;
 	color: #FFFFFF;
 }
@@ -41,7 +41,7 @@ body {
 #content {
 }
 #HTML1 {
-	margin-bottom: 10px;
+	text-align: center;
 }
 #Blog1 {
 }
@@ -54,7 +54,7 @@ body {
 	color: #FFFFFF;
 }
 #HTML2 {
-	margin-bottom: 10px;
+	margin-bottom: 16px;
 }
 #HTML3 {
 }
@@ -72,15 +72,15 @@ body {
 	clear: both;
 }
 #layout-r2 {
+	padding: 10px;
 	background-image: url(bg-layout-r2.png);
 	background-repeat: no-repeat;
 	background-position: left bottom;
 }
 #footer {
-	padding: 20px;
-	text-align: center;
 }
 #HTML5 {
+	text-align: center;
 }
 /****************
 * ELEMENTS
@@ -94,10 +94,9 @@ h1 {
 }
 h2 {
 	font-size: 0.9em;
-	line-height: 1;
 }
 #sidebar h2 {
-	margin-bottom: 10px;
+	margin-bottom: 16px;
 	margin-left: -10px;
 	margin-right: -10px;
 	padding: 10px;
@@ -107,7 +106,7 @@ h3 {
 	font: 1.5em Georgia, serif;
 }
 p {
-	margin: 10px 0;
+	margin: 16px 0;
 }
 #header p {
 	margin: 0;
@@ -127,11 +126,11 @@ a:hover {
 /****************
 * BLOGGER
 ****************/
-.post-header {
+.post-header, .post-footer {
+	margin: 16px 0;
 	border-bottom: 1px solid #CCCCCC;
 	padding: 10px;
 	font-size: 0.9em;
-	line-height: 1;
 	background-color: #F0F0F0;
 }
 /****************
