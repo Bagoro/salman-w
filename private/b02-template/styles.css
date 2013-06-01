@@ -32,7 +32,7 @@ body {
 	width: 730px;
 }
 #header {
-	margin-bottom: 16px;
+	margin-bottom: 10px;
 	height: 60px;
 	color: #FFFFFF;
 }
@@ -41,6 +41,7 @@ body {
 #content {
 }
 #HTML1 {
+	margin-bottom: 16px;
 	text-align: center;
 }
 #Blog1 {
