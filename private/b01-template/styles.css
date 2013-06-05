@@ -52,9 +52,11 @@ body {
 	margin: 16px 0;
 }
 #HTML3 {
+	/*
 	position: relative;
 	top: -162px;
 	margin-bottom: -60px;
+	*/
 	text-align: center;
 }
 #sidebar-wrap {
