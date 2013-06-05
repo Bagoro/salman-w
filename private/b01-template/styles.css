@@ -15,22 +15,14 @@ body {
 	display: none;
 }
 #header-wrap {
-	padding-top: 8px;
-	padding-bottom: 8px;
+	height: 106px;
 	color: #FFFFFF;
 	background-color: #000000;
-	text-align: center;
-	
-	height: 90px;
 }
 #Header1 {
-	float: left;
-	padding-top: 10px;
+	padding-top: 18px;
 	width: 272px;
-}
-#HTML1 {
-	margin-left: 272px;
-	margin-right: 272px;
+	text-align: center;
 }
 #middle-wrap {
 	margin-left: 368px;
@@ -41,11 +33,26 @@ body {
 	float: right;
 	width: 100%;
 }
+#HTML1 {
+	position: absolute;
+	top: 170px;
+	left: 16px;
+}
+#HTML2 {
+	position: absolute;
+	top: 8px;
+	left: 272px;
+	right: 272px;
+	text-align: center;
+}
 #Blog1 {
 	padding: 16px;
 }
 #bu-related-posts {
 	margin: 16px 0;
+}
+#HTML3 {
+	text-align: center;
 }
 #sidebar-wrap {
 	float: left;
@@ -55,22 +62,18 @@ body {
 #sidebar-box1 {
 	margin-left: 16px;
 	width: 336px;
+	height: 64px;
 }
-#HTML2 {
-	z-index: 1;
-	margin-top: 16px;
-	margin-bottom: 16px;
+#HTML4 {
+	padding-top: 16px;
 }
 #sidebar-box2 {
 	float: left;
 	margin-left: 16px;
+	padding-top: 616px;
 	width: 160px;
 }
-#HTML3 {
-	margin-bottom: 16px;
-}
 #BlogArchive1 {
-	margin-bottom: 16px;
 }
 #sidebar-box3 {
 	float: left;
@@ -78,13 +81,12 @@ body {
 	width: 160px;
 }
 #Label1 {
-	margin-bottom: 16px;
 }
-#HTML4 {
-	margin-bottom: 16px;
+#HTML5 {
+	padding-top: 16px;
+	padding-bottom: 16px;
 }
 #Profile1 {
-	margin-bottom: 16px;
 }
 #sidebar-box4 {
 	clear: both;
@@ -92,26 +94,19 @@ body {
 	width: 336px;
 }
 #PlusFollowers1 {
-	margin-top: 16px;
-	margin-bottom: 16px;
-}
-#adsense-wrap {
-	clear: right;
-	position: relative;
-	top: -162px;
-	margin-bottom: -60px;
-	text-align: center;
+	padding-top: 16px;
+	padding-bottom: 16px;
 }
 #cleared-wrap {
 	clear: both;
-	height: 1px;
 }
 #footer-wrap {
 	margin-left: 368px;
-	text-align: center;
 }
 #HTML6 {
-	margin: 16px 0;
+	padding-top: 16px;
+	padding-bottom: 16px;
+	text-align: center;
 }
 /****************
 * ELEMENTS
@@ -283,7 +278,7 @@ input {
 	text-align: center;
 }
 #blog-pager {
-	margin: 92px auto 16px;
+	margin: 16px auto;
 	border-radius: 16px;
 	width: 480px;
 	line-height: 2;
