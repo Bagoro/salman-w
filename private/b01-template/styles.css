@@ -186,9 +186,6 @@ form {
 	padding: 0;
 	text-indent: -16px;
 }
-.widget-content > ins {
-	vertical-align: bottom;
-}
 a {
 	color: #4D9BD6;
 	text-decoration: none;
