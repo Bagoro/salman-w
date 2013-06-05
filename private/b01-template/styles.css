@@ -52,6 +52,9 @@ body {
 	margin: 16px 0;
 }
 #HTML3 {
+	position: relative;
+	top: -162px;
+	margin-bottom: -60px;
 	text-align: center;
 }
 #sidebar-wrap {
@@ -65,6 +68,7 @@ body {
 	height: 64px;
 }
 #HTML4 {
+	z-index: 1;
 	padding-top: 16px;
 }
 #sidebar-box2 {
@@ -278,7 +282,7 @@ input {
 	text-align: center;
 }
 #blog-pager {
-	margin: 16px auto;
+	margin: 92px auto 16px;
 	border-radius: 16px;
 	width: 480px;
 	line-height: 2;
