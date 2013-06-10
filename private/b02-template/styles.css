@@ -18,16 +18,24 @@ body {
 }
 #wrapper {
 	margin: 20px auto;
-	width: 1000px;
+	width: 90%;
+	min-width: 1000px;
 }
 #header {
 	border-radius: 10px 10px 0 0;
 	padding: 10px;
+	overflow: hidden;
 	color: #FFFFFF;
 	background-color: #5EBBEA;
 	background-image: linear-gradient(#66CCFF, #5EBBEA);
 }
 #Header1 {
+	float: left;
+}
+#HTML1 {
+	float: right;
+	padding-top: 8px;
+	width: 336px;
 }
 #middle {
 	overflow: hidden;
@@ -61,8 +69,6 @@ body {
 	border-radius: 0 0 10px 10px;
 	padding: 10px 6px;
 	background-color: #E5E5E5;
-}
-#HTML5 {
 }
 /****************
 * ELEMENTS
