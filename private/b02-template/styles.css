@@ -52,6 +52,12 @@ body {
 	border-width: 0 4px;
 	padding: 6px;
 }
+#HTML2 {
+	text-align: center;
+}
+#HTML3 {
+	text-align: center;
+}
 #wrap-col2 {
 	float: right;
 	border: solid #5EBBEA;
@@ -114,6 +120,42 @@ a:hover {
 /****************
 * BLOGGER
 ****************/
+/*
+h2.date-header {}
+div.date-posts {}
+	div.post-outer {}
+		div.post.hentry {}
+			h3.post-title.entry-title {}
+			div.post-header {}
+				div.post-header-line-1 {}
+					span.post-labels {}
+			div#post-body-3410870190115042571.post-body.entry-content {}
+			div#bu-related-posts {}
+			div.post-footer {}
+				div.post-footer-line.post-footer-line-1 {}
+					span.post-comment-link {}
+						span#_id_015123126935213804.cmt_count_iframe_holder {}
+							iframe#I3_1370860045385 {}
+					span.post-backlinks.post-comment-link {}
+						a.comment-link {}
+					div.post-share-buttons.goog-inline-block {}
+						a.goog-inline-block.share-button.sb-email {}
+							span.share-button-link-text {}
+						a.goog-inline-block.share-button.sb-blog {}
+							span.share-button-link-text {}
+						a.goog-inline-block.share-button.sb-twitter {}
+							span.share-button-link-text {}
+						a.goog-inline-block.share-button.sb-facebook {}
+							span.share-button-link-text {}
+						div.goog-inline-block.dummy-container {}
+							div#___plusone_0 {}
+								iframe#I0_1370860044730 {}
+				div.post-footer-line.post-footer-line-2 {}
+					span.post-icons {}
+				div.post-footer-line.post-footer-line-3 {}
+		div#gpluscomments.cmt_iframe_holder {}
+			iframe#I1_1370860304253 {}
+*/
 /****************
 * CUSTOM
 ****************/
