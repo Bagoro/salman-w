@@ -16,7 +16,7 @@ body {
 #navbar {
 	display: none;
 }
-#wrapper {
+#wrap-main {
 	margin: 20px auto;
 	width: 90%;
 	min-width: 1000px;
@@ -37,37 +37,37 @@ body {
 	padding-top: 8px;
 	width: 336px;
 }
-#middle {
+#wrap-cols {
 	overflow: hidden;
 }
-#content {
+#wrap-col1 {
 	float: left;
-	margin-left: -356px;
+	margin-left: -352px;
 	width: 100%;
 	background-color: #FFFFFF;
 }
-#Blog1 {
-	margin-left: 356px;
+#content {
+	margin-left: 352px;
 	border: solid #5EBBEA;
 	border-width: 0 4px;
-	padding: 10px 6px;
+	padding: 6px;
 }
-#sidebar {
+#wrap-col2 {
 	float: right;
 	border: solid #5EBBEA;
 	border-width: 0 4px 0 0;
-	padding: 10px 6px 10px 10px;
+	padding: 6px;
 	width: 336px;
 	color: #FFFFFF;
 	background-color: #000000;
 }
-#Label1 {
+#sidebar {
 }
 #footer {
 	border: solid #5EBBEA;
 	border-width: 0 4px 4px;
 	border-radius: 0 0 10px 10px;
-	padding: 10px 6px;
+	padding: 20px 6px;
 	background-color: #E5E5E5;
 }
 /****************
@@ -84,7 +84,7 @@ h2 {
 	font-size: 0.9em;
 }
 #sidebar h2 {
-	margin-bottom: 10px;
+	margin-bottom: 6px;
 	margin-left: -10px;
 	margin-right: -10px;
 	padding: 10px;
