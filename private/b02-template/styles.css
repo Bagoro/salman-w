@@ -1,146 +1,36 @@
-/****************
-* LAYOUT
-****************/
-body {
-	font: 100% Arial, sans-serif;
-	background-color: #0074AD;
-	background-image: linear-gradient(#004161, #0074AD 300px);
-	background-repeat: no-repeat;
-}
-.section {
-	margin: 0;
-}
-#navbar {
-	display: none;
-}
-#wrapper {
-	margin: 20px auto;
-	width: 90%;
-	min-width: 1000px;
-}
-#header {
-	border-radius: 10px 10px 0 0;
-	padding: 10px;
-	overflow: hidden;
-	color: #FFFFFF;
-	background-color: #5EBBEA;
-	background-image: linear-gradient(#66CCFF, #5EBBEA);
-}
-#columns {
-	border-left: 4px solid #5EBBEA;
-	border-right: 4px solid #5EBBEA;
-	overflow: hidden;
-}
-#column1 {
-	float: left;
-	margin-left: -300px;
-	width: 100%;
-}
-#content {
-	margin-left: 300px;
-	border-right: 4px solid #5EBBEA;
-	padding: 10px;
-	background-color: #FFFFFF;
-}
-#column2 {
-	float: right;
-	width: 300px;
-}
-#sidebar {
-	padding: 10px;
-	color: #FFFFFF;
-	background-color: #000000;
-}
-#footer {
-	border-bottom: 4px solid #5EBBEA;
-	border-left: 4px solid #5EBBEA;
-	border-right: 4px solid #5EBBEA;
-	border-radius: 0 0 10px 10px;
-	padding: 10px;
-	background-color: #E5E5E5;
-}
-/****************
-* WIDGETS
-****************/
-.widget {
-	margin: 0;
-}
-#Header1 {
-	float: left;
-}
-#HTML1 {
-	float: right;
-	margin-top: 8px;
-	width: 280px;
-}
-#HTML2, #HTML3 {
-	text-align: center;
-}
-#HTML4 {
-	margin-top: -10px;
-	margin-left: -10px;
-	margin-right: -10px;
-}
-#Label1, #Profile1, #HTML5, #PlusFollowers1, #BlogArchive1 {
-	margin-bottom: 10px;
-}
-#HTML6 {
-	font-size: 0.9em;
-}
-/****************
-* ELEMENTS
-****************/
-h1 {
-	font: 1.5em Georgia, serif;
-	text-shadow: 1px 1px #000000;
-}
-#header h1 {
-	margin: 0;
-}
-h2 {
-	font-size: 0.9em;
-}
-#sidebar h2 {
-	margin-bottom: 10px;
-	margin-left: -10px;
-	margin-right: -10px;
-	padding: 10px;
-	background-color: #5EBBEA;
-}
-h3 {
-	font: 1.5em Georgia, serif;
-	color: #4D9BD6;
-}
-p {
-	margin: 16px 0;
-}
-#header p {
-	margin: 0;
-	padding: 0;
-	font-size: 0.9em;
-}
-a {
-	color: #4D9BD6;
-	text-decoration: none;
-}
-#header a {
-	color: inherit;
-}
-a:hover {
-	color: #33CC33;
-}
-/****************
-* BLOGGER
-****************/
-/****************
-* CUSTOM
-****************/
-.gsc-control-cse {
-	border: none !important;
-	padding: 0 !important;
-	background-color: transparent !important;
-}
-form.gsc-search-box {
-	margin-bottom: 0 !important;
-	padding: 0 !important;
-}
+/* LAYOUT */
+body { font: 100% Arial, sans-serif; background-color: #0074AD; background-image: linear-gradient(#004161, #0074AD 300px); background-repeat: no-repeat; }
+.section { margin: 0; }
+#navbar { display: none; }
+#wrapper { margin: 20px auto; width: 90%; min-width: 1000px; }
+#header { border-radius: 10px 10px 0 0; padding: 10px; overflow: hidden; color: #FFFFFF; background-color: #5EBBEA; background-image: linear-gradient(#66CCFF, #5EBBEA); }
+#columns { border-left: 4px solid #5EBBEA; border-right: 4px solid #5EBBEA; overflow: hidden; }
+#column1 { float: left; margin-left: -300px; width: 100%; }
+#content { margin-left: 300px; border-right: 4px solid #5EBBEA; padding: 10px; background-color: #FFFFFF; }
+#column2 { float: right; width: 300px; }
+#sidebar { padding: 10px; color: #FFFFFF; background-color: #000000; }
+#footer { border-bottom: 4px solid #5EBBEA; border-left: 4px solid #5EBBEA; border-right: 4px solid #5EBBEA; border-radius: 0 0 10px 10px; padding: 10px; background-color: #E5E5E5; }
+/* WIDGETS */
+.widget { margin: 0; }
+#Header1 { float: left; }
+#HTML1 { float: right; margin-top: 8px; width: 280px; }
+#HTML2, #HTML3 { text-align: center; }
+#HTML4 { margin-top: -10px; margin-left: -10px; margin-right: -10px; }
+#Label1, #Profile1, #HTML5, #PlusFollowers1, #BlogArchive1 { margin-bottom: 10px; }
+#HTML6 { font-size: smaller; }
+/* ELEMENTS */
+h1 { font: 1.5em Georgia, serif; text-shadow: 1px 1px #000000; }
+#header h1 { margin: 0; }
+h2 { font-size: smaller; }
+#sidebar h2 { margin-bottom: 10px; margin-left: -10px; margin-right: -10px; padding: 10px; background-color: #5EBBEA; }
+h3 { font: 1.5em Georgia, serif; color: #4D9BD6; }
+p { margin: 16px 0; }
+#header p { margin: 0; padding: 0; font-size: smaller; }
+a { color: #4D9BD6; text-decoration: none; }
+#header a { color: inherit; }
+a:hover { color: #33CC33; }
+/* BLOGGER */
+.post-header { border-bottom: 1px solid #CCCCCC; padding: 5px; font-size: smaller; background-color: #F0F0F0; }
+/* CUSTOM */
+.gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
+form.gsc-search-box { margin-bottom: 0 !important; padding: 0 !important; }
