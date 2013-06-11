@@ -30,7 +30,7 @@ a { color: #4D9BD6; text-decoration: none; }
 #header a { color: inherit; }
 a:hover { color: #33CC33; }
 /* BLOGGER */
-.post-header { border-bottom: 1px solid #CCCCCC; padding: 5px; font-size: smaller; background-color: #F0F0F0; }
+.post-header { border-bottom: 1px solid #CCCCCC; padding: 5px; font-size: smaller; background-color: #F0F0F0; font-family: Monospace; }
 /* CUSTOM */
 .gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
 form.gsc-search-box { margin-bottom: 0 !important; padding: 0 !important; }
