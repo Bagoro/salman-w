@@ -31,7 +31,7 @@ a { color: #4D9BD6; text-decoration: none; }
 a:hover { color: #33CC33; }
 /* BLOGGER */
 .post-header { margin: 4px 0 16px; border-bottom: 1px solid #CCCCCC; padding: 8px; font-size: 0.875em; line-height: 1; background-color: #F0F0F0; }
-.post-footer { margin: 16px 0 4px; border-top: 1px solid #CCCCCC; padding: 8px; font-size: 0.875em; line-height: 1; background-color: #F0F0F0; }
+.post-footer { margin: 16px 0; }
 /* CUSTOM */
 .gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
 form.gsc-search-box { margin-bottom: 0 !important; padding: 0 !important; }
