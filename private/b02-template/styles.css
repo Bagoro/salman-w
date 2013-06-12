@@ -32,7 +32,7 @@ a { color: #4D9BD6; text-decoration: none; }
 .post-header a { color: #999999; }
 a:hover { color: #33CC33; }
 /* BLOGGER */
-.post-header { margin-bottom: 16px; font-size: smaller; }
+.post-header { margin-top: 16px; margin-bottom: 16px; padding: 8px; font-size: smaller; line-height: normal; background-color: #F0F0F0; box-shadow: 2px 2px 2px #999999; }
 .post-timestamp { margin-left: 0; }
 .post-comment-link { float: right; }
 .post-footer { margin-top: 16px; margin-bottom: 16px; }
