@@ -29,10 +29,9 @@ p { margin-top: 16px; margin-bottom: 16px; }
 #header p { margin: 0; padding: 0; }
 a { color: #4D9BD6; text-decoration: none; }
 #header a { color: inherit; }
-.post-header a { color: #999999; }
 a:hover { color: #33CC33; }
 /* BLOGGER */
-.post-header { margin-top: 16px; margin-bottom: 16px; padding: 8px; font-size: smaller; line-height: normal; background-color: #F0F0F0; box-shadow: 2px 2px 2px #999999; }
+.post-header { margin-top: 16px; margin-bottom: 16px; padding: 8px; font-size: smaller; line-height: normal; color: #FFFFFF; background-color: #000000; box-shadow: 2px 2px #999999; }
 .post-timestamp { margin-left: 0; }
 .post-comment-link { float: right; }
 .post-footer { margin-top: 16px; margin-bottom: 16px; }
