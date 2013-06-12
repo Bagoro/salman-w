@@ -17,21 +17,25 @@ body { font: 100% Arial, sans-serif; background-color: #0074AD; background-image
 #HTML2, #HTML3 { text-align: center; }
 #HTML4 { margin-top: -10px; margin-left: -10px; margin-right: -10px; }
 #Label1, #Profile1, #HTML5, #PlusFollowers1, #BlogArchive1 { margin-bottom: 10px; }
-#HTML6 { font-size: 0.875em; }
+#HTML6 { font-size: smaller; }
 /* ELEMENTS */
 h1 { font: 1.5em Georgia, serif; text-shadow: 1px 1px #000000; }
 #header h1 { margin: 0; }
-h2 { font-size: 0.875em; }
+h2 { font-size: medium; }
 #sidebar h2 { margin-bottom: 10px; margin-left: -10px; margin-right: -10px; padding: 10px; background-color: #5EBBEA; }
 h3 { font: 1.5em Georgia, serif; color: #4D9BD6; }
-p { margin: 16px 0; }
-#header p { margin: 0; padding: 0; font-size: 0.875em; }
+#content h3 { margin-top: 16px; }
+p { margin-top: 16px; margin-bottom: 16px; }
+#header p { margin: 0; padding: 0; }
 a { color: #4D9BD6; text-decoration: none; }
 #header a { color: inherit; }
+.post-header a { color: #999999; }
 a:hover { color: #33CC33; }
 /* BLOGGER */
-.post-header { margin: 4px 0 16px; border-bottom: 1px solid #CCCCCC; padding: 8px; font-size: 0.875em; line-height: 1; background-color: #F0F0F0; }
-.post-footer { margin: 16px 0; }
+.post-header { margin-bottom: 16px; font-size: smaller; }
+.post-timestamp { margin-left: 0; }
+.post-comment-link { float: right; }
+.post-footer { margin-top: 16px; margin-bottom: 16px; }
 /* CUSTOM */
 .gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
 form.gsc-search-box { margin-bottom: 0 !important; padding: 0 !important; }
