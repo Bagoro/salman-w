@@ -36,6 +36,11 @@ a:hover { color: #33CC33; }
 .post-timestamp { margin-left: 0; }
 .post-comment-link { float: right; }
 .post-footer { margin-top: 16px; margin-bottom: 16px; }
+#blog-pager { margin: 16px auto; border-radius: 16px; width: 540px; line-height: 2; }
+#blog-pager-newer-link { float: left; width: 180px; background-color: #F0F0F0; }
+#blog-pager-older-link { float: right; width: 180px; background-color: #F0F0F0; }
+.home-link { display: block; margin: 0 auto; width: 180px; background-color: #E0E0E0; }
+.blog-feeds, .post-feeds { text-align: center; }
 /* CUSTOM */
 .gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
 form.gsc-search-box { margin-bottom: 0 !important; padding: 0 !important; }
