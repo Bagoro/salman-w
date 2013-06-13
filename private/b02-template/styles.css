@@ -27,6 +27,10 @@ h3 { font: 1.5em Georgia, serif; color: #4D9BD6; }
 #content h3 { margin-top: 16px; }
 p { margin-top: 16px; margin-bottom: 16px; }
 #header p { margin: 0; padding: 0; }
+#content ol, #content ul { margin: 0; padding: 0 0 0 32px; }
+#content li { margin: 0; padding: 0; }
+#sidebar ul, .BlogArchive #ArchiveList ul { padding: 0 0 0 16px; line-height: normal; list-style-type: none; }
+#sidebar li, .BlogArchive #ArchiveList ul.flat li { padding: 0; text-indent: -16px; }
 a { color: #4D9BD6; text-decoration: none; }
 #header a { color: inherit; }
 .post-header a { color: #376F99; }
@@ -35,6 +39,7 @@ a:hover { color: #33CC33; }
 .post-header { margin-top: 16px; margin-bottom: 16px; border: 1px solid #999999; padding: 8px; font-size: smaller; line-height: normal; background-color: #F0F0F0; box-shadow: 0 0 4px #CCCCCC; }
 .post-timestamp { margin-left: 0; }
 .post-comment-link { float: right; }
+.jump-link { margin: 16px 0; }
 .post-footer { margin-top: 16px; margin-bottom: 16px; }
 #blog-pager { margin: 16px auto; border-radius: 16px; width: 540px; line-height: 2; }
 #blog-pager-newer-link { float: left; width: 180px; background-color: #F0F0F0; }
