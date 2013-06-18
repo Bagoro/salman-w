@@ -2,7 +2,7 @@
 body { font: 100% Arial, sans-serif; background-color: #999999; }
 .section { margin: 0; }
 #navbar { display: none; }
-#wrapper { margin: 0 auto; min-width: 1000px; max-width: 1360px; background-color: #F0F0F0; }
+#wrapper { position: relative; margin: 0 auto; min-width: 1000px; max-width: 1360px; background-color: #F0F0F0; }
 #header { height: 106px; color: #FFFFFF; background-color: #000000; }
 #columns { margin-left: 368px; background-color: #FFFFFF; box-shadow: 0 0 8px #000000; }
 #content { float: right; width: 100%; }
