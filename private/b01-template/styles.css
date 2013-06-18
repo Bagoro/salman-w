@@ -2,8 +2,8 @@
 body { font: 100% Arial, sans-serif; background-color: #808080; }
 .section { margin: 0; }
 #navbar { display: none; }
-#wrapper { position: relative; margin: 0 auto; width: 94%; min-width: 1000px; max-width: 1360px; background-color: #F0F0F0; }
-#header { height: 106px; color: #FFFFFF; background-color: #000000; }
+#wrapper { position: relative; margin: 20px auto; border-radius: 40px; width: 94%; min-width: 1000px; max-width: 1360px; background-color: #F0F0F0; }
+#header { border-radius: 10px 10px 0 0; height: 106px; color: #FFFFFF; background-color: #000000; }
 #columns { margin-left: 368px; background-color: #FFFFFF; }
 #content { float: right; width: 100%; }
 #sidebar { float: left; margin-left: -368px; width: 368px; }
@@ -12,7 +12,7 @@ body { font: 100% Arial, sans-serif; background-color: #808080; }
 #sidebar-box3 { float: left; margin-left: 16px; width: 160px; }
 #sidebar-box4 { clear: both; margin-left: 16px; width: 336px; }
 #cleared { clear: both; }
-#footer { color: #FFFFFF; background-color: #000000; }
+#footer { border-radius: 0 0 10px 10px; color: #FFFFFF; background-color: #000000; }
 /* ELEMENTS */
 h1 { font: 1.6em/1 Georgia, serif; }
 h2 { font: bold 0.8em Arial, sans-serif; }
