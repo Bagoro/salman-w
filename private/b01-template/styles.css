@@ -14,7 +14,7 @@ body {
 #navbar {
 	display: none;
 }
-#header-wrap {
+#header {
 	height: 106px;
 	color: #FFFFFF;
 	background-color: #000000;
@@ -24,12 +24,12 @@ body {
 	width: 272px;
 	text-align: center;
 }
-#middle-wrap {
+#columns {
 	margin-left: 368px;
 	background-color: #FFFFFF;
 	box-shadow: 0 0 8px #000000;
 }
-#content-wrap {
+#content {
 	float: right;
 	width: 100%;
 }
@@ -57,7 +57,7 @@ body {
 	height: 90px;
 	text-align: center;
 }
-#sidebar-wrap {
+#sidebar {
 	float: left;
 	margin-left: -368px;
 	width: 368px;
@@ -101,10 +101,10 @@ body {
 	padding-top: 16px;
 	padding-bottom: 16px;
 }
-#cleared-wrap {
+#cleared {
 	clear: both;
 }
-#footer-wrap {
+#footer {
 	margin-left: 368px;
 }
 #HTML6 {
@@ -118,14 +118,14 @@ body {
 h1 {
 	font: 1.6em/1 Georgia, serif;
 }
-#header-wrap h1 {
+#header h1 {
 	margin: 0;
 	color: #4D9BD6;
 }
 h2 {
 	font: bold 0.8em Arial, sans-serif;
 }
-#sidebar-wrap h2 {
+#sidebar h2 {
 	margin-bottom: 8px;
 	margin-left: -8px;
 	padding: 8px;
@@ -153,7 +153,7 @@ h5 {
 p {
 	margin: 16px 0;
 }
-#header-wrap p {
+#header p {
 	margin: 0;
 	padding: 0;
 	font-size: 0.8em;
@@ -169,20 +169,20 @@ pre {
 form {
 	margin: 0;
 }
-#content-wrap ol, #content-wrap ul {
+#content ol, #content ul {
 	margin: 0;
 	padding: 0 0 0 32px;
 }
-#content-wrap li {
+#content li {
 	margin: 0;
 	padding: 0;
 }
-#sidebar-wrap ul, .BlogArchive #ArchiveList ul {
+#sidebar ul, .BlogArchive #ArchiveList ul {
 	padding: 0 0 0 16px;
 	line-height: normal;
 	list-style-type: none;
 }
-#sidebar-wrap li, .BlogArchive #ArchiveList ul.flat li {
+#sidebar li, .BlogArchive #ArchiveList ul.flat li {
 	padding: 0;
 	text-indent: -16px;
 }
