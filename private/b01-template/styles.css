@@ -1,10 +1,10 @@
 /* LAYOUT */
-body { font: 100% Arial, sans-serif; background-color: #999999; }
+body { font: 100% Arial, sans-serif; background-color: #808080; }
 .section { margin: 0; }
 #navbar { display: none; }
-#wrapper { position: relative; margin: 0 auto; min-width: 1000px; max-width: 1360px; background-color: #F0F0F0; }
+#wrapper { position: relative; margin: 0 auto; width: 92%; min-width: 1000px; max-width: 1360px; background-color: #F0F0F0; }
 #header { height: 106px; color: #FFFFFF; background-color: #000000; }
-#columns { margin-left: 368px; background-color: #FFFFFF; box-shadow: 0 0 8px #000000; }
+#columns { margin-left: 368px; background-color: #FFFFFF; }
 #content { float: right; width: 100%; }
 #sidebar { float: left; margin-left: -368px; width: 368px; }
 #sidebar-box1 { margin-left: 16px; width: 336px; height: 64px; }
@@ -12,7 +12,7 @@ body { font: 100% Arial, sans-serif; background-color: #999999; }
 #sidebar-box3 { float: left; margin-left: 16px; width: 160px; }
 #sidebar-box4 { clear: both; margin-left: 16px; width: 336px; }
 #cleared { clear: both; }
-#footer { margin-left: 368px; }
+#footer { color: #FFFFFF; background-color: #000000; }
 /* ELEMENTS */
 h1 { font: 1.6em/1 Georgia, serif; }
 h2 { font: bold 0.8em Arial, sans-serif; }
@@ -36,7 +36,7 @@ input { font-family: Arial, sans-serif; }
 #HTML1 { position: absolute; top: 170px; left: 16px; }
 #HTML2 { position: absolute; top: 8px; left: 272px; right: 0; text-align: center; }
 #Blog1 { padding: 16px; }
-#HTML3 { margin-top: -192px; margin-bottom: 102px; height: 90px; text-align: center; }
+#HTML3 { margin-top: -208px; margin-bottom: 102px; height: 90px; text-align: center; }
 #sidebar h2 { margin-bottom: 8px; margin-left: -8px; padding: 8px; color: #FFFFFF; background-color: #000000; box-shadow: 2px 2px 2px #999999; }
 #sidebar ul, .BlogArchive #ArchiveList ul { padding: 0 0 0 16px; line-height: normal; list-style-type: none; }
 #sidebar li, .BlogArchive #ArchiveList ul.flat li { padding: 0; text-indent: -16px; }
@@ -46,7 +46,7 @@ input { font-family: Arial, sans-serif; }
 #HTML5 { padding-top: 16px; padding-bottom: 16px; }
 #Profile1 { }
 #PlusFollowers1 { padding-top: 16px; padding-bottom: 16px; }
-#HTML6 { padding-top: 16px; padding-bottom: 16px; text-align: center; }
+#HTML6 { padding: 16px; font-size: 0.8em; text-align: center; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
