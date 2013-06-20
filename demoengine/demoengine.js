@@ -1,11 +1,4 @@
 (function() {
-	function addEvent(el, on, fn) {
-		if (el.addEventListener) {
-			el.addEventListener(on, fn, false);
-		} else if (el.attachEvent) {
-			el.attachEvent("on" + on, fn);
-		}
-	}
 	function addClass(el, cn) {
 		var c0 = (" " + el.className + " ").replace(/\s+/g, " "),
 			c1 = (" " + cn + " ").replace(/\s+/g, " ");
@@ -13,14 +6,14 @@
 			el.className = (c0 + c1).replace(/\s+/g, " ").replace(/^ | $/g, "");
 		}
 	}
-	function removeClass(el, cn) {
+	function delClass(el, cn) {
 		var c0 = (" " + el.className + " ").replace(/\s+/g, " "),
 			c1 = (" " + cn + " ").replace(/\s+/g, " ");
 		if (c0.indexOf(c1) >= 0) {
 			el.className = c0.replace(c1, " ").replace(/\s+/g, " ").replace(/^ | $/g, "");
 		}
 	}
-	function ajaxRequest(url, fn) {
+	function loadXHR(url, fn) {
 		var xhr = new XMLHttpRequest();
 		if (fn) {
 			xhr.onreadystatechange = function() {
@@ -34,7 +27,7 @@
 		xhr.open("GET", url, true);
 		xhr.send();
 	}
-	function loadScript(url, fn) {
+	function loadSCR(url, fn) {
 		var e = document.createElement("script");
 		e.type = "text/javascript";
 		e.src = url;
@@ -55,7 +48,14 @@
 		e.href = url;
 		document.documentElement.firstChild.appendChild(e);
 	}
-	addEvent(window, "load", function() {
+	function addEvent(el, on, fn) {
+		if (el.addEventListener) {
+			el.addEventListener(on, fn, false);
+		} else if (el.attachEvent) {
+			el.attachEvent("on" + on, fn);
+		}
+	}
+	function init() {
 		var div_demoengine, a_output, a_source, a_popout, div_source;
 		div_demoengine = document.createElement("div");
 		div_demoengine.id = "demoengine";
@@ -65,10 +65,10 @@
 		a_output.href = "#";
 		a_output.innerHTML = "Output";
 		a_output.onclick = function() {
-			removeClass(document.body, "active");
+			delClass(document.body, "active");
 			addClass(a_output, "active");
-			removeClass(a_source, "active");
-			removeClass(div_source, "active");
+			delClass(a_source, "active");
+			delClass(div_source, "active");
 			return false;
 		};
 		div_demoengine.appendChild(a_output);
@@ -78,7 +78,7 @@
 		a_source.innerHTML = "Source";
 		a_source.onclick = function() {
 			addClass(document.body, "active");
-			removeClass(a_output, "active");
+			delClass(a_output, "active");
 			addClass(a_source, "active");
 			addClass(div_source, "active");
 			return false;
@@ -94,20 +94,25 @@
 		}
 		div_source = document.createElement("div");
 		div_demoengine.appendChild(div_source);
-		var prettyXHR = 2, prettyFID;
-		ajaxRequest(window.location.href, function() {
+		var prettyREQ = 2, prettyIID;
+		loadXHR(window.location.href, function() {
 			div_source.innerHTML = "<PRE class=prettyprint>" + this.responseText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</PRE>";
-			prettyXHR--;
+			prettyREQ--;
 		});
-		loadScript("http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js", function() {
-			prettyXHR--;
+		loadSCR("http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.js", function() {
+			prettyREQ--;
 		});
 		loadCSS("http://google-code-prettify.googlecode.com/svn/trunk/src/prettify.css");
-		prettyFID = window.setInterval(function() {
-			if (prettyXHR === 0) {
-				window.clearInterval(prettyFID);
+		prettyIID = window.setInterval(function() {
+			if (prettyREQ === 0) {
+				window.clearInterval(prettyIID);
 				prettyPrint();
 			}
 		}, 1000);
-	});
+	}
+	if (document.readyState === "complete") {
+		init();
+	} else {
+		addEvent(window, "load", init);
+	}
 })();
