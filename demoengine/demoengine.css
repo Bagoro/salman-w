@@ -1,6 +1,6 @@
 body {
 	margin: 0;
-	padding: 10px;
+	padding: 46px 10px 10px;
 	font: 12px sans-serif;
 }
 body.active > * {
@@ -10,7 +10,7 @@ body.active > #demoengine {
 	display: block;
 }
 #demoengine {
-	margin: -10px -10px 10px;
+	margin: -46px -10px 10px;
 	height: 36px;
 	background-color: #333333;
 }
