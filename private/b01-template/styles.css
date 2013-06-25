@@ -75,7 +75,7 @@ div > ins { vertical-align: bottom; }
 /* CUSTOM */
 #adsense-ins { margin: 16px -16px; text-align: center; }
 #bu-related-posts { margin: 16px 0; }
-#bu-related-posts h4 { border-bottom: 1px dotted; padding-bottom: 8px; font: italic bold 1.0em Arial, sans-serif; color: inherit; }
+#bu-related-posts h4 { font: italic bold 1.0em Arial, sans-serif; color: inherit; }
 #bu-related-posts ul { padding: 0; overflow: hidden; list-style-type: none; }
 #bu-related-posts li { float: left; margin: 0 0.5%; width: 19%; text-align: center; }
 #bu-related-posts a { display: block; }
