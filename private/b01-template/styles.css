@@ -34,19 +34,21 @@ div > ins { vertical-align: bottom; }
 #Header1 p { margin: 0; padding: 0; }
 #content ol, #content ul { margin: 0; padding: 0 0 0 32px; }
 #content li { margin: 0; padding: 0; }
-#HTML1 { position: absolute; top: 170px; left: 16px; }
-#Blog1 { padding: 16px; }
-#HTML2 { position: absolute; top: 8px; left: 384px; right: 16px; text-align: center; }
 #sidebar h2 { margin-bottom: 8px; margin-left: -8px; padding: 8px; color: #FFFFFF; background-color: #000000; box-shadow: 2px 2px 2px #999999; }
 #sidebar ul, .BlogArchive #ArchiveList ul { padding: 0 0 0 16px; line-height: normal; list-style-type: none; }
 #sidebar li, .BlogArchive #ArchiveList ul.flat li { padding: 0; text-indent: -16px; }
-#HTML3 { z-index: 1; padding-top: 16px; }
+#Blog1 { padding: 16px; }
 #BlogArchive1 { }
 #Label1 { }
-#HTML4 { padding-top: 16px; padding-bottom: 16px; }
 #Profile1 { }
 #PlusFollowers1 { padding-top: 16px; padding-bottom: 16px; }
-#HTML5 { padding: 16px; font-size: smaller; text-align: center; }
+#HTML1 { z-index: 1; padding-top: 16px; }
+#HTML2 { padding-top: 16px; padding-bottom: 16px; }
+#HTML3 { padding: 16px; font-size: smaller; text-align: center; }
+#HTML4 { position: absolute; top: 170px; left: 16px; }
+#HTML5 { }
+#HTML6 { position: absolute; top: 8px; left: 384px; right: 16px; text-align: center; }
+#HTML7 { }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
