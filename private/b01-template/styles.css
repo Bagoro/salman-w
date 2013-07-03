@@ -62,7 +62,7 @@ div > ins { vertical-align: bottom; }
 .home-link { display: block; margin: 0 auto; width: 160px; background-color: #E0E0E0; }
 .blog-feeds, .post-feeds { text-align: center; }
 /* CUSTOM */
-#adsense-ins { margin: 16px 0; text-align: center; zoom: 1; }
+#adsense-inject { margin: 16px 0; text-align: center; zoom: 1; }
 #bu-related-posts { margin: 16px 0; }
 #bu-related-posts h4 { font: italic bold 1.0em Arial, sans-serif; color: inherit; }
 #bu-related-posts ul { padding: 0; overflow: hidden; list-style-type: none; }
