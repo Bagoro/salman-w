@@ -31,10 +31,14 @@ div > ins { vertical-align: bottom; }
 #Header1 h1 { margin: 0; padding: 12px 30px 5px; color: #4D9BD6; }
 #Header1 p { margin: 0; padding: 0; }
 #Blog1 { padding: 16px; }
-#sidebar .widget { padding: 16px; }
+#HTML1 { z-index: 1; padding: 16px; }
+#Label1, #HTML2, #Profile1 { padding: 16px; }
 #sidebar h2 { margin: -16px -8px 16px; padding: 8px; color: #FFFFFF; background-color: #000000; }
-#HTML1 { z-index: 1; }
 #HTML3 { padding: 16px; font-size: smaller; text-align: center; }
+/* ADSENSE */
+#adsense-header { }
+#adsense-sidebar { }
+#adsense-footer { }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
@@ -42,12 +46,29 @@ div > ins { vertical-align: bottom; }
 .post-comment-link { float: right; }
 .post-footer-line-3 { display: none; }
 #gpluscomments { margin: 16px 0; }
-#blog-pager { margin: 16px auto; border-radius: 16px; width: 480px; line-height: 2; background-color: #F0F0F0; }
-#blog-pager-newer-link { float: left; width: 160px; }
-#blog-pager-older-link { float: right; width: 160px; }
-.home-link { display: block; margin: 0 auto; width: 160px; background-color: #E0E0E0; }
+#blog-pager { margin: 16px auto; border-radius: 16px; width: 468px; line-height: 2; background-color: #F0F0F0; }
+#blog-pager-newer-link { float: left; width: 156px; }
+#blog-pager-older-link { float: right; width: 156px; }
+.home-link { display: block; margin: 0 auto; width: 156px; background-color: #E0E0E0; }
 .blog-feeds, .post-feeds { text-align: center; }
 /* RESPONSIVE */
+@media screen and (max-width: 963px) {
+	#columns { position: relative; margin-top: 64px; margin-left: 0; background-color: transparent; }
+	#content { float: none; width: auto; background-color: #FFFFFF; }
+	#sidebar { float: none; margin-left: 0; width: auto; }
+	#HTML1 { position: absolute; top: -64px; left: 16px; right: 16px; }
+	#Label1, #HTML2, #Profile1 { float: left; padding-left: 2%; padding-right: 2%; width: 46%; }
+}
+@media screen and (max-width: 799px) {
+}
+@media screen and (max-width: 499px) {
+	#Label1, #HTML2, #Profile1 { width: 96%; }
+	#blog-pager { width: auto; }
+	#blog-pager-newer-link { display: block; float: none; width: auto; }
+	#blog-pager-older-link { display: block; float: none; width: auto; }
+	.home-link { width: auto; }
+	#bu-related-posts li { width: 49%; }
+}
 /* CUSTOM */
 #bu-related-posts { margin: 16px 0; }
 #bu-related-posts h4 { font: italic bold 1.0em Arial, sans-serif; color: inherit; }
