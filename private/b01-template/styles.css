@@ -24,7 +24,6 @@ a { color: #4D9BD6; text-decoration: none; }
 a:hover { color: #33CC33; }
 code { font-family: Lucida Console, Courier New, monospace; color: #008000; }
 input { font-family: Arial, sans-serif; }
-div > ins { vertical-align: bottom; }
 /* WIDGETS */
 .widget { margin: 0; }
 #Header1 { width: 332px; text-align: center; }
@@ -36,9 +35,10 @@ div > ins { vertical-align: bottom; }
 #HTML1 { z-index: 1; }
 #HTML3 { padding: 16px; font-size: smaller; text-align: center; }
 /* ADSENSE */
-#adsense-header { position: absolute; top: -101px; left: 16px; right: 16px; text-align: center; }
+#adsense-header { position: absolute; top: -101px; left: 0; right: 0; margin: 0 16px; line-height: 90px; text-align: center; }
 #adsense-sidebar { margin: 0 16px 16px; text-align: center; zoom: 1; }
 #adsense-footer { text-align: center; zoom: 1; }
+.adsbygoogle { vertical-align: middle; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
@@ -71,12 +71,13 @@ form.gsc-search-box { margin-bottom: 0 !important; padding: 0 !important; }
 	#sidebar .widget { float: left; width: 50%; }
 	#sidebar .widget:first-child { float: none; width: auto; }
 	#HTML1 { position: absolute; top: 0; left: 0; right: 0; }
-	#adsense-header { left: 348px; }
+	#adsense-header { left: 332px; }
 }
-@media screen and (max-width: 799px) {
+@media screen and (max-width: 831px) {
 	#header { padding-bottom: 106px; height: auto; }
 	#Header1 { width: auto; }
-	#adsense-header { left: 16px; }
+	#Header1 h1 { padding-left: 0; padding-right: 0; }
+	#adsense-header { left: 0; }
 }
 @media screen and (max-width: 499px) {
 	#sidebar .widget { float: none; width: auto; }
