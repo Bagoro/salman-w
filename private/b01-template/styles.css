@@ -4,7 +4,7 @@ body { font: 100% Arial, sans-serif; background-color: #808080; }
 #navbar { display: none; }
 #wrapper { background-color: #F0F0F0; }
 #header { border-bottom: 3px solid #FFAA00; height: 106px; color: #FFFFFF; background-color: #000000; }
-#columns { margin-left: 332px; background-color: #FFFFFF; position: relative; }
+#columns { position: relative; margin-left: 332px; background-color: #FFFFFF; }
 #content { float: right; width: 100%; }
 #sidebar { float: left; margin-left: -332px; width: 332px; }
 #cleared { clear: both; }
@@ -36,9 +36,9 @@ div > ins { vertical-align: bottom; }
 #HTML1 { z-index: 1; }
 #HTML3 { padding: 16px; font-size: smaller; text-align: center; }
 /* ADSENSE */
-#adsense-header  { text-align: center; position: absolute; left: 16px; right: 16px; top: -101px; }
-#adsense-sidebar { text-align: center; zoom: 1; margin: 0 16px 16px; }
-#adsense-footer  { text-align: center; zoom: 1; }
+#adsense-header { position: absolute; top: -101px; left: 16px; right: 16px; text-align: center; }
+#adsense-sidebar { margin: 0 16px 16px; text-align: center; zoom: 1; }
+#adsense-footer { text-align: center; zoom: 1; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
@@ -65,15 +65,16 @@ div > ins { vertical-align: bottom; }
 form.gsc-search-box { margin-bottom: 0 !important; padding: 0 !important; }
 /* RESPONSIVE */
 @media screen and (max-width: 963px) {
-	#columns { margin-top: 64px; margin-left: 0; background-color: transparent; }
+	#columns { margin-left: 0; padding-top: 64px; background-color: inherit; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
 	#sidebar .widget { float: left; width: 50%; }
-	#HTML1 { position: absolute; top: -64px; left: 16px; right: 16px; }
-	#adsense-header { left: 348px; top: -165px; }
+	#sidebar .widget:first-child { float: none; width: auto; }
+	#HTML1 { position: absolute; top: 0; left: 0; right: 0; }
+	#adsense-header { left: 348px; }
 }
 @media screen and (max-width: 799px) {
-	#header { height: auto; padding-bottom: 106px; }
+	#header { padding-bottom: 106px; height: auto; }
 	#Header1 { width: auto; }
 	#adsense-header { left: 16px; }
 }
