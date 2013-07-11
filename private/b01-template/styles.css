@@ -72,6 +72,7 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 	#sidebar .widget:first-child { float: none; width: auto; }
 	#HTML1 { position: absolute; top: 0; left: 0; right: 0; }
 	#adsense-header { left: 332px; }
+	#adsense-sidebar { margin: 16px; }
 }
 @media screen and (max-width: 831px) {
 	#header { padding-bottom: 106px; height: auto; }
