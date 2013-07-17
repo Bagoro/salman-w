@@ -35,10 +35,10 @@ input { font-family: Arial, sans-serif; }
 #HTML1 { z-index: 1; }
 #HTML3 { padding: 16px; font-size: smaller; text-align: center; }
 /* ADSENSE */
-#adsense-header { position: absolute; top: -101px; left: 0; right: 0; margin: 0 16px; line-height: 90px; text-align: center; }
+#adsense-header { position: absolute; top: -101px; left: 0; right: 0; margin: 0 16px; text-align: center; }
+#adsense-content { margin: 16px 0; text-align: center; zoom: 1; }
 #adsense-sidebar { margin: 0 16px 16px; text-align: center; zoom: 1; }
-#adsense-footer { margin: 16px 0; text-align: center; zoom: 1; }
-.adsbygoogle { vertical-align: middle; }
+.adsbygoogle { vertical-align: bottom; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
