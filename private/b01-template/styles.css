@@ -61,7 +61,7 @@ input { font-family: Arial, sans-serif; }
 .yellow-text { padding: 8px; background-color: #FFF999; }
 .demo-canvas { margin: 16px 0; border: 1px solid; border-color: #CCCCCC #333333 #333333 #CCCCCC; padding: 8px; box-shadow: 2px 2px 2px #999999; }
 .demo-canvas-ibwrap { margin: 16px 0; text-align: center; }
-.demo-canvas-ibwrap iframe, .demo-canvas-ibwrap object, .demo-canvas-ibwrap embed { border: 1px solid; border-color: #CCCCCC #333333 #333333 #CCCCCC; padding: 8px; box-shadow: 2px 2px 2px #999999; }
+.demo-canvas-ibwrap iframe, .demo-canvas-ibwrap video, .demo-canvas-ibwrap object, .demo-canvas-ibwrap embed { border: 1px solid; border-color: #CCCCCC #333333 #333333 #CCCCCC; padding: 8px; box-shadow: 2px 2px 2px #999999; }
 .gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
 form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 /* RESPONSIVE */
