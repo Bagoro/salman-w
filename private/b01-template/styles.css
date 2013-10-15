@@ -92,6 +92,7 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 	#sidebar .widget { float: left; width: 50%; }
 	#sidebar .widget:first-child { float: none; width: auto; }
 	#HTML1 { position: absolute; top: 0; left: 0; right: 0; }
+	#adsense-sidebar { margin: 16px; }
 	#adsense-header .adsbygoogle { margin-top: 0; width: 728px; height: 90px; }
 	#adsense-content .adsbygoogle { width: 728px; height: 90px; }
 }
