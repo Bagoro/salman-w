@@ -1,0 +1,64 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<link type="text/css" href="../demoengine/demoengine.css" rel="stylesheet">
+	<script type="text/javascript" src="../demoengine/demoengine.js" async defer></script>
+	<title>jQuery UI Autocomplete: Load Data via AJAX</title>
+	<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+	<style type="text/css">
+		/* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_ */
+		#autocomplete.ui-autocomplete-loading {
+			background-image: url(loading.gif);
+			background-position: right center;
+			background-repeat: no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<form action="http://www.imdb.com/find">
+		<input id="autocomplete" type="text" placeholder="Movie name" name="q">
+		<input type="hidden" name="s" value="tt">
+	</form>
+	<script type="text/javascript">
+		/*
+		 * jQuery UI Autocomplete: Load Data via AJAX
+		 * http://salman-w.blogspot.com/2013/12/jquery-ui-autocomplete-examples.html
+		 */
+		$(function() {
+			$("#autocomplete").autocomplete({
+				delay: 500,
+				minLength: 3,
+				source: function(request, response) {
+					$.getJSON("http://mymovieapi.com/", {
+						q: request.term,
+						mt: "M",
+						plot: "none",
+						limit: 10
+					}, function(data) {
+						// data is an array of objects and must be transformed for autocomplete to use
+						var array = data.error ? [] : $.map(data, function(o) {
+							return {
+								label: o.title + " (" + o.year + ")",
+								url: o.imdb_url
+							};
+						});
+						response(array);
+					});
+				},
+				focus: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+				},
+				select: function(event, ui) {
+					// prevent autocomplete from updating the textbox
+					event.preventDefault();
+					// navigate to the selected item's url
+					window.location = ui.item.url;
+				}
+			});
+		});
+	</script>
+</body>
+</html>
