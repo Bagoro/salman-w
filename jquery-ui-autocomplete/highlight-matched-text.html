@@ -3,20 +3,21 @@
 <head>
 	<link type="text/css" href="../demoengine/demoengine.css" rel="stylesheet">
 	<script type="text/javascript" src="../demoengine/demoengine.js" async defer></script>
-	<title>jQuery UI Autocomplete: Using Label-Value Pairs</title>
+	<title>jQuery UI Autocomplete: Highlight Matched Text</title>
 	<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+	<style type="text/css">
+		.ui-autocomplete .highlight {
+			text-decoration: underline;
+		}
+	</style>
 </head>
 <body>
-	<p>Default Behavior<br>
-		<input id="autocomplete1" type="text" placeholder="U.S. state name" name="code"></p>
-	<p>Modified Behavior<br>
-		<input id="autocomplete2" type="text" placeholder="U.S. state name">
-		<input id="autocomplete2-value" type="text" name="code"></p>
+	<input id="autocomplete" type="text" placeholder="U.S. state name">
 	<script type="text/javascript">
 		/*
-		 * jQuery UI Autocomplete: Using Label-Value Pairs
+		 * jQuery UI Autocomplete: Highlight Matched Text
 		 * http://salman-w.blogspot.com/2013/12/jquery-ui-autocomplete-examples.html
 		 */
 		var data = [
@@ -72,25 +73,24 @@
 			{ value: "WY", label: "Wyoming" }
 		];
 		$(function() {
-			$("#autocomplete1").autocomplete({
-				source: data
-			});
-			$("#autocomplete2").autocomplete({
-				source: data,
-				focus: function(event, ui) {
-					// prevent autocomplete from updating the textbox
-					event.preventDefault();
-					// manually update the textbox
-					$(this).val(ui.item.label);
-				},
-				select: function(event, ui) {
-					// prevent autocomplete from updating the textbox
-					event.preventDefault();
-					// manually update the textbox and hidden field
-					$(this).val(ui.item.label);
-					$("#autocomplete2-value").val(ui.item.value);
+			function highlightText(text, $node) {
+				var searchText = $.trim(text).toLowerCase(), currentNode = $node.get(0).firstChild, matchIndex, newTextNode, newSpanNode;
+				while ((matchIndex = currentNode.data.toLowerCase().indexOf(searchText)) >= 0) {
+					newTextNode = currentNode.splitText(matchIndex);
+					currentNode = newTextNode.splitText(searchText.length);
+					newSpanNode = document.createElement("span");
+					newSpanNode.className = "highlight";
+					currentNode.parentNode.insertBefore(newSpanNode, currentNode);
+					newSpanNode.appendChild(newTextNode);
 				}
-			});
+			}
+			$("#autocomplete").autocomplete({
+				source: data
+			}).data("ui-autocomplete")._renderItem = function(ul, item) {
+				var $a = $("<a></a>").text(item.label);
+				highlightText(this.term, $a);
+				return $("<li></li>").append($a).appendTo(ul);
+			};
 		});
 	</script>
 </body>
