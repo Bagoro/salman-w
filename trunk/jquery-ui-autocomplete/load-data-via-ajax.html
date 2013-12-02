@@ -4,9 +4,9 @@
 	<link type="text/css" href="../demoengine/demoengine.css" rel="stylesheet">
 	<script type="text/javascript" src="../demoengine/demoengine.js" async defer></script>
 	<title>jQuery UI Autocomplete: Load Data via AJAX</title>
-	<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js"></script>
+	<link type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/ui-darkness/jquery-ui.css" rel="stylesheet">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 	<style type="text/css">
 		/* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_ */
 		#autocomplete.ui-autocomplete-loading {
@@ -17,7 +17,7 @@
 	</style>
 </head>
 <body>
-	<form action="http://www.imdb.com/find">
+	<form action="http://www.imdb.com/find" target="_blank">
 		<input id="autocomplete" type="text" placeholder="Movie name" name="q">
 		<input type="hidden" name="s" value="tt">
 	</form>
@@ -55,10 +55,11 @@
 					// prevent autocomplete from updating the textbox
 					event.preventDefault();
 					// navigate to the selected item's url
-					window.location = ui.item.url;
+					window.open(ui.item.url);
 				}
 			});
 		});
 	</script>
+	<p>Data by <a href="http://mymovieapi.com/" target="_blank">My Movie API</a>; a easy way to access the <a href="http://www.imdb.com/" target="_blank">IMDB</a> data.</p>
 </body>
 </html>
