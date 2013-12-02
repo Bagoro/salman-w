@@ -60,7 +60,7 @@
 							return {
 								label: o.title,
 								year: o.year,
-								cast: o.actors.slice(0, 3).join(", "),
+								cast: o.actors ? o.actors.slice(0, 3).join(", ") : "-",
 								rating: o.rating,
 								url: o.imdb_url
 							};
