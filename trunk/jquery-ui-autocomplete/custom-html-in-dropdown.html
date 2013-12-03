@@ -14,20 +14,25 @@
 			background-position: right center;
 			background-repeat: no-repeat;
 		}
-		.ui-autocomplete .y {
-			float: right;
+		.ui-autocomplete .fl {
+			float: left;
+			margin-right: 8px;
 		}
-		.ui-autocomplete .c {
+		.ui-autocomplete .fr {
+			float: right;
+			margin-left: 8px;
+		}
+		.ui-autocomplete .db {
 			display: block;
 		}
 		/* star rating explained here: http://salman-w.blogspot.com/2012/08/star-ratings-using-css-sprites.html */
-		.ui-autocomplete .r {
+		.ui-autocomplete .rg {
 			display: block;
 			width: 130px;
 			height: 13px;
 			background: url(http://3.bp.blogspot.com/-20YHLJH00QE/UCI80sALTCI/AAAAAAAABaU/qY-6r-Rz5hw/s1600/star-rating-sprite.png) 0 0;
 		}
-		.ui-autocomplete .r span {
+		.ui-autocomplete .rg span {
 			display: block;
 			height: 13px;
 			background: url(http://3.bp.blogspot.com/-20YHLJH00QE/UCI80sALTCI/AAAAAAAABaU/qY-6r-Rz5hw/s1600/star-rating-sprite.png) 0 -13px;
@@ -80,9 +85,10 @@
 				}
 			}).data("ui-autocomplete")._renderItem = function(ul, item) {
 				var $a = $("<a></a>").text(item.label);
-				$("<span class='y'></span>").text(item.year).prependTo($a);
-				$("<small class='c'></small>").text(item.cast).appendTo($a);
-				$("<span class='r'><span style='width: " + Math.floor(item.rating * 10) + "%;'></span></span>").appendTo($a);
+				$("<span class='fr'></span>").text(item.year).prependTo($a);
+				$("<small class='db'></small>").text(item.cast).appendTo($a);
+				$("<span class='fl rg'><span style='width: " + Math.floor(item.rating * 10) + "%;'></span></span>").appendTo($a);
+				$("<small class='db'></small>").text(item.rating + "/10").appendTo($a);
 				return $("<li></li>").append($a).appendTo(ul);
 			};
 		});
