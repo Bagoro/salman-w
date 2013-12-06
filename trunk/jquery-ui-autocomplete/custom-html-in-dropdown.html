@@ -8,11 +8,17 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 	<style type="text/css">
-		/* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_ */
-		#autocomplete.ui-autocomplete-loading {
+		.loading {
+			display: none;
+			width: 16px;
+			height: 16px;
 			background-image: url(loading.gif);
-			background-position: right center;
-			background-repeat: no-repeat;
+			vertical-align: text-bottom;
+		}
+		/* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_ */
+		/* ingeniously using general sibling combinator */
+		#autocomplete.ui-autocomplete-loading ~ .loading {
+			display: inline-block;
 		}
 		.ui-autocomplete .fl {
 			float: left;
@@ -30,18 +36,19 @@
 			display: block;
 			width: 130px;
 			height: 13px;
-			background: url(http://3.bp.blogspot.com/-20YHLJH00QE/UCI80sALTCI/AAAAAAAABaU/qY-6r-Rz5hw/s1600/star-rating-sprite.png) 0 0;
+			background: url(stars.png) 0 0;
 		}
 		.ui-autocomplete .rg span {
 			display: block;
 			height: 13px;
-			background: url(http://3.bp.blogspot.com/-20YHLJH00QE/UCI80sALTCI/AAAAAAAABaU/qY-6r-Rz5hw/s1600/star-rating-sprite.png) 0 -13px;
+			background: url(stars.png) 0 -13px;
 		}
 	</style>
 </head>
 <body>
 	<form action="http://www.imdb.com/find" target="_blank">
 		<input id="autocomplete" type="text" placeholder="Movie name" name="q">
+		<span class="loading"></span>
 		<input type="hidden" name="s" value="tt">
 	</form>
 	<script type="text/javascript">
