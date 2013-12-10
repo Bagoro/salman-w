@@ -83,7 +83,7 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 }
 @media screen and (max-width: 963px) {
 	/* LESSTHAN 600 + 300 + 64 */
-	#header { padding-bottom: 106px; height: auto; }
+	#header { padding-bottom: 116px; height: auto; }
 	#columns { margin-left: 0; padding-top: 64px; background-color: inherit; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
@@ -92,13 +92,15 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 	#sidebar .widget { float: left; width: 50%; }
 	#sidebar .widget:first-child { float: none; width: auto; }
 	#HTML1 { position: absolute; top: 0; left: 0; right: 0; }
+	#adsense-header { top: -111px; left: 0; right: 0; }
+	#adsense-content { margin: 16px -16px; }
 	#adsense-sidebar { margin: 16px; }
-	#adsense-header .adsbygoogle { margin-top: 0; width: 728px; height: 90px; }
+	#adsense-header .adsbygoogle { margin-top: 5px; width: 728px; height: 90px; }
 	#adsense-content .adsbygoogle { width: 728px; height: 90px; }
 }
 @media screen and (max-width: 759px) {
 	/* LESSTHAN 728 + 32 */
-	#adsense-header .adsbygoogle { margin-top: 15px; width: 468px; height: 60px; }
+	#adsense-header .adsbygoogle { margin-top: 20px; width: 468px; height: 60px; }
 	#adsense-content .adsbygoogle { width: 468px; height: 60px; }
 }
 @media screen and (max-width: 499px) {
@@ -109,6 +111,6 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 	#blog-pager-older-link { display: block; float: none; width: auto; }
 	.home-link { width: auto; }
 	#bu-related-posts li { width: 49%; }
-	#adsense-header .adsbygoogle { margin-top: 20px; width: 320px; height: 50px; }
-	#adsense-content .adsbygoogle { width: 320px; height: 50px; }
+	#adsense-header .adsbygoogle { margin-top: 0; width: 320px; height: 100px; }
+	#adsense-content .adsbygoogle { width: 320px; height: 100px; }
 }
