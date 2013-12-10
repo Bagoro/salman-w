@@ -3,7 +3,7 @@ body { font: 100% Arial, sans-serif; background-color: #808080; }
 .section { margin: 0; }
 #navbar { display: none; }
 #wrapper { background-color: #F0F0F0; }
-#header { border-bottom: 3px solid #FFAA00; height: 106px; color: #FFFFFF; background-color: #000000; }
+#header { border-bottom: 3px solid #FFAA00; height: 110px; color: #FFFFFF; background-color: #000000; }
 #columns { position: relative; margin-left: 332px; background-color: #FFFFFF; }
 #content { float: right; width: 100%; }
 #sidebar { float: left; margin-left: -332px; width: 332px; }
@@ -27,7 +27,7 @@ input { font-family: Arial, sans-serif; }
 /* WIDGETS */
 .widget { margin: 0; }
 #Header1 { width: 332px; text-align: center; }
-#Header1 h1 { margin: 0; padding: 12px 30px 5px; color: #4D9BD6; }
+#Header1 h1 { margin: 0; padding: 14px 16px 4px; color: #4D9BD6; }
 #Header1 p { margin: 0; padding: 0; }
 #Blog1 { padding: 16px; }
 #sidebar h2 { margin: 0 8px; padding: 8px; color: #FFFFFF; background-color: #000000; }
@@ -35,10 +35,10 @@ input { font-family: Arial, sans-serif; }
 #HTML1 { z-index: 1; }
 #HTML3 { padding: 16px; font-size: smaller; text-align: center; }
 /* ADSENSE */
-#adsense-header { position: absolute; top: -101px; left: 16px; right: 16px; text-align: center; }
-#adsense-content { margin: 16px 0; text-align: center; }
-#adsense-sidebar { margin: 0 16px 16px; text-align: center; }
-#adsense-header .adsbygoogle { margin-top: 15px; width: 468px; height: 60px; vertical-align: bottom; }
+#adsense-header { position: absolute; top: -113px; left: 16px; right: 16px; text-align: center; }
+#adsense-content { margin-top: 16px; margin-bottom: 16px; text-align: center; }
+#adsense-sidebar { margin-bottom: 16px; text-align: center; }
+#adsense-header .adsbygoogle { margin-top: 25px; width: 468px; height: 60px; vertical-align: bottom; }
 #adsense-content .adsbygoogle { width: 468px; height: 60px; vertical-align: bottom; }
 #adsense-sidebar .adsbygoogle { width: 300px; height: 250px; vertical-align: bottom; }
 /* MAINBLOG */
@@ -68,22 +68,22 @@ input { font-family: Arial, sans-serif; }
 form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 /* RESPONSIVE */
 @media screen {
-	#adsense-header .adsbygoogle { margin-top: 0; width: 970px; height: 90px; }
+	#adsense-header .adsbygoogle { margin-top: 10px; width: 970px; height: 90px; }
 	#adsense-content .adsbygoogle { width: 970px; height: 90px; }
 }
 @media screen and (max-width: 1333px) {
 	/* LESSTHAN 970 + 300 + 64 */
-	#adsense-header .adsbygoogle { margin-top: 0; width: 728px; height: 90px; }
+	#adsense-header .adsbygoogle { margin-top: 10px; width: 728px; height: 90px; }
 	#adsense-content .adsbygoogle { width: 728px; height: 90px; }
 }
 @media screen and (max-width: 1091px) {
 	/* LESSTHAN 728 + 300 + 64 */
-	#adsense-header .adsbygoogle { margin-top: 15px; width: 468px; height: 60px; }
+	#adsense-header .adsbygoogle { margin-top: 25px; width: 468px; height: 60px; }
 	#adsense-content .adsbygoogle { width: 468px; height: 60px; }
 }
 @media screen and (max-width: 963px) {
 	/* LESSTHAN 600 + 300 + 64 */
-	#header { padding-bottom: 116px; height: auto; }
+	#header { padding-bottom: 110px; height: auto; }
 	#columns { margin-left: 0; padding-top: 64px; background-color: inherit; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
@@ -92,15 +92,15 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 	#sidebar .widget { float: left; width: 50%; }
 	#sidebar .widget:first-child { float: none; width: auto; }
 	#HTML1 { position: absolute; top: 0; left: 0; right: 0; }
-	#adsense-header { top: -111px; left: 0; right: 0; }
-	#adsense-content { margin: 16px -16px; }
-	#adsense-sidebar { margin: 16px; }
-	#adsense-header .adsbygoogle { margin-top: 5px; width: 728px; height: 90px; }
+	#adsense-header { left: 0; right: 0; }
+	#adsense-content { margin-left: -16px; margin-right: -16px; }
+	#adsense-sidebar { margin-top: 16px; }
+	#adsense-header .adsbygoogle { margin-top: 10px; width: 728px; height: 90px; }
 	#adsense-content .adsbygoogle { width: 728px; height: 90px; }
 }
 @media screen and (max-width: 759px) {
 	/* LESSTHAN 728 + 32 */
-	#adsense-header .adsbygoogle { margin-top: 20px; width: 468px; height: 60px; }
+	#adsense-header .adsbygoogle { margin-top: 25px; width: 468px; height: 60px; }
 	#adsense-content .adsbygoogle { width: 468px; height: 60px; }
 }
 @media screen and (max-width: 499px) {
@@ -111,6 +111,6 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 	#blog-pager-older-link { display: block; float: none; width: auto; }
 	.home-link { width: auto; }
 	#bu-related-posts li { width: 49%; }
-	#adsense-header .adsbygoogle { margin-top: 0; width: 320px; height: 100px; }
+	#adsense-header .adsbygoogle { margin-top: 5px; width: 320px; height: 100px; }
 	#adsense-content .adsbygoogle { width: 320px; height: 100px; }
 }
