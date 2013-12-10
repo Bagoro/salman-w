@@ -27,8 +27,8 @@ input { font-family: Arial, sans-serif; }
 /* WIDGETS */
 .widget { margin: 0; }
 #Header1 { width: 332px; text-align: center; }
-#Header1 h1 { margin: 0; padding: 14px 16px 4px; color: #4D9BD6; }
-#Header1 p { margin: 0; padding: 0; }
+#Header1 h1 { margin: 0; padding: 14px 16px 0; color: #4D9BD6; }
+#Header1 p { margin: 0; padding: 4px 0 8px; }
 #Blog1 { padding: 16px; }
 #sidebar h2 { margin: 0 8px; padding: 8px; color: #FFFFFF; background-color: #000000; }
 #sidebar .widget-content { padding: 16px; }
@@ -88,7 +88,6 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
 	#Header1 { width: auto; }
-	#Header1 h1 { padding: 8px 0 0; }
 	#sidebar .widget { float: left; width: 50%; }
 	#sidebar .widget:first-child { float: none; width: auto; }
 	#HTML1 { position: absolute; top: 0; left: 0; right: 0; }
