@@ -17,9 +17,8 @@
 	</style>
 </head>
 <body>
-	<form action="http://www.imdb.com/find" target="_blank">
-		<input id="autocomplete" type="text" placeholder="Movie name" name="q">
-		<input type="hidden" name="s" value="tt">
+	<form action="http://www.rottentomatoes.com/search/" target="_blank">
+		<input id="autocomplete" type="text" placeholder="Movie name" name="search">
 	</form>
 	<script type="text/javascript">
 		/*
@@ -31,17 +30,17 @@
 				delay: 500,
 				minLength: 3,
 				source: function(request, response) {
-					$.getJSON("http://mymovieapi.com/", {
+					$.getJSON("http://api.rottentomatoes.com/api/public/v1.0/movies.json?callback=?", {
+						// do not copy the api key; get your own at developer.rottentomatoes.com
+						apikey: "kg8ux3nacc8ktrh6g5kkgewg",
 						q: request.term,
-						mt: "M",
-						plot: "none",
-						limit: 10
+						page_limit: 10
 					}, function(data) {
 						// data is an array of objects and must be transformed for autocomplete to use
-						var array = data.error ? [] : $.map(data, function(o) {
+						var array = data.error ? [] : $.map(data.movies, function(m) {
 							return {
-								label: o.title + " (" + o.year + ")",
-								url: o.imdb_url
+								label: m.title + " (" + m.year + ")",
+								url: m.links.alternate
 							};
 						});
 						response(array);
@@ -60,6 +59,6 @@
 			});
 		});
 	</script>
-	<p>Data by <a href="http://mymovieapi.com/" target="_blank">My Movie API</a>; a easy way to access the <a href="http://www.imdb.com/" target="_blank">IMDB</a> data.</p>
+	<p>This example uses <a href="http://developer.rottentomatoes.com/" target="_blank">Rotten Tomatoes API</a>.</p>
 </body>
 </html>
