@@ -46,10 +46,9 @@
 	</style>
 </head>
 <body>
-	<form action="http://www.imdb.com/find" target="_blank">
-		<input id="autocomplete" type="text" placeholder="Movie name" name="q">
+	<form action="http://www.rottentomatoes.com/search/" target="_blank">
+		<input id="autocomplete" type="text" placeholder="Movie name" name="search">
 		<span class="loading"></span>
-		<input type="hidden" name="s" value="tt">
 	</form>
 	<script type="text/javascript">
 		/*
@@ -61,20 +60,20 @@
 				delay: 500,
 				minLength: 3,
 				source: function(request, response) {
-					$.getJSON("http://mymovieapi.com/", {
+					$.getJSON("http://api.rottentomatoes.com/api/public/v1.0/movies.json?callback=?", {
+						// do not copy the api key; get your own at developer.rottentomatoes.com
+						apikey: "kg8ux3nacc8ktrh6g5kkgewg",
 						q: request.term,
-						mt: "M",
-						plot: "none",
-						limit: 10
+						page_limit: 10
 					}, function(data) {
 						// data is an array of objects and must be transformed for autocomplete to use
-						var array = data.error ? [] : $.map(data, function(o) {
+						var array = data.error ? [] : $.map(data.movies, function(m) {
 							return {
-								label: o.title,
-								year: o.year,
-								cast: o.actors ? o.actors.slice(0, 3).join(", ") : "-",
-								rating: o.rating,
-								url: o.imdb_url
+								label: m.title,
+								year: m.year,
+								cast: m.abridged_cast.slice(0, 3).map(function(a) { return a.name; }).join(", "),
+								rating: m.ratings.audience_score,
+								url: m.links.alternate
 							};
 						});
 						response(array);
@@ -94,12 +93,12 @@
 				var $a = $("<a></a>").text(item.label);
 				$("<span class='fr'></span>").text(item.year).prependTo($a);
 				$("<small class='db'></small>").text(item.cast).appendTo($a);
-				$("<span class='fl rg'><span style='width: " + Math.floor(item.rating * 10) + "%;'></span></span>").appendTo($a);
-				$("<small class='db'></small>").text(item.rating + "/10").appendTo($a);
+				$("<span class='fl rg'><span style='width: " + item.rating + "%;'></span></span>").appendTo($a);
+				$("<small class='db'></small>").text(item.rating + "/100").appendTo($a);
 				return $("<li></li>").append($a).appendTo(ul);
 			};
 		});
 	</script>
-	<p>Data by <a href="http://mymovieapi.com/" target="_blank">My Movie API</a>; a easy way to access the <a href="http://www.imdb.com/" target="_blank">IMDB</a> data.</p>
+	<p>This example uses <a href="http://developer.rottentomatoes.com/" target="_blank">Rotten Tomatoes API</a>.</p>
 </body>
 </html>
