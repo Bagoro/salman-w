@@ -2,7 +2,7 @@
 body { font: 100% Arial, sans-serif; background-color: #808080; }
 .section { margin: 0; }
 #navbar { display: none; }
-#wrapper { background-color: #F0F0F0; }
+#wrapper { background-color: #EEEEEE; }
 #header { border-bottom: 3px solid #FFAA00; height: 110px; color: #FFFFFF; background-color: #000000; }
 #columns { position: relative; margin-left: 332px; background-color: #FFFFFF; }
 #content { float: right; width: 100%; }
@@ -16,100 +16,69 @@ h3 { margin: 0 0 16px; border-bottom: 1px dotted; padding: 0 0 16px; font: 1.4em
 h4 { margin: 16px 0; font: 1.4em Georgia, serif; color: #4D9BD6; }
 h5 { margin: 16px 0; font: 1.2em Georgia, serif; color: #4D9BD6; }
 p { margin: 16px 0; }
-pre { margin: 16px 0; padding: 8px; max-height: 320px; overflow: auto; font: smaller Lucida Console, Courier New, monospace; background-color: #F0F0F0; }
+pre { margin: 16px 0; padding: 8px; max-height: 320px; overflow: auto; font: smaller Lucida Console, Courier New, monospace; background-color: #EEEEEE; }
 form { margin: 0; }
 ol, ul { margin: 0; padding: 0 0 0 32px; }
 li { margin: 0; padding: 0; }
 a { color: #4D9BD6; text-decoration: none; }
 a:hover { color: #33CC33; }
-code { font-family: Lucida Console, Courier New, monospace; color: #008000; }
+code { font-family: Lucida Console, Courier New, monospace; background-color: #EEEEEE; }
 input { font-family: Arial, sans-serif; }
 /* WIDGETS */
 .widget { margin: 0; }
-#Header1 { width: 332px; text-align: center; }
-#Header1 h1 { margin: 0; padding: 14px 16px 0; color: #4D9BD6; }
-#Header1 p { margin: 0; padding: 4px 0 8px; }
+#Header1 { padding: 16px; width: 300px; text-align: center; }
+#Header1 h1 { margin: 0; color: #4D9BD6; }
+#Header1 p { margin: 0; padding: 0; }
 #Blog1 { padding: 16px; }
 #sidebar h2 { margin: 0 8px; padding: 8px; color: #FFFFFF; background-color: #000000; }
 #sidebar .widget-content { padding: 16px; }
 #HTML1 { z-index: 1; }
 #HTML3 { padding: 16px; font-size: smaller; text-align: center; }
 /* ADSENSE */
-#adsense-header { position: absolute; top: -113px; left: 16px; right: 16px; text-align: center; }
-#adsense-content { margin-top: 16px; margin-bottom: 16px; text-align: center; }
-#adsense-sidebar { margin-bottom: 16px; text-align: center; }
-#adsense-header .adsbygoogle { margin-top: 25px; width: 468px; height: 60px; vertical-align: bottom; }
-#adsense-content .adsbygoogle { width: 468px; height: 60px; vertical-align: bottom; }
-#adsense-sidebar .adsbygoogle { width: 300px; height: 250px; vertical-align: bottom; }
+#adsense-header { position: absolute; top: -113px; left: 16px; right: 16px; height: 110px; }
+#adsense-content { margin-top: 16px; margin-bottom: 16px; }
+#adsense-sidebar { margin-bottom: 16px; margin-left: 16px; margin-right: 16px; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
-.post-footer { margin: 16px 0; border: 1px solid; border-color: #CCCCCC #333333 #333333 #CCCCCC; padding: 8px; font-size: smaller; line-height: 1; background-color: #F0F0F0; }
+.post-footer { margin: 16px 0; border: 1px solid; border-color: #CCCCCC #333333 #333333 #CCCCCC; padding: 8px; font-size: smaller; line-height: 1; background-color: #EEEEEE; }
 .post-comment-link { float: right; }
 .post-footer-line-3 { display: none; }
 #gpluscomments { margin: 16px 0; }
-#blog-pager { margin: 16px auto; border-radius: 16px; width: 468px; line-height: 2; background-color: #F0F0F0; }
+#blog-pager { margin: 16px auto; border-radius: 16px; width: 468px; line-height: 2; background-color: #EEEEEE; }
 #blog-pager-newer-link { float: left; width: 156px; }
 #blog-pager-older-link { float: right; width: 156px; }
-.home-link { display: block; margin: 0 auto; width: 156px; background-color: #E0E0E0; }
+.home-link { display: block; margin: 0 auto; width: 156px; background-color: #DDDDDD; }
 .blog-feeds, .post-feeds { text-align: center; }
 /* CUSTOM */
+.gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
+form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 #bu-related-posts { margin: 16px 0; }
 #bu-related-posts h4 { font: italic bold 1.0em Arial, sans-serif; color: inherit; }
 #bu-related-posts ul { padding: 0; overflow: hidden; list-style-type: none; }
 #bu-related-posts li { float: left; margin: 0 0.5%; width: 19%; text-align: center; }
 #bu-related-posts a { display: block; }
-#bu-related-posts span { display: block; margin: 0 auto 8px; border: 1px solid #333333; width: 72px; height: 72px; background-color: #F0F0F0; box-shadow: 2px 2px 2px #999999; }
+#bu-related-posts span { display: block; margin: 0 auto 8px; border: 1px solid #333333; width: 72px; height: 72px; background-color: #EEEEEE; box-shadow: 2px 2px 2px #999999; }
 .yellow-text { padding: 8px; background-color: #FFF999; }
 .demo-canvas { margin: 16px 0; border: 1px solid; border-color: #CCCCCC #333333 #333333 #CCCCCC; padding: 8px; box-shadow: 2px 2px 2px #999999; }
 .demo-canvas-ibwrap { margin: 16px 0; text-align: center; }
 .demo-canvas-ibwrap iframe, .demo-canvas-ibwrap video, .demo-canvas-ibwrap object, .demo-canvas-ibwrap embed { border: 1px solid; border-color: #CCCCCC #333333 #333333 #CCCCCC; padding: 8px; box-shadow: 2px 2px 2px #999999; }
-.gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
-form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 /* RESPONSIVE */
-@media screen {
-	#adsense-header .adsbygoogle { margin-top: 10px; width: 970px; height: 90px; }
-	#adsense-content .adsbygoogle { width: 970px; height: 90px; }
-}
-@media screen and (max-width: 1333px) {
-	/* LESSTHAN 970 + 300 + 64 */
-	#adsense-header .adsbygoogle { margin-top: 10px; width: 728px; height: 90px; }
-	#adsense-content .adsbygoogle { width: 728px; height: 90px; }
-}
-@media screen and (max-width: 1091px) {
-	/* LESSTHAN 728 + 300 + 64 */
-	#adsense-header .adsbygoogle { margin-top: 25px; width: 468px; height: 60px; }
-	#adsense-content .adsbygoogle { width: 468px; height: 60px; }
-}
 @media screen and (max-width: 963px) {
-	/* LESSTHAN 600 + 300 + 64 */
 	#header { padding-bottom: 110px; height: auto; }
 	#columns { margin-left: 0; padding-top: 64px; background-color: inherit; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
 	#Header1 { width: auto; }
 	#sidebar .widget { float: left; width: 50%; }
-	#sidebar .widget:first-child { float: none; width: auto; }
-	#HTML1 { position: absolute; top: 0; left: 0; right: 0; }
-	#adsense-header { left: 0; right: 0; }
-	#adsense-content { margin-left: -16px; margin-right: -16px; }
+	#sidebar #HTML1 { float: none; position: absolute; top: 0; left: 0; width: auto; }
 	#adsense-sidebar { margin-top: 16px; }
-	#adsense-header .adsbygoogle { margin-top: 10px; width: 728px; height: 90px; }
-	#adsense-content .adsbygoogle { width: 728px; height: 90px; }
-}
-@media screen and (max-width: 759px) {
-	/* LESSTHAN 728 + 32 */
-	#adsense-header .adsbygoogle { margin-top: 25px; width: 468px; height: 60px; }
-	#adsense-content .adsbygoogle { width: 468px; height: 60px; }
 }
 @media screen and (max-width: 499px) {
-	/* LESSTHAN 468 + 32 */
 	#sidebar .widget { float: none; width: auto; }
 	#blog-pager { width: auto; }
 	#blog-pager-newer-link { display: block; float: none; width: auto; }
 	#blog-pager-older-link { display: block; float: none; width: auto; }
 	.home-link { width: auto; }
 	#bu-related-posts li { width: 49%; }
-	#adsense-header .adsbygoogle { margin-top: 5px; width: 320px; height: 100px; }
-	#adsense-content .adsbygoogle { width: 320px; height: 100px; }
 }
