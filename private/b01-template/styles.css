@@ -71,7 +71,7 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
 	#Header1 { width: auto; }
 	#sidebar .widget { float: left; width: 50%; }
-	#sidebar #HTML1 { float: none; position: absolute; top: 0; left: 0; width: auto; }
+	#sidebar #HTML1 { float: none; position: absolute; top: 0; left: 0; right: 0; width: auto; }
 	#adsense-sidebar { margin-top: 16px; }
 }
 @media screen and (max-width: 499px) {
