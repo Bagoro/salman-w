@@ -1,1 +1,0 @@
-Set google-cache-control:max-age=604800 to set the document expire after one week.
