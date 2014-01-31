@@ -1,5 +1,5 @@
 /* LAYOUT */
-body { font: 100% Arial, sans-serif; background-color: #EEEEEE; }
+body { font: 100% Open Sans, Arial, sans-serif; background-color: #EEEEEE; }
 .section { margin: 0; }
 #navbar { display: none; }
 #wrapper { margin-left: 332px; background-color: #FFFFFF; }
@@ -9,20 +9,20 @@ body { font: 100% Arial, sans-serif; background-color: #EEEEEE; }
 #cleared { clear: both; }
 #footer { border-top: 4px solid #4D9BD6; color: #FFFFFF; background-color: #000000; }
 /* ELEMENTS */
-h1 { font: 1.8em/1 Georgia, serif; }
-h2 { font: bold smaller Arial, sans-serif; }
-h3 { margin: 0 0 16px; border-bottom: 1px dotted; padding: 0 0 16px; font: 1.4em Georgia, serif; color: #4D9BD6; }
-h4 { margin: 16px 0; font: 1.4em Georgia, serif; color: #4D9BD6; }
-h5 { margin: 16px 0; font: 1.2em Georgia, serif; color: #4D9BD6; }
+h1 { font: 1.8em/1 Georgia, Times New Roman, serif; }
+h2 { font: bold smaller Open Sans, Arial, sans-serif; }
+h3 { margin: 0 0 16px; border-bottom: 1px dotted; padding: 0 0 16px; font: 1.4em Georgia, Times New Roman, serif; color: #4D9BD6; }
+h4 { margin: 16px 0; font: 1.4em Georgia, Times New Roman, serif; color: #4D9BD6; }
+h5 { margin: 16px 0; font: 1.2em Georgia, Times New Roman, serif; color: #4D9BD6; }
 p { margin: 16px 0; }
-pre { margin: 16px 0; padding: 8px; max-height: 320px; overflow: auto; font: smaller Lucida Console, Courier New, monospace; background-color: #EEEEEE; }
+pre { margin: 16px 0; padding: 8px; max-height: 320px; overflow: auto; font: smaller Consolas, Courier New, monospace; background-color: #EEEEEE; }
 form { margin: 0; }
 ol, ul { margin: 0; padding: 0 0 0 32px; }
 li { margin: 0; padding: 0; }
 a { color: #4D9BD6; text-decoration: none; }
 a:hover { color: #33CC33; }
-code { font-family: Lucida Console, Courier New, monospace; background-color: #EEEEEE; }
-input { font-family: Arial, sans-serif; }
+code { border-radius: 4px; padding: 2px 8px; font-family: Consolas, Courier New, monospace; background-color: #EEEEEE; }
+input { font-family: Open Sans, Arial, sans-serif; }
 /* WIDGETS */
 .widget { margin: 0; }
 #Header1 { padding: 16px; text-align: center; }
@@ -53,7 +53,7 @@ input { font-family: Arial, sans-serif; }
 .gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
 form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 #bu-related-posts { margin: 16px 0; }
-#bu-related-posts h4 { font: italic bold 1.0em Arial, sans-serif; color: inherit; }
+#bu-related-posts h4 { font: italic bold 1.0em Open Sans, Arial, sans-serif; color: inherit; }
 #bu-related-posts ul { padding: 0; overflow: hidden; list-style-type: none; }
 #bu-related-posts li { float: left; margin: 0 0.5%; width: 19%; text-align: center; }
 #bu-related-posts a { display: block; }
