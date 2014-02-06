@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<link type="text/css" href="../demoengine/demoengine.css" rel="stylesheet">
+	<script type="text/javascript" src="../demoengine/demoengine.js" async defer></script>
+	<title>CSS: nth-child Arguments Test</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<style type="text/css" id="stylesheet"></style>
+</head>
+<body>
+	<div>
+		<input type="text" id="arg-a" placeholder="a">
+		<input type="text" id="arg-b" placeholder="b">
+		<input type="button" id="update-button" value="Update">
+	</div>
+	<h1 id="stylesheet-text">Choose a and b</h1>
+	<ol>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+	</ol>
+	<script type="text/javascript">
+		/*
+		 * CSS: nth-child Arguments Test
+		 * http://salman-w.blogspot.com/0000/00/untitled-untitled.html
+		 */
+		$(function() {
+			function updateStyleSheet() {
+				var a = $("#arg-a").val() | 0;
+				var b = $("#arg-b").val() | 0;
+				var css = "li:nth-child(" + a + "n" + (b < 0 ? b : "+" + b) + ") { background-color: orange; }";
+				$("#stylesheet, #stylesheet-text").text(css);
+			}
+			$("#update-button").on("click", updateStyleSheet);
+			$("#arg-a, #arg-b").on("change", updateStyleSheet);
+		});
+	</script>
+</body>
+</html>
