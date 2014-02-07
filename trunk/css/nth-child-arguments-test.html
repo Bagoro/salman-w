@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+	<link type="text/css" href="../demoengine/demoengine.css" rel="stylesheet">
+	<script type="text/javascript" src="../demoengine/demoengine.js" async defer></script>
+	<title>CSS: nth-child Arguments Test</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<style type="text/css">
+		#expr { border: 1px solid #CCCCCC; width: 60px; }
+		#expr.error { background-color: #FFF0F0; }
+		#expr-notes { }
+		#expr-chart { }
+		#demo-list { }
+	</style>
+	<style type="text/css" id="demo-stylesheet">
+		#demo-list :nth-child(3n + 1) { background-color: #FFCC00; }
+	</style>
+</head>
+<body>
+	<input id="expr" type="text" value="3n + 1" maxlength="10">
+	<span id="expr-notes">1st, 4th, 7th child and so on</span>
+	<table id="expr-chart">
+		<tr>
+			<th>n</th>
+			<th>3n + 1</th>
+		</tr>
+		<tr>
+			<td>0</td>
+			<td>1</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>7</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>10</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>13</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>16</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>19</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>22</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td>25</td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td>28</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>31</td>
+		</tr>
+	</table>
+	<ol id="demo-list">
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+		<li>Item</li>
+	</ol>
+	<script type="text/javascript">
+		/*
+		 * CSS: nth-child Arguments Test
+		 * http://salman-w.blogspot.com/2014/04/css-nth-child-selector-pwned.html
+		 */
+		$(function() {
+			function ordinalSuffixOf(i) {
+				/*
+				 * http://stackoverflow.com/a/13627586/87015
+				 */
+				var j = i % 10;
+				if (j === 1 && i !== 11) {
+					return i + "st";
+				}
+				if (j === 2 && i !== 12) {
+					return i + "nd";
+				}
+				if (j === 3 && i !== 13) {
+					return i + "rd";
+				}
+				return i + "th";
+			}
+			function updateUI() {
+				var $expr = $("#expr"),
+					$notes = $("#expr-notes"),
+					$label = $("#expr-chart th:nth-child(2)"),
+					$cells = $("#expr-chart td:nth-child(2)"),
+					$stylesheet = $("#demo-stylesheet"),
+					x = $expr.val(),
+					r = /^\s*(?:([\-+]?\d*)n(\s*[\-+]\s*\d+)?|([\-+]?\d+))\s*$/,
+					m = x.match(r),
+					a,
+					b;
+				if (m === null) {
+					$expr.addClass("error");
+					$notes.text("");
+					$label.text("");
+					$cells.text("");
+					$stylesheet.text("");
+					return;
+				}
+				a = m[1] === undefined ? 0 : +(m[1] === "" || m[1] === "-" || m[1] === "+" ? m[1].concat("1") : m[1]);
+				b = m[2] === undefined && m[3] === undefined ? 0 : +(m[2] || m[3]).replace(/\s/g, "");
+				$notes.text("not implemented");
+				$label.text(x);
+				$cells.text(function(n) {
+					return a * n + b;
+				});
+				$stylesheet.text("#demo-list :nth-child(" + x + ") { background-color: #FFCC00; }");
+			}
+			$("#expr").on("focus keydown blur", function() {
+				this.className = "";
+				if (this.timeout) {
+					window.clearTimeout(this.timeout);
+				}
+				this.timeout = window.setTimeout(updateUI, 1000);
+			});
+		});
+	</script>
+</body>
+</html>
