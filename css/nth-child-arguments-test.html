@@ -6,19 +6,21 @@
 	<title>CSS: nth-child Arguments Test</title>
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<style type="text/css">
-		#expr { border: 1px solid #CCCCCC; width: 60px; }
+		#expr { position: relative; top: 1px; margin: 0 2px; border: 1px solid #CCCCCC; padding: 0 2px; width: 60px; font-family: inherit; font-size: inherit; }
 		#expr.error { background-color: #FFF0F0; }
 		#expr-notes { }
-		#expr-chart { }
-		#demo-list { }
+		#expr-chart { float: left; width: 25%; }
+		#expr-chart tr :first-child { width: 25%; }
+		#expr-chart th { background-color: #CCCCCC; }
+		#expr-chart td { background-color: #F0F0F0; }
+		#demo-list { margin: 0 0 0 25%; }
 	</style>
 	<style type="text/css" id="demo-stylesheet">
-		#demo-list :nth-child(3n + 1) { background-color: #FFCC00; }
+		#demo-list :nth-child(3n + 1) { background-color: #FFCC33; }
 	</style>
 </head>
 <body>
-	<input id="expr" type="text" value="3n + 1" maxlength="10">
-	<span id="expr-notes">1st, 4th, 7th child and so on</span>
+	<p>:nth-child(<input id="expr" type="text" value="3n + 1" maxlength="10">) selects <span id="expr-notes">1st, 4th, 7th child and so on</span>.</p>
 	<table id="expr-chart">
 		<tr>
 			<th>n</th>
@@ -103,14 +105,14 @@
 	</ol>
 	<script type="text/javascript">
 		/*
-		 * CSS: nth-child Arguments Test
-		 * http://salman-w.blogspot.com/2014/04/css-nth-child-selector-pwned.html
-		 */
+		* CSS: nth-child Arguments Test
+		* http://salman-w.blogspot.com/2014/04/css-nth-child-selector-pwned.html
+		*/
 		$(function() {
 			function ordinalSuffixOf(i) {
 				/*
-				 * http://stackoverflow.com/a/13627586/87015
-				 */
+				* http://stackoverflow.com/a/13627586/87015
+				*/
 				var j = i % 10;
 				if (j === 1 && i !== 11) {
 					return i + "st";
@@ -129,12 +131,12 @@
 					$label = $("#expr-chart th:nth-child(2)"),
 					$cells = $("#expr-chart td:nth-child(2)"),
 					$stylesheet = $("#demo-stylesheet"),
-					x = $expr.val(),
-					r = /^\s*(?:([\-+]?\d*)n(\s*[\-+]\s*\d+)?|([\-+]?\d+))\s*$/,
-					m = x.match(r),
+					expr1 = $expr.val(),
+					regex = /^\s*(?:([\-+]?\d*)n(\s*[\-+]\s*\d+)?|([\-+]?\d+))\s*$/,
+					match = expr1.match(regex),
 					a,
 					b;
-				if (m === null) {
+				if (match === null) {
 					$expr.addClass("error");
 					$notes.text("");
 					$label.text("");
@@ -142,14 +144,28 @@
 					$stylesheet.text("");
 					return;
 				}
-				a = m[1] === undefined ? 0 : +(m[1] === "" || m[1] === "-" || m[1] === "+" ? m[1].concat("1") : m[1]);
-				b = m[2] === undefined && m[3] === undefined ? 0 : +(m[2] || m[3]).replace(/\s/g, "");
-				$notes.text("not implemented");
-				$label.text(x);
+				a = match[1] === undefined ? 0 : +(match[1] === "" || match[1] === "-" || match[1] === "+" ? match[1].concat("1") : match[1]);
+				b = match[2] === undefined && match[3] === undefined ? 0 : +(match[2] || match[3]).replace(/\s/g, "");
+				$notes.text(function() {
+					var n = 0,
+						result,
+						results = [];
+					do {
+						result = a * n + b;
+						if (result > 0) {
+							results.push(ordinalSuffixOf(result));
+						} else if (a <= 0) {
+							break;
+						}
+						n++;
+					} while (results.length < 3 && (a > 0 || result > 0));
+					return results.length === 0 ? "nothing" : results.join(", ").concat(results.length === 1 ? " child" : " child and so on");
+				});
+				$label.text(expr1);
 				$cells.text(function(n) {
 					return a * n + b;
 				});
-				$stylesheet.text("#demo-list :nth-child(" + x + ") { background-color: #FFCC00; }");
+				$stylesheet.text("#demo-list :nth-child(" + expr1 + ") { background-color: #FFCC33; }");
 			}
 			$("#expr").on("focus keydown blur", function() {
 				this.className = "";
