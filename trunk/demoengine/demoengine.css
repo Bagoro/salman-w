@@ -1,14 +1,15 @@
-body { margin: 0; padding: 46px 10px 10px; font: 12px Open Sans, Arial, sans-serif; }
+body { margin: 0; padding: 46px 10px 10px; font: 13px Open Sans, Arial, sans-serif; }
 body.active > * { display: none; }
 body.active > #demoengine { display: block; }
-#demoengine { margin: -46px -10px 10px; height: 36px; background-color: #333333; }
-#demoengine a { display: block; float: left; margin-top: 6px; margin-right: 2px; padding-left: 10px; padding-right: 10px; line-height: 24px; color: #333333; background-color: #EEEEEE; text-decoration: none; }
-#demoengine a.active { color: #008000; background-color: #FFFFFF; }
+#demoengine { margin: -46px -10px 10px; height: 36px; background-color: #CCCCCC; }
+#demoengine a { display: block; float: left; margin: 5px 2px 0 0; border: 1px solid #AAAAAA; padding: 0 10px; line-height: 24px; color: #333333; background-color: #EEEEEE; text-decoration: none; }
+#demoengine a.active { border-color: #FBCB09; color: #C77405; background-color: #FDF5CE; }
 #demoengine a.corner-l { margin-left: 10px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; }
 #demoengine a.corner-r { border-top-right-radius: 5px; border-bottom-right-radius: 5px; }
-#demoengine div { display: none; position: absolute; top: 36px; bottom: 0; left: 0; right: 0; z-index: 999; background-color: #F0F0F0; }
+#demoengine div { display: none; position: absolute; top: 36px; bottom: 0; left: 0; right: 0; z-index: 999; background-color: #EEEEEE; }
 #demoengine div.active { display: block; }
-#demoengine pre { margin: 0; border: none; padding: 10px; background-color: #F0F0F0; }
+#demoengine pre { margin: 0; border: none; padding: 10px; font-family: Consolas, Courier New, monospace; background-color: #EEEEEE; }
+body > p:first-child, #demoengine + p { margin-top: 0; }
 @media print {
 	#demoengine { display: none; }
 }
