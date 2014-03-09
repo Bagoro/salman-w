@@ -1,1 +1,974 @@
-(function(){function d(g,i){var h=(" "+g.className+" ").replace(/\s+/g," "),f=(" "+i+" ").replace(/\s+/g," ");if(h.indexOf(f)<0){g.className=(h+f).replace(/\s+/g," ").replace(/^ | $/g,"")}}function b(g,i){var h=(" "+g.className+" ").replace(/\s+/g," "),f=(" "+i+" ").replace(/\s+/g," ");if(h.indexOf(f)>=0){g.className=h.replace(f," ").replace(/\s+/g," ").replace(/^ | $/g,"")}}function a(f,g){var h=new XMLHttpRequest();if(g){h.onreadystatechange=function(){if(this.readyState===4){if(this.status===200){g.call(this)}}}}h.open("GET",f,true);h.send()}function c(h,f,g){if(h.addEventListener){h.addEventListener(f,g,false)}else{if(h.attachEvent){h.attachEvent("on"+f,g)}}}function e(){var h,g,j,i,f;h=document.createElement("div");h.id="demoengine";document.body.insertBefore(h,document.body.firstChild);g=document.createElement("a");g.className="corner-l active";g.href="#";g.innerHTML="Output";g.onclick=function(){b(document.body,"active");d(g,"active");b(j,"active");b(f,"active");return false};h.appendChild(g);j=document.createElement("a");j.className="corner-r";j.href="#";j.innerHTML="Source";j.onclick=function(){d(document.body,"active");b(g,"active");d(j,"active");d(f,"active");return false};h.appendChild(j);if(top!==self){i=document.createElement("a");i.className="corner-l corner-r";i.href=window.location.href;i.target="_blank";i.innerHTML="Open in new window";h.appendChild(i)}f=document.createElement("div");h.appendChild(f);a(window.location.href,function(){f.innerHTML="<PRE class=prettyprint>"+this.responseText.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")+"</PRE>";prettyPrint()})}if(document.readyState==="complete"){e()}else{c(window,"load",e)}})();var IN_GLOBAL_SCOPE=true;window.PR_SHOULD_USE_CONTINUATION=true;var prettyPrintOne;var prettyPrint;(function(){var P=window;var i=["break,continue,do,else,for,if,return,while"];var u=[i,"auto,case,char,const,default,double,enum,extern,float,goto,inline,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile"];var p=[u,"catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof"];var l=[p,"alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,delegate,dynamic_cast,explicit,export,friend,generic,late_check,mutable,namespace,nullptr,property,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where"];var y=[p,"abstract,assert,boolean,byte,extends,final,finally,implements,import,instanceof,interface,null,native,package,strictfp,super,synchronized,throws,transient"];var U=[y,"as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,internal,into,is,let,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var,virtual,where"];var r="all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,throw,true,try,unless,until,when,while,yes";var x=[p,"debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN"];var s="caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END";var K=[i,"and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None"];var g=[i,"alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END"];var z=[i,"as,assert,const,copy,drop,enum,extern,fail,false,fn,impl,let,log,loop,match,mod,move,mut,priv,pub,pure,ref,self,static,struct,true,trait,type,unsafe,use"];var J=[i,"case,done,elif,esac,eval,fi,function,in,local,set,then,until"];var C=[l,U,x,s,K,g,J];var e=/^(DIR|FILE|vector|(de|priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?(int|float)\d*)\b/;var E="str";var B="kwd";var j="com";var R="typ";var I="lit";var N="pun";var H="pln";var m="tag";var G="dec";var L="src";var S="atn";var n="atv";var Q="nocode";var O="(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*";function k(ac){var ag=0;var V=false;var af=false;for(var Y=0,X=ac.length;Y<X;++Y){var ah=ac[Y];if(ah.ignoreCase){af=true}else{if(/[a-z]/i.test(ah.source.replace(/\\u[0-9a-f]{4}|\\x[0-9a-f]{2}|\\[^ux]/gi,""))){V=true;af=false;break}}}var ab={b:8,t:9,n:10,v:11,f:12,r:13};function ae(ak){var aj=ak.charCodeAt(0);if(aj!==92){return aj}var ai=ak.charAt(1);aj=ab[ai];if(aj){return aj}else{if("0"<=ai&&ai<="7"){return parseInt(ak.substring(1),8)}else{if(ai==="u"||ai==="x"){return parseInt(ak.substring(2),16)}else{return ak.charCodeAt(1)}}}}function W(ai){if(ai<32){return(ai<16?"\\x0":"\\x")+ai.toString(16)}var aj=String.fromCharCode(ai);return(aj==="\\"||aj==="-"||aj==="]"||aj==="^")?"\\"+aj:aj}function aa(ao){var at=ao.substring(1,ao.length-1).match(new RegExp("\\\\u[0-9A-Fa-f]{4}|\\\\x[0-9A-Fa-f]{2}|\\\\[0-3][0-7]{0,2}|\\\\[0-7]{1,2}|\\\\[\\s\\S]|-|[^-\\\\]","g"));var ai=[];var aq=at[0]==="^";var ap=["["];if(aq){ap.push("^")}for(var au=aq?1:0,am=at.length;au<am;++au){var ak=at[au];if(/\\[bdsw]/i.test(ak)){ap.push(ak)}else{var aj=ae(ak);var an;if(au+2<am&&"-"===at[au+1]){an=ae(at[au+2]);au+=2}else{an=aj}ai.push([aj,an]);if(!(an<65||aj>122)){if(!(an<65||aj>90)){ai.push([Math.max(65,aj)|32,Math.min(an,90)|32])}if(!(an<97||aj>122)){ai.push([Math.max(97,aj)&~32,Math.min(an,122)&~32])}}}}ai.sort(function(ax,aw){return(ax[0]-aw[0])||(aw[1]-ax[1])});var al=[];var ar=[];for(var au=0;au<ai.length;++au){var av=ai[au];if(av[0]<=ar[1]+1){ar[1]=Math.max(ar[1],av[1])}else{al.push(ar=av)}}for(var au=0;au<al.length;++au){var av=al[au];ap.push(W(av[0]));if(av[1]>av[0]){if(av[1]+1>av[0]){ap.push("-")}ap.push(W(av[1]))}}ap.push("]");return ap.join("")}function Z(ao){var am=ao.source.match(new RegExp("(?:\\[(?:[^\\x5C\\x5D]|\\\\[\\s\\S])*\\]|\\\\u[A-Fa-f0-9]{4}|\\\\x[A-Fa-f0-9]{2}|\\\\[0-9]+|\\\\[^ux0-9]|\\(\\?[:!=]|[\\(\\)\\^]|[^\\x5B\\x5C\\(\\)\\^]+)","g"));var ak=am.length;var aq=[];for(var an=0,ap=0;an<ak;++an){var aj=am[an];if(aj==="("){++ap}else{if("\\"===aj.charAt(0)){var ai=+aj.substring(1);if(ai){if(ai<=ap){aq[ai]=-1}else{am[an]=W(ai)}}}}}for(var an=1;an<aq.length;++an){if(-1===aq[an]){aq[an]=++ag}}for(var an=0,ap=0;an<ak;++an){var aj=am[an];if(aj==="("){++ap;if(!aq[ap]){am[an]="(?:"}}else{if("\\"===aj.charAt(0)){var ai=+aj.substring(1);if(ai&&ai<=ap){am[an]="\\"+aq[ai]}}}}for(var an=0;an<ak;++an){if("^"===am[an]&&"^"!==am[an+1]){am[an]=""}}if(ao.ignoreCase&&V){for(var an=0;an<ak;++an){var aj=am[an];var al=aj.charAt(0);if(aj.length>=2&&al==="["){am[an]=aa(aj)}else{if(al!=="\\"){am[an]=aj.replace(/[a-zA-Z]/g,function(ar){var at=ar.charCodeAt(0);return"["+String.fromCharCode(at&~32,at|32)+"]"})}}}}return am.join("")}var ad=[];for(var Y=0,X=ac.length;Y<X;++Y){var ah=ac[Y];if(ah.global||ah.multiline){throw new Error(""+ah)}ad.push("(?:"+Z(ah)+")")}return new RegExp(ad.join("|"),af?"gi":"g")}function b(ab,Z){var X=/(?:^|\s)nocode(?:\s|$)/;var ac=[];var aa=0;var Y=[];var W=0;function V(ae){var ad=ae.nodeType;if(ad==1){if(X.test(ae.className)){return}for(var ah=ae.firstChild;ah;ah=ah.nextSibling){V(ah)}var ag=ae.nodeName.toLowerCase();if("br"===ag||"li"===ag){ac[W]="\n";Y[W<<1]=aa++;Y[(W++<<1)|1]=ae}}else{if(ad==3||ad==4){var af=ae.nodeValue;if(af.length){if(!Z){af=af.replace(/[ \t\r\n]+/g," ")}else{af=af.replace(/\r\n?/g,"\n")}ac[W]=af;Y[W<<1]=aa;aa+=af.length;Y[(W++<<1)|1]=ae}}}}V(ab);return{sourceCode:ac.join("").replace(/\n$/,""),spans:Y}}function D(V,X,Z,W){if(!X){return}var Y={sourceCode:X,basePos:V};Z(Y);W.push.apply(W,Y.decorations)}var v=/\S/;function o(V){var Y=undefined;for(var X=V.firstChild;X;X=X.nextSibling){var W=X.nodeType;Y=(W===1)?(Y?V:X):(W===3)?(v.test(X.nodeValue)?V:Y):Y}return Y===V?undefined:Y}function f(X,W){var V={};var Y;(function(){var ag=X.concat(W);var ak=[];var aj={};for(var ae=0,ac=ag.length;ae<ac;++ae){var ab=ag[ae];var af=ab[3];if(af){for(var ah=af.length;--ah>=0;){V[af.charAt(ah)]=ab}}var ai=ab[1];var ad=""+ai;if(!aj.hasOwnProperty(ad)){ak.push(ai);aj[ad]=null}}ak.push(/[\0-\uffff]/);Y=k(ak)})();var aa=W.length;var Z=function(ak){var ac=ak.sourceCode,ab=ak.basePos;var ag=[ab,H];var ai=0;var aq=ac.match(Y)||[];var am={};for(var ah=0,au=aq.length;ah<au;++ah){var aj=aq[ah];var at=am[aj];var al=void 0;var ap;if(typeof at==="string"){ap=false}else{var ad=V[aj.charAt(0)];if(ad){al=aj.match(ad[1]);at=ad[0]}else{for(var ar=0;ar<aa;++ar){ad=W[ar];al=aj.match(ad[1]);if(al){at=ad[0];break}}if(!al){at=H}}ap=at.length>=5&&"lang-"===at.substring(0,5);if(ap&&!(al&&typeof al[1]==="string")){ap=false;at=L}if(!ap){am[aj]=at}}var ae=ai;ai+=aj.length;if(!ap){ag.push(ab+ae,at)}else{var ao=al[1];var an=aj.indexOf(ao);var af=an+ao.length;if(al[2]){af=aj.length-al[2].length;an=af-ao.length}var av=at.substring(5);D(ab+ae,aj.substring(0,an),Z,ag);D(ab+ae+an,ao,q(av,ao),ag);D(ab+ae+af,aj.substring(af),Z,ag)}}ak.decorations=ag};return Z}function h(af){var X=[],ab=[];if(af.tripleQuotedStrings){X.push([E,/^(?:\'\'\'(?:[^\'\\]|\\[\s\S]|\'{1,2}(?=[^\']))*(?:\'\'\'|$)|\"\"\"(?:[^\"\\]|\\[\s\S]|\"{1,2}(?=[^\"]))*(?:\"\"\"|$)|\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$))/,null,"'\""])}else{if(af.multiLineStrings){X.push([E,/^(?:\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$)|\`(?:[^\\\`]|\\[\s\S])*(?:\`|$))/,null,"'\"`"])}else{X.push([E,/^(?:\'(?:[^\\\'\r\n]|\\.)*(?:\'|$)|\"(?:[^\\\"\r\n]|\\.)*(?:\"|$))/,null,"\"'"])}}if(af.verbatimStrings){ab.push([E,/^@\"(?:[^\"]|\"\")*(?:\"|$)/,null])}var ad=af.hashComments;if(ad){if(af.cStyleComments){if(ad>1){X.push([j,/^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/,null,"#"])}else{X.push([j,/^#(?:(?:define|e(?:l|nd)if|else|error|ifn?def|include|line|pragma|undef|warning)\b|[^\r\n]*)/,null,"#"])}ab.push([E,/^<(?:(?:(?:\.\.\/)*|\/?)(?:[\w-]+(?:\/[\w-]+)+)?[\w-]+\.h(?:h|pp|\+\+)?|[a-z]\w*)>/,null])}else{X.push([j,/^#[^\r\n]*/,null,"#"])}}if(af.cStyleComments){ab.push([j,/^\/\/[^\r\n]*/,null]);ab.push([j,/^\/\*[\s\S]*?(?:\*\/|$)/,null])}var W=af.regexLiterals;if(W){var Y=W>1?"":"\n\r";var aa=Y?".":"[\\S\\s]";var Z=("/(?=[^/*"+Y+"])(?:[^/\\x5B\\x5C"+Y+"]|\\x5C"+aa+"|\\x5B(?:[^\\x5C\\x5D"+Y+"]|\\x5C"+aa+")*(?:\\x5D|$))+/");ab.push(["lang-regex",RegExp("^"+O+"("+Z+")")])}var ae=af.types;if(ae){ab.push([R,ae])}var ac=(""+af.keywords).replace(/^ | $/g,"");if(ac.length){ab.push([B,new RegExp("^(?:"+ac.replace(/[\s,]+/g,"|")+")\\b"),null])}X.push([H,/^\s+/,null," \r\n\t\xA0"]);var V="^.[^\\s\\w.$@'\"`/\\\\]*";if(af.regexLiterals){V+="(?!s*/)"}ab.push([I,/^@[a-z_$][a-z_$@0-9]*/i,null],[R,/^(?:[@_]?[A-Z]+[a-z][A-Za-z_$@0-9]*|\w+_t\b)/,null],[H,/^[a-z_$][a-z_$@0-9]*/i,null],[I,new RegExp("^(?:0x[a-f0-9]+|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)(?:e[+\\-]?\\d+)?)[a-z]*","i"),null,"0123456789"],[H,/^\\[\s\S]?/,null],[N,new RegExp(V),null]);return f(X,ab)}var M=h({keywords:C,hashComments:true,cStyleComments:true,multiLineStrings:true,regexLiterals:true});function T(X,ai,ab){var W=/(?:^|\s)nocode(?:\s|$)/;var ad=/\r\n?|\n/;var ae=X.ownerDocument;var ah=ae.createElement("li");while(X.firstChild){ah.appendChild(X.firstChild)}var Y=[ah];function ag(ao){var an=ao.nodeType;if(an==1&&!W.test(ao.className)){if("br"===ao.nodeName){af(ao);if(ao.parentNode){ao.parentNode.removeChild(ao)}}else{for(var aq=ao.firstChild;aq;aq=aq.nextSibling){ag(aq)}}}else{if((an==3||an==4)&&ab){var ap=ao.nodeValue;var al=ap.match(ad);if(al){var ak=ap.substring(0,al.index);ao.nodeValue=ak;var aj=ap.substring(al.index+al[0].length);if(aj){var am=ao.parentNode;am.insertBefore(ae.createTextNode(aj),ao.nextSibling)}af(ao);if(!ak){ao.parentNode.removeChild(ao)}}}}}function af(am){while(!am.nextSibling){am=am.parentNode;if(!am){return}}function ak(an,au){var at=au?an.cloneNode(false):an;var aq=an.parentNode;if(aq){var ar=ak(aq,1);var ap=an.nextSibling;ar.appendChild(at);for(var ao=ap;ao;ao=ap){ap=ao.nextSibling;ar.appendChild(ao)}}return at}var aj=ak(am.nextSibling,0);for(var al;(al=aj.parentNode)&&al.nodeType===1;){aj=al}Y.push(aj)}for(var aa=0;aa<Y.length;++aa){ag(Y[aa])}if(ai===(ai|0)){Y[0].setAttribute("value",ai)}var ac=ae.createElement("ol");ac.className="linenums";var Z=Math.max(0,((ai-1))|0)||0;for(var aa=0,V=Y.length;aa<V;++aa){ah=Y[aa];ah.className="L"+((aa+Z)%10);if(!ah.firstChild){ah.appendChild(ae.createTextNode("\xA0"))}ac.appendChild(ah)}X.appendChild(ac)}function F(ag){var Y=/\bMSIE\s(\d+)/.exec(navigator.userAgent);Y=Y&&+Y[1]<=8;var ap=/\n/g;var ao=ag.sourceCode;var aq=ao.length;var Z=0;var ae=ag.spans;var W=ae.length;var ak=0;var ab=ag.decorations;var ac=ab.length;var ad=0;ab[ac]=aq;var aw,au;for(au=aw=0;au<ac;){if(ab[au]!==ab[au+2]){ab[aw++]=ab[au++];ab[aw++]=ab[au++]}else{au+=2}}ac=aw;for(au=aw=0;au<ac;){var ax=ab[au];var af=ab[au+1];var aa=au+2;while(aa+2<=ac&&ab[aa+1]===af){aa+=2}ab[aw++]=ax;ab[aw++]=af;au=aa}ac=ab.length=aw;var av=ag.sourceNode;var al;if(av){al=av.style.display;av.style.display="none"}try{var ai=null;while(ak<W){var aj=ae[ak];var V=ae[ak+2]||aq;var at=ab[ad+2]||aq;var aa=Math.min(V,at);var an=ae[ak+1];var X;if(an.nodeType!==1&&(X=ao.substring(Z,aa))){if(Y){X=X.replace(ap,"\r")}an.nodeValue=X;var am=an.ownerDocument;var ar=am.createElement("span");ar.className=ab[ad+1];var ah=an.parentNode;ah.replaceChild(ar,an);ar.appendChild(an);if(Z<V){ae[ak+1]=an=am.createTextNode(ao.substring(aa,V));ah.insertBefore(an,ar.nextSibling)}}Z=aa;if(Z>=V){ak+=2}if(Z>=at){ad+=2}}}finally{if(av){av.style.display=al}}}var t={};function c(X,Y){for(var V=Y.length;--V>=0;){var W=Y[V];if(!t.hasOwnProperty(W)){t[W]=X}else{if(P.console){console.warn("cannot override language handler %s",W)}}}}function q(W,V){if(!(W&&t.hasOwnProperty(W))){W=/^\s*</.test(V)?"default-markup":"default-code"}return t[W]}c(M,["default-code"]);c(f([],[[H,/^[^<?]+/],[G,/^<!\w[^>]*(?:>|$)/],[j,/^<\!--[\s\S]*?(?:-\->|$)/],["lang-",/^<\?([\s\S]+?)(?:\?>|$)/],["lang-",/^<%([\s\S]+?)(?:%>|$)/],[N,/^(?:<[%?]|[%?]>)/],["lang-",/^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i],["lang-js",/^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i],["lang-css",/^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i],["lang-in.tag",/^(<\/?[a-z][^<>]*>)/i]]),["default-markup","htm","html","mxml","xhtml","xml","xsl"]);c(f([[H,/^[\s]+/,null," \t\r\n"],[n,/^(?:\"[^\"]*\"?|\'[^\']*\'?)/,null,"\"'"]],[[m,/^^<\/?[a-z](?:[\w.:-]*\w)?|\/?>$/i],[S,/^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i],["lang-uq.val",/^=\s*([^>\'\"\s]*(?:[^>\'\"\s\/]|\/(?=\s)))/],[N,/^[=<>\/]+/],["lang-js",/^on\w+\s*=\s*\"([^\"]+)\"/i],["lang-js",/^on\w+\s*=\s*\'([^\']+)\'/i],["lang-js",/^on\w+\s*=\s*([^\"\'>\s]+)/i],["lang-css",/^style\s*=\s*\"([^\"]+)\"/i],["lang-css",/^style\s*=\s*\'([^\']+)\'/i],["lang-css",/^style\s*=\s*([^\"\'>\s]+)/i]]),["in.tag"]);c(f([],[[n,/^[\s\S]+/]]),["uq.val"]);c(h({keywords:l,hashComments:true,cStyleComments:true,types:e}),["c","cc","cpp","cxx","cyc","m"]);c(h({keywords:"null,true,false"}),["json"]);c(h({keywords:U,hashComments:true,cStyleComments:true,verbatimStrings:true,types:e}),["cs"]);c(h({keywords:y,cStyleComments:true}),["java"]);c(h({keywords:J,hashComments:true,multiLineStrings:true}),["bash","bsh","csh","sh"]);c(h({keywords:K,hashComments:true,multiLineStrings:true,tripleQuotedStrings:true}),["cv","py","python"]);c(h({keywords:s,hashComments:true,multiLineStrings:true,regexLiterals:2}),["perl","pl","pm"]);c(h({keywords:g,hashComments:true,multiLineStrings:true,regexLiterals:true}),["rb","ruby"]);c(h({keywords:x,cStyleComments:true,regexLiterals:true}),["javascript","js"]);c(h({keywords:r,hashComments:3,cStyleComments:true,multilineStrings:true,tripleQuotedStrings:true,regexLiterals:true}),["coffee"]);c(h({keywords:z,cStyleComments:true,multilineStrings:true}),["rc","rs","rust"]);c(f([],[[E,/^[\s\S]+/]]),["regex"]);function d(Y){var X=Y.langExtension;try{var V=b(Y.sourceNode,Y.pre);var W=V.sourceCode;Y.sourceCode=W;Y.spans=V.spans;Y.basePos=0;q(X,W)(Y);F(Y)}catch(Z){if(P.console){console.log(Z&&Z.stack||Z)}}}function A(Z,Y,X){var V=document.createElement("div");V.innerHTML="<pre>"+Z+"</pre>";V=V.firstChild;if(X){T(V,X,true)}var W={langExtension:Y,numberLines:X,sourceNode:V,pre:1};d(W);return V.innerHTML}function w(al,ab){var ah=ab||document.body;var ao=ah.ownerDocument||document;function aa(aq){return ah.getElementsByTagName(aq)}var ad=[aa("pre"),aa("code"),aa("xmp")];var ae=[];for(var ak=0;ak<ad.length;++ak){for(var aj=0,ag=ad[ak].length;aj<ag;++aj){ae.push(ad[ak][aj])}}ad=null;var ap=Date;if(!ap.now){ap={now:function(){return +(new Date)}}}var ai=0;var ac;var X=/\blang(?:uage)?-([\w.]+)(?!\S)/;var an=/\bprettyprint\b/;var W=/\bprettyprinted\b/;var Z=/pre|xmp/i;var V=/^code$/i;var Y=/^(?:pre|code|xmp)$/i;var am={};function af(){var ay=(P.PR_SHOULD_USE_CONTINUATION?ap.now()+250:Infinity);for(;ai<ae.length&&ap.now()<ay;ai++){var aA=ae[ai];var aH=am;for(var ax=aA;(ax=ax.previousSibling);){var aE=ax.nodeType;var aF=(aE===7||aE===8)&&ax.nodeValue;if(aF?!/^\??prettify\b/.test(aF):(aE!==3||/\S/.test(ax.nodeValue))){break}if(aF){aH={};aF.replace(/\b(\w+)=([\w:.%+-]+)/g,function(aJ,aI,aK){aH[aI]=aK});break}}var aB=aA.className;if((aH!==am||an.test(aB))&&!W.test(aB)){var aD=false;for(var au=aA.parentNode;au;au=au.parentNode){var aG=au.tagName;if(Y.test(aG)&&au.className&&an.test(au.className)){aD=true;break}}if(!aD){aA.className+=" prettyprinted";var aw=aH.lang;if(!aw){aw=aB.match(X);var ar;if(!aw&&(ar=o(aA))&&V.test(ar.tagName)){aw=ar.className.match(X)}if(aw){aw=aw[1]}}var av;if(Z.test(aA.tagName)){av=1}else{var at=aA.currentStyle;var az=ao.defaultView;var aq=(at?at.whiteSpace:(az&&az.getComputedStyle)?az.getComputedStyle(aA,null).getPropertyValue("white-space"):0);av=aq&&"pre"===aq.substring(0,3)}var aC=aH.linenums;if(!(aC=aC==="true"||+aC)){aC=aB.match(/\blinenums\b(?::(\d+))?/);aC=aC?aC[1]&&aC[1].length?+aC[1]:true:false}if(aC){T(aA,aC,av)}ac={langExtension:aw,sourceNode:aA,numberLines:aC,pre:av};d(ac)}}}if(ai<ae.length){setTimeout(af,250)}else{if("function"===typeof al){al()}}}af()}var a=P.PR={createSimpleLexer:f,registerLangHandler:c,sourceDecorator:h,PR_ATTRIB_NAME:S,PR_ATTRIB_VALUE:n,PR_COMMENT:j,PR_DECLARATION:G,PR_KEYWORD:B,PR_LITERAL:I,PR_NOCODE:Q,PR_PLAIN:H,PR_PUNCTUATION:N,PR_SOURCE:L,PR_STRING:E,PR_TAG:m,PR_TYPE:R,prettyPrintOne:IN_GLOBAL_SCOPE?(P.prettyPrintOne=A):(prettyPrintOne=A),prettyPrint:prettyPrint=IN_GLOBAL_SCOPE?(P.prettyPrint=w):(prettyPrint=w)};if(typeof define==="function"&&define.amd){define("google-code-prettify",[],function(){return a})}})();
+(function() {
+	function addClass(el, cn) {
+		var c0 = (" " + el.className + " ").replace(/\s+/g, " "),
+			c1 = (" " + cn + " ").replace(/\s+/g, " ");
+		if (c0.indexOf(c1) < 0) {
+			el.className = (c0 + c1).replace(/\s+/g, " ").replace(/^ | $/g, "");
+		}
+	}
+	function delClass(el, cn) {
+		var c0 = (" " + el.className + " ").replace(/\s+/g, " "),
+			c1 = (" " + cn + " ").replace(/\s+/g, " ");
+		if (c0.indexOf(c1) >= 0) {
+			el.className = c0.replace(c1, " ").replace(/\s+/g, " ").replace(/^ | $/g, "");
+		}
+	}
+	function loadXHR(url, fn) {
+		var xhr = new XMLHttpRequest();
+		if (fn) {
+			xhr.onreadystatechange = function() {
+				if (this.readyState === 4) {
+					if (this.status === 200) {
+						fn.call(this);
+					}
+				}
+			};
+		}
+		xhr.open("GET", url, true);
+		xhr.send();
+	}
+	function addEvent(el, on, fn) {
+		if (el.addEventListener) {
+			el.addEventListener(on, fn, false);
+		} else if (el.attachEvent) {
+			el.attachEvent("on" + on, fn);
+		}
+	}
+	function init() {
+		var div_demoengine, a_output, a_source, a_popout, div_source;
+		div_demoengine = document.createElement("div");
+		div_demoengine.id = "demoengine";
+		document.body.insertBefore(div_demoengine, document.body.firstChild);
+		a_output = document.createElement("a");
+		a_output.className = "corner-l active";
+		a_output.href = "#";
+		a_output.innerHTML = "Output";
+		a_output.onclick = function() {
+			delClass(document.body, "active");
+			addClass(a_output, "active");
+			delClass(a_source, "active");
+			delClass(div_source, "active");
+			return false;
+		};
+		div_demoengine.appendChild(a_output);
+		a_source = document.createElement("a");
+		a_source.className = "corner-r";
+		a_source.href = "#";
+		a_source.innerHTML = "Source";
+		a_source.onclick = function() {
+			addClass(document.body, "active");
+			delClass(a_output, "active");
+			addClass(a_source, "active");
+			addClass(div_source, "active");
+			return false;
+		};
+		div_demoengine.appendChild(a_source);
+		if (top !== self) {
+			a_popout = document.createElement("a");
+			a_popout.className = "corner-l corner-r";
+			a_popout.href = window.location.href;
+			a_popout.target = "_blank";
+			a_popout.innerHTML = "Open in new window";
+			div_demoengine.appendChild(a_popout);
+		}
+		div_source = document.createElement("div");
+		div_demoengine.appendChild(div_source);
+		loadXHR(window.location.href, function() {
+			div_source.innerHTML = "<PRE class=prettyprint>" + this.responseText.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") + "</PRE>";
+			prettyPrint();
+		});
+	}
+	if (document.readyState === "complete") {
+		init();
+	} else {
+		addEvent(window, "load", init);
+	}
+})();
+/* prettify.js */
+var IN_GLOBAL_SCOPE = true;
+window.PR_SHOULD_USE_CONTINUATION = true;
+var prettyPrintOne;
+var prettyPrint;
+(function() {
+	var win = window;
+	var FLOW_CONTROL_KEYWORDS = ["break,continue,do,else,for,if,return,while"];
+	var C_KEYWORDS = [FLOW_CONTROL_KEYWORDS, "auto,case,char,const,default,double,enum,extern,float,goto,inline,int,long,register,short,signed,sizeof,static,struct,switch,typedef,union,unsigned,void,volatile"];
+	var COMMON_KEYWORDS = [C_KEYWORDS, "catch,class,delete,false,import,new,operator,private,protected,public,this,throw,true,try,typeof"];
+	var CPP_KEYWORDS = [COMMON_KEYWORDS, "alignof,align_union,asm,axiom,bool,concept,concept_map,const_cast,constexpr,decltype,delegate,dynamic_cast,explicit,export,friend,generic,late_check,mutable,namespace,nullptr,property,reinterpret_cast,static_assert,static_cast,template,typeid,typename,using,virtual,where"];
+	var JAVA_KEYWORDS = [COMMON_KEYWORDS, "abstract,assert,boolean,byte,extends,final,finally,implements,import,instanceof,interface,null,native,package,strictfp,super,synchronized,throws,transient"];
+	var CSHARP_KEYWORDS = [JAVA_KEYWORDS, "as,base,by,checked,decimal,delegate,descending,dynamic,event,fixed,foreach,from,group,implicit,in,internal,into,is,let,lock,object,out,override,orderby,params,partial,readonly,ref,sbyte,sealed,stackalloc,string,select,uint,ulong,unchecked,unsafe,ushort,var,virtual,where"];
+	var COFFEE_KEYWORDS = "all,and,by,catch,class,else,extends,false,finally,for,if,in,is,isnt,loop,new,no,not,null,of,off,on,or,return,super,then,throw,true,try,unless,until,when,while,yes";
+	var JSCRIPT_KEYWORDS = [COMMON_KEYWORDS, "debugger,eval,export,function,get,null,set,undefined,var,with,Infinity,NaN"];
+	var PERL_KEYWORDS = "caller,delete,die,do,dump,elsif,eval,exit,foreach,for,goto,if,import,last,local,my,next,no,our,print,package,redo,require,sub,undef,unless,until,use,wantarray,while,BEGIN,END";
+	var PYTHON_KEYWORDS = [FLOW_CONTROL_KEYWORDS, "and,as,assert,class,def,del,elif,except,exec,finally,from,global,import,in,is,lambda,nonlocal,not,or,pass,print,raise,try,with,yield,False,True,None"];
+	var RUBY_KEYWORDS = [FLOW_CONTROL_KEYWORDS, "alias,and,begin,case,class,def,defined,elsif,end,ensure,false,in,module,next,nil,not,or,redo,rescue,retry,self,super,then,true,undef,unless,until,when,yield,BEGIN,END"];
+	var RUST_KEYWORDS = [FLOW_CONTROL_KEYWORDS, "as,assert,const,copy,drop,enum,extern,fail,false,fn,impl,let,log,loop,match,mod,move,mut,priv,pub,pure,ref,self,static,struct,true,trait,type,unsafe,use"];
+	var SH_KEYWORDS = [FLOW_CONTROL_KEYWORDS, "case,done,elif,esac,eval,fi,function,in,local,set,then,until"];
+	var ALL_KEYWORDS = [CPP_KEYWORDS, CSHARP_KEYWORDS, JSCRIPT_KEYWORDS, PERL_KEYWORDS, PYTHON_KEYWORDS, RUBY_KEYWORDS, SH_KEYWORDS];
+	var C_TYPES = /^(DIR|FILE|vector|(de|priority_)?queue|list|stack|(const_)?iterator|(multi)?(set|map)|bitset|u?(int|float)\d*)\b/;
+	var PR_STRING = "str";
+	var PR_KEYWORD = "kwd";
+	var PR_COMMENT = "com";
+	var PR_TYPE = "typ";
+	var PR_LITERAL = "lit";
+	var PR_PUNCTUATION = "pun";
+	var PR_PLAIN = "pln";
+	var PR_TAG = "tag";
+	var PR_DECLARATION = "dec";
+	var PR_SOURCE = "src";
+	var PR_ATTRIB_NAME = "atn";
+	var PR_ATTRIB_VALUE = "atv";
+	var PR_NOCODE = "nocode";
+	var REGEXP_PRECEDER_PATTERN = "(?:^^\\.?|[+-]|[!=]=?=?|\\#|%=?|&&?=?|\\(|\\*=?|[+\\-]=|->|\\/=?|::?|<<?=?|>>?>?=?|,|;|\\?|@|\\[|~|{|\\^\\^?=?|\\|\\|?=?|break|case|continue|delete|do|else|finally|instanceof|return|throw|try|typeof)\\s*";
+	function combinePrefixPatterns(regexs) {
+		var capturedGroupIndex = 0;
+		var needToFoldCase = false;
+		var ignoreCase = false;
+		for (var i = 0, n = regexs.length; i < n; ++i) {
+			var regex = regexs[i];
+			if (regex.ignoreCase) {
+				ignoreCase = true;
+			} else {
+				if (/[a-z]/i.test(regex.source.replace(/\\u[0-9a-f]{4}|\\x[0-9a-f]{2}|\\[^ux]/gi, ""))) {
+					needToFoldCase = true;
+					ignoreCase = false;
+					break;
+				}
+			}
+		}
+		var escapeCharToCodeUnit = {
+			b: 8,
+			t: 9,
+			n: 10,
+			v: 11,
+			f: 12,
+			r: 13
+		};
+		function decodeEscape(charsetPart) {
+			var cc0 = charsetPart.charCodeAt(0);
+			if (cc0 !== 92) {
+				return cc0;
+			}
+			var c1 = charsetPart.charAt(1);
+			cc0 = escapeCharToCodeUnit[c1];
+			if (cc0) {
+				return cc0;
+			} else {
+				if ("0" <= c1 && c1 <= "7") {
+					return parseInt(charsetPart.substring(1), 8);
+				} else {
+					if (c1 === "u" || c1 === "x") {
+						return parseInt(charsetPart.substring(2), 16);
+					} else {
+						return charsetPart.charCodeAt(1);
+					}
+				}
+			}
+		}
+		function encodeEscape(charCode) {
+			if (charCode < 32) {
+				return (charCode < 16 ? "\\x0" : "\\x") + charCode.toString(16);
+			}
+			var ch = String.fromCharCode(charCode);
+			return (ch === "\\" || ch === "-" || ch === "]" || ch === "^") ? "\\" + ch : ch;
+		}
+		function caseFoldCharset(charSet) {
+			var charsetParts = charSet.substring(1, charSet.length - 1).match(new RegExp("\\\\u[0-9A-Fa-f]{4}|\\\\x[0-9A-Fa-f]{2}|\\\\[0-3][0-7]{0,2}|\\\\[0-7]{1,2}|\\\\[\\s\\S]|-|[^-\\\\]", "g"));
+			var ranges = [];
+			var inverse = charsetParts[0] === "^";
+			var out = ["["];
+			if (inverse) {
+				out.push("^");
+			}
+			for (var i = inverse ? 1 : 0, n = charsetParts.length; i < n; ++i) {
+				var p = charsetParts[i];
+				if (/\\[bdsw]/i.test(p)) {
+					out.push(p);
+				} else {
+					var start = decodeEscape(p);
+					var end;
+					if (i + 2 < n && "-" === charsetParts[i + 1]) {
+						end = decodeEscape(charsetParts[i + 2]);
+						i += 2;
+					} else {
+						end = start;
+					}
+					ranges.push([start, end]);
+					if (!(end < 65 || start > 122)) {
+						if (!(end < 65 || start > 90)) {
+							ranges.push([Math.max(65, start) | 32, Math.min(end, 90) | 32]);
+						}
+						if (!(end < 97 || start > 122)) {
+							ranges.push([Math.max(97, start) & ~32, Math.min(end, 122) & ~32]);
+						}
+					}
+				}
+			}
+			ranges.sort(function(a, b) {
+				return (a[0] - b[0]) || (b[1] - a[1]);
+			});
+			var consolidatedRanges = [];
+			var lastRange = [];
+			for (var i = 0; i < ranges.length; ++i) {
+				var range = ranges[i];
+				if (range[0] <= lastRange[1] + 1) {
+					lastRange[1] = Math.max(lastRange[1], range[1]);
+				} else {
+					consolidatedRanges.push(lastRange = range);
+				}
+			}
+			for (var i = 0; i < consolidatedRanges.length; ++i) {
+				var range = consolidatedRanges[i];
+				out.push(encodeEscape(range[0]));
+				if (range[1] > range[0]) {
+					if (range[1] + 1 > range[0]) {
+						out.push("-");
+					}
+					out.push(encodeEscape(range[1]));
+				}
+			}
+			out.push("]");
+			return out.join("");
+		}
+		function allowAnywhereFoldCaseAndRenumberGroups(regex) {
+			var parts = regex.source.match(new RegExp("(?:\\[(?:[^\\x5C\\x5D]|\\\\[\\s\\S])*\\]|\\\\u[A-Fa-f0-9]{4}|\\\\x[A-Fa-f0-9]{2}|\\\\[0-9]+|\\\\[^ux0-9]|\\(\\?[:!=]|[\\(\\)\\^]|[^\\x5B\\x5C\\(\\)\\^]+)", "g"));
+			var n = parts.length;
+			var capturedGroups = [];
+			for (var i = 0, groupIndex = 0; i < n; ++i) {
+				var p = parts[i];
+				if (p === "(") {
+					++groupIndex;
+				} else {
+					if ("\\" === p.charAt(0)) {
+						var decimalValue = +p.substring(1);
+						if (decimalValue) {
+							if (decimalValue <= groupIndex) {
+								capturedGroups[decimalValue] = -1;
+							} else {
+								parts[i] = encodeEscape(decimalValue);
+							}
+						}
+					}
+				}
+			}
+			for (var i = 1; i < capturedGroups.length; ++i) {
+				if (-1 === capturedGroups[i]) {
+					capturedGroups[i] = ++capturedGroupIndex;
+				}
+			}
+			for (var i = 0, groupIndex = 0; i < n; ++i) {
+				var p = parts[i];
+				if (p === "(") {
+					++groupIndex;
+					if (!capturedGroups[groupIndex]) {
+						parts[i] = "(?:";
+					}
+				} else {
+					if ("\\" === p.charAt(0)) {
+						var decimalValue = +p.substring(1);
+						if (decimalValue && decimalValue <= groupIndex) {
+							parts[i] = "\\" + capturedGroups[decimalValue];
+						}
+					}
+				}
+			}
+			for (var i = 0; i < n; ++i) {
+				if ("^" === parts[i] && "^" !== parts[i + 1]) {
+					parts[i] = "";
+				}
+			}
+			if (regex.ignoreCase && needToFoldCase) {
+				for (var i = 0; i < n; ++i) {
+					var p = parts[i];
+					var ch0 = p.charAt(0);
+					if (p.length >= 2 && ch0 === "[") {
+						parts[i] = caseFoldCharset(p);
+					} else {
+						if (ch0 !== "\\") {
+							parts[i] = p.replace(/[a-zA-Z]/g, function(ch) {
+								var cc = ch.charCodeAt(0);
+								return "[" + String.fromCharCode(cc & ~32, cc | 32) + "]";
+							});
+						}
+					}
+				}
+			}
+			return parts.join("");
+		}
+		var rewritten = [];
+		for (var i = 0, n = regexs.length; i < n; ++i) {
+			var regex = regexs[i];
+			if (regex.global || regex.multiline) {
+				throw new Error("" + regex);
+			}
+			rewritten.push("(?:" + allowAnywhereFoldCaseAndRenumberGroups(regex) + ")");
+		}
+		return new RegExp(rewritten.join("|"), ignoreCase ? "gi" : "g");
+	}
+	function extractSourceSpans(node, isPreformatted) {
+		var nocode = /(?:^|\s)nocode(?:\s|$)/;
+		var chunks = [];
+		var length = 0;
+		var spans = [];
+		var k = 0;
+		function walk(node) {
+			var type = node.nodeType;
+			if (type == 1) {
+				if (nocode.test(node.className)) {
+					return;
+				}
+				for (var child = node.firstChild; child; child = child.nextSibling) {
+					walk(child);
+				}
+				var nodeName = node.nodeName.toLowerCase();
+				if ("br" === nodeName || "li" === nodeName) {
+					chunks[k] = "\n";
+					spans[k << 1] = length++;
+					spans[(k++ << 1) | 1] = node;
+				}
+			} else {
+				if (type == 3 || type == 4) {
+					var text = node.nodeValue;
+					if (text.length) {
+						if (!isPreformatted) {
+							text = text.replace(/[ \t\r\n]+/g, " ");
+						} else {
+							text = text.replace(/\r\n?/g, "\n");
+						}
+						chunks[k] = text;
+						spans[k << 1] = length;
+						length += text.length;
+						spans[(k++ << 1) | 1] = node;
+					}
+				}
+			}
+		}
+		walk(node);
+		return {
+			sourceCode: chunks.join("").replace(/\n$/, ""),
+			spans: spans
+		};
+	}
+	function appendDecorations(basePos, sourceCode, langHandler, out) {
+		if (!sourceCode) {
+			return;
+		}
+		var job = {
+			sourceCode: sourceCode,
+			basePos: basePos
+		};
+		langHandler(job);
+		out.push.apply(out, job.decorations);
+	}
+	var notWs = /\S/;
+	function childContentWrapper(element) {
+		var wrapper = undefined;
+		for (var c = element.firstChild; c; c = c.nextSibling) {
+			var type = c.nodeType;
+			wrapper = (type === 1) ? (wrapper ? element : c) : (type === 3) ? (notWs.test(c.nodeValue) ? element : wrapper) : wrapper;
+		}
+		return wrapper === element ? undefined : wrapper;
+	}
+	function createSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns) {
+		var shortcuts = {};
+		var tokenizer;
+		(function() {
+			var allPatterns = shortcutStylePatterns.concat(fallthroughStylePatterns);
+			var allRegexs = [];
+			var regexKeys = {};
+			for (var i = 0, n = allPatterns.length; i < n; ++i) {
+				var patternParts = allPatterns[i];
+				var shortcutChars = patternParts[3];
+				if (shortcutChars) {
+					for (var c = shortcutChars.length; --c >= 0; ) {
+						shortcuts[shortcutChars.charAt(c)] = patternParts;
+					}
+				}
+				var regex = patternParts[1];
+				var k = "" + regex;
+				if (!regexKeys.hasOwnProperty(k)) {
+					allRegexs.push(regex);
+					regexKeys[k] = null;
+				}
+			}
+			allRegexs.push(/[\0-\uffff]/);
+			tokenizer = combinePrefixPatterns(allRegexs);
+		})();
+		var nPatterns = fallthroughStylePatterns.length;
+		var decorate = function(job) {
+			var sourceCode = job.sourceCode,
+				basePos = job.basePos;
+			var decorations = [basePos, PR_PLAIN];
+			var pos = 0;
+			var tokens = sourceCode.match(tokenizer) || [];
+			var styleCache = {};
+			for (var ti = 0, nTokens = tokens.length; ti < nTokens; ++ti) {
+				var token = tokens[ti];
+				var style = styleCache[token];
+				var match = void 0;
+				var isEmbedded;
+				if (typeof style === "string") {
+					isEmbedded = false;
+				} else {
+					var patternParts = shortcuts[token.charAt(0)];
+					if (patternParts) {
+						match = token.match(patternParts[1]);
+						style = patternParts[0];
+					} else {
+						for (var i = 0; i < nPatterns; ++i) {
+							patternParts = fallthroughStylePatterns[i];
+							match = token.match(patternParts[1]);
+							if (match) {
+								style = patternParts[0];
+								break;
+							}
+						}
+						if (!match) {
+							style = PR_PLAIN;
+						}
+					}
+					isEmbedded = style.length >= 5 && "lang-" === style.substring(0, 5);
+					if (isEmbedded && !(match && typeof match[1] === "string")) {
+						isEmbedded = false;
+						style = PR_SOURCE;
+					}
+					if (!isEmbedded) {
+						styleCache[token] = style;
+					}
+				}
+				var tokenStart = pos;
+				pos += token.length;
+				if (!isEmbedded) {
+					decorations.push(basePos + tokenStart, style);
+				} else {
+					var embeddedSource = match[1];
+					var embeddedSourceStart = token.indexOf(embeddedSource);
+					var embeddedSourceEnd = embeddedSourceStart + embeddedSource.length;
+					if (match[2]) {
+						embeddedSourceEnd = token.length - match[2].length;
+						embeddedSourceStart = embeddedSourceEnd - embeddedSource.length;
+					}
+					var lang = style.substring(5);
+					appendDecorations(basePos + tokenStart, token.substring(0, embeddedSourceStart), decorate, decorations);
+					appendDecorations(basePos + tokenStart + embeddedSourceStart, embeddedSource, langHandlerForExtension(lang, embeddedSource), decorations);
+					appendDecorations(basePos + tokenStart + embeddedSourceEnd, token.substring(embeddedSourceEnd), decorate, decorations);
+				}
+			}
+			job.decorations = decorations;
+		};
+		return decorate;
+	}
+	function sourceDecorator(options) {
+		var shortcutStylePatterns = [],
+			fallthroughStylePatterns = [];
+		if (options.tripleQuotedStrings) {
+			shortcutStylePatterns.push([PR_STRING, /^(?:\'\'\'(?:[^\'\\]|\\[\s\S]|\'{1,2}(?=[^\']))*(?:\'\'\'|$)|\"\"\"(?:[^\"\\]|\\[\s\S]|\"{1,2}(?=[^\"]))*(?:\"\"\"|$)|\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$))/, null, "'\""]);
+		} else {
+			if (options.multiLineStrings) {
+				shortcutStylePatterns.push([PR_STRING, /^(?:\'(?:[^\\\']|\\[\s\S])*(?:\'|$)|\"(?:[^\\\"]|\\[\s\S])*(?:\"|$)|\`(?:[^\\\`]|\\[\s\S])*(?:\`|$))/, null, "'\"`"]);
+			} else {
+				shortcutStylePatterns.push([PR_STRING, /^(?:\'(?:[^\\\'\r\n]|\\.)*(?:\'|$)|\"(?:[^\\\"\r\n]|\\.)*(?:\"|$))/, null, "\"'"]);
+			}
+		} if (options.verbatimStrings) {
+			fallthroughStylePatterns.push([PR_STRING, /^@\"(?:[^\"]|\"\")*(?:\"|$)/, null]);
+		}
+		var hc = options.hashComments;
+		if (hc) {
+			if (options.cStyleComments) {
+				if (hc > 1) {
+					shortcutStylePatterns.push([PR_COMMENT, /^#(?:##(?:[^#]|#(?!##))*(?:###|$)|.*)/, null, "#"]);
+				} else {
+					shortcutStylePatterns.push([PR_COMMENT, /^#(?:(?:define|e(?:l|nd)if|else|error|ifn?def|include|line|pragma|undef|warning)\b|[^\r\n]*)/, null, "#"]);
+				}
+				fallthroughStylePatterns.push([PR_STRING, /^<(?:(?:(?:\.\.\/)*|\/?)(?:[\w-]+(?:\/[\w-]+)+)?[\w-]+\.h(?:h|pp|\+\+)?|[a-z]\w*)>/, null]);
+			} else {
+				shortcutStylePatterns.push([PR_COMMENT, /^#[^\r\n]*/, null, "#"]);
+			}
+		}
+		if (options.cStyleComments) {
+			fallthroughStylePatterns.push([PR_COMMENT, /^\/\/[^\r\n]*/, null]);
+			fallthroughStylePatterns.push([PR_COMMENT, /^\/\*[\s\S]*?(?:\*\/|$)/, null]);
+		}
+		var regexLiterals = options.regexLiterals;
+		if (regexLiterals) {
+			var regexExcls = regexLiterals > 1 ? "" : "\n\r";
+			var regexAny = regexExcls ? "." : "[\\S\\s]";
+			var REGEX_LITERAL = ("/(?=[^/*" + regexExcls + "])(?:[^/\\x5B\\x5C" + regexExcls + "]|\\x5C" + regexAny + "|\\x5B(?:[^\\x5C\\x5D" + regexExcls + "]|\\x5C" + regexAny + ")*(?:\\x5D|$))+/");
+			fallthroughStylePatterns.push(["lang-regex", RegExp("^" + REGEXP_PRECEDER_PATTERN + "(" + REGEX_LITERAL + ")")]);
+		}
+		var types = options.types;
+		if (types) {
+			fallthroughStylePatterns.push([PR_TYPE, types]);
+		}
+		var keywords = ("" + options.keywords).replace(/^ | $/g, "");
+		if (keywords.length) {
+			fallthroughStylePatterns.push([PR_KEYWORD, new RegExp("^(?:" + keywords.replace(/[\s,]+/g, "|") + ")\\b"), null]);
+		}
+		shortcutStylePatterns.push([PR_PLAIN, /^\s+/, null, " \r\n\t\xA0"]);
+		var punctuation = "^.[^\\s\\w.$@'\"`/\\\\]*";
+		if (options.regexLiterals) {
+			punctuation += "(?!s*/)";
+		}
+		fallthroughStylePatterns.push([PR_LITERAL, /^@[a-z_$][a-z_$@0-9]*/i, null], [PR_TYPE, /^(?:[@_]?[A-Z]+[a-z][A-Za-z_$@0-9]*|\w+_t\b)/, null], [PR_PLAIN, /^[a-z_$][a-z_$@0-9]*/i, null], [PR_LITERAL, new RegExp("^(?:0x[a-f0-9]+|(?:\\d(?:_\\d+)*\\d*(?:\\.\\d*)?|\\.\\d\\+)(?:e[+\\-]?\\d+)?)[a-z]*", "i"), null, "0123456789"], [PR_PLAIN, /^\\[\s\S]?/, null], [PR_PUNCTUATION, new RegExp(punctuation), null]);
+		return createSimpleLexer(shortcutStylePatterns, fallthroughStylePatterns);
+	}
+	var decorateSource = sourceDecorator({
+		keywords: ALL_KEYWORDS,
+		hashComments: true,
+		cStyleComments: true,
+		multiLineStrings: true,
+		regexLiterals: true
+	});
+	function numberLines(node, opt_startLineNum, isPreformatted) {
+		var nocode = /(?:^|\s)nocode(?:\s|$)/;
+		var lineBreak = /\r\n?|\n/;
+		var document = node.ownerDocument;
+		var li = document.createElement("li");
+		while (node.firstChild) {
+			li.appendChild(node.firstChild);
+		}
+		var listItems = [li];
+		function walk(node) {
+			var type = node.nodeType;
+			if (type == 1 && !nocode.test(node.className)) {
+				if ("br" === node.nodeName) {
+					breakAfter(node);
+					if (node.parentNode) {
+						node.parentNode.removeChild(node);
+					}
+				} else {
+					for (var child = node.firstChild; child; child = child.nextSibling) {
+						walk(child);
+					}
+				}
+			} else {
+				if ((type == 3 || type == 4) && isPreformatted) {
+					var text = node.nodeValue;
+					var match = text.match(lineBreak);
+					if (match) {
+						var firstLine = text.substring(0, match.index);
+						node.nodeValue = firstLine;
+						var tail = text.substring(match.index + match[0].length);
+						if (tail) {
+							var parent = node.parentNode;
+							parent.insertBefore(document.createTextNode(tail), node.nextSibling);
+						}
+						breakAfter(node);
+						if (!firstLine) {
+							node.parentNode.removeChild(node);
+						}
+					}
+				}
+			}
+		}
+		function breakAfter(lineEndNode) {
+			while (!lineEndNode.nextSibling) {
+				lineEndNode = lineEndNode.parentNode;
+				if (!lineEndNode) {
+					return;
+				}
+			}
+			function breakLeftOf(limit, copy) {
+				var rightSide = copy ? limit.cloneNode(false) : limit;
+				var parent = limit.parentNode;
+				if (parent) {
+					var parentClone = breakLeftOf(parent, 1);
+					var next = limit.nextSibling;
+					parentClone.appendChild(rightSide);
+					for (var sibling = next; sibling; sibling = next) {
+						next = sibling.nextSibling;
+						parentClone.appendChild(sibling);
+					}
+				}
+				return rightSide;
+			}
+			var copiedListItem = breakLeftOf(lineEndNode.nextSibling, 0);
+			for (var parent;
+				(parent = copiedListItem.parentNode) && parent.nodeType === 1; ) {
+				copiedListItem = parent;
+			}
+			listItems.push(copiedListItem);
+		}
+		for (var i = 0; i < listItems.length; ++i) {
+			walk(listItems[i]);
+		}
+		if (opt_startLineNum === (opt_startLineNum | 0)) {
+			listItems[0].setAttribute("value", opt_startLineNum);
+		}
+		var ol = document.createElement("ol");
+		ol.className = "linenums";
+		var offset = Math.max(0, ((opt_startLineNum - 1)) | 0) || 0;
+		for (var i = 0, n = listItems.length; i < n; ++i) {
+			li = listItems[i];
+			li.className = "L" + ((i + offset) % 10);
+			if (!li.firstChild) {
+				li.appendChild(document.createTextNode("\xA0"));
+			}
+			ol.appendChild(li);
+		}
+		node.appendChild(ol);
+	}
+	function recombineTagsAndDecorations(job) {
+		var isIE8OrEarlier = /\bMSIE\s(\d+)/.exec(navigator.userAgent);
+		isIE8OrEarlier = isIE8OrEarlier && +isIE8OrEarlier[1] <= 8;
+		var newlineRe = /\n/g;
+		var source = job.sourceCode;
+		var sourceLength = source.length;
+		var sourceIndex = 0;
+		var spans = job.spans;
+		var nSpans = spans.length;
+		var spanIndex = 0;
+		var decorations = job.decorations;
+		var nDecorations = decorations.length;
+		var decorationIndex = 0;
+		decorations[nDecorations] = sourceLength;
+		var decPos, i;
+		for (i = decPos = 0; i < nDecorations; ) {
+			if (decorations[i] !== decorations[i + 2]) {
+				decorations[decPos++] = decorations[i++];
+				decorations[decPos++] = decorations[i++];
+			} else {
+				i += 2;
+			}
+		}
+		nDecorations = decPos;
+		for (i = decPos = 0; i < nDecorations; ) {
+			var startPos = decorations[i];
+			var startDec = decorations[i + 1];
+			var end = i + 2;
+			while (end + 2 <= nDecorations && decorations[end + 1] === startDec) {
+				end += 2;
+			}
+			decorations[decPos++] = startPos;
+			decorations[decPos++] = startDec;
+			i = end;
+		}
+		nDecorations = decorations.length = decPos;
+		var sourceNode = job.sourceNode;
+		var oldDisplay;
+		if (sourceNode) {
+			oldDisplay = sourceNode.style.display;
+			sourceNode.style.display = "none";
+		}
+		try {
+			var decoration = null;
+			while (spanIndex < nSpans) {
+				var spanStart = spans[spanIndex];
+				var spanEnd = spans[spanIndex + 2] || sourceLength;
+				var decEnd = decorations[decorationIndex + 2] || sourceLength;
+				var end = Math.min(spanEnd, decEnd);
+				var textNode = spans[spanIndex + 1];
+				var styledText;
+				if (textNode.nodeType !== 1 && (styledText = source.substring(sourceIndex, end))) {
+					if (isIE8OrEarlier) {
+						styledText = styledText.replace(newlineRe, "\r");
+					}
+					textNode.nodeValue = styledText;
+					var document = textNode.ownerDocument;
+					var span = document.createElement("span");
+					span.className = decorations[decorationIndex + 1];
+					var parentNode = textNode.parentNode;
+					parentNode.replaceChild(span, textNode);
+					span.appendChild(textNode);
+					if (sourceIndex < spanEnd) {
+						spans[spanIndex + 1] = textNode = document.createTextNode(source.substring(end, spanEnd));
+						parentNode.insertBefore(textNode, span.nextSibling);
+					}
+				}
+				sourceIndex = end;
+				if (sourceIndex >= spanEnd) {
+					spanIndex += 2;
+				}
+				if (sourceIndex >= decEnd) {
+					decorationIndex += 2;
+				}
+			}
+		} finally {
+			if (sourceNode) {
+				sourceNode.style.display = oldDisplay;
+			}
+		}
+	}
+	var langHandlerRegistry = {};
+	function registerLangHandler(handler, fileExtensions) {
+		for (var i = fileExtensions.length; --i >= 0; ) {
+			var ext = fileExtensions[i];
+			if (!langHandlerRegistry.hasOwnProperty(ext)) {
+				langHandlerRegistry[ext] = handler;
+			} else {
+				if (win.console) {
+					console.warn("cannot override language handler %s", ext);
+				}
+			}
+		}
+	}
+	function langHandlerForExtension(extension, source) {
+		if (!(extension && langHandlerRegistry.hasOwnProperty(extension))) {
+			extension = /^\s*</.test(source) ? "default-markup" : "default-code";
+		}
+		return langHandlerRegistry[extension];
+	}
+	registerLangHandler(decorateSource, ["default-code"]);
+	registerLangHandler(createSimpleLexer([], [
+		[PR_PLAIN, /^[^<?]+/],
+		[PR_DECLARATION, /^<!\w[^>]*(?:>|$)/],
+		[PR_COMMENT, /^<\!--[\s\S]*?(?:-\->|$)/],
+		["lang-", /^<\?([\s\S]+?)(?:\?>|$)/],
+		["lang-", /^<%([\s\S]+?)(?:%>|$)/],
+		[PR_PUNCTUATION, /^(?:<[%?]|[%?]>)/],
+		["lang-", /^<xmp\b[^>]*>([\s\S]+?)<\/xmp\b[^>]*>/i],
+		["lang-js", /^<script\b[^>]*>([\s\S]*?)(<\/script\b[^>]*>)/i],
+		["lang-css", /^<style\b[^>]*>([\s\S]*?)(<\/style\b[^>]*>)/i],
+		["lang-in.tag", /^(<\/?[a-z][^<>]*>)/i]
+	]), ["default-markup", "htm", "html", "mxml", "xhtml", "xml", "xsl"]);
+	registerLangHandler(createSimpleLexer([
+		[PR_PLAIN, /^[\s]+/, null, " \t\r\n"],
+		[PR_ATTRIB_VALUE, /^(?:\"[^\"]*\"?|\'[^\']*\'?)/, null, "\"'"]
+	], [
+		[PR_TAG, /^^<\/?[a-z](?:[\w.:-]*\w)?|\/?>$/i],
+		[PR_ATTRIB_NAME, /^(?!style[\s=]|on)[a-z](?:[\w:-]*\w)?/i],
+		["lang-uq.val", /^=\s*([^>\'\"\s]*(?:[^>\'\"\s\/]|\/(?=\s)))/],
+		[PR_PUNCTUATION, /^[=<>\/]+/],
+		["lang-js", /^on\w+\s*=\s*\"([^\"]+)\"/i],
+		["lang-js", /^on\w+\s*=\s*\'([^\']+)\'/i],
+		["lang-js", /^on\w+\s*=\s*([^\"\'>\s]+)/i],
+		["lang-css", /^style\s*=\s*\"([^\"]+)\"/i],
+		["lang-css", /^style\s*=\s*\'([^\']+)\'/i],
+		["lang-css", /^style\s*=\s*([^\"\'>\s]+)/i]
+	]), ["in.tag"]);
+	registerLangHandler(createSimpleLexer([], [
+		[PR_ATTRIB_VALUE, /^[\s\S]+/]
+	]), ["uq.val"]);
+	registerLangHandler(sourceDecorator({
+		keywords: CPP_KEYWORDS,
+		hashComments: true,
+		cStyleComments: true,
+		types: C_TYPES
+	}), ["c", "cc", "cpp", "cxx", "cyc", "m"]);
+	registerLangHandler(sourceDecorator({
+		keywords: "null,true,false"
+	}), ["json"]);
+	registerLangHandler(sourceDecorator({
+		keywords: CSHARP_KEYWORDS,
+		hashComments: true,
+		cStyleComments: true,
+		verbatimStrings: true,
+		types: C_TYPES
+	}), ["cs"]);
+	registerLangHandler(sourceDecorator({
+		keywords: JAVA_KEYWORDS,
+		cStyleComments: true
+	}), ["java"]);
+	registerLangHandler(sourceDecorator({
+		keywords: SH_KEYWORDS,
+		hashComments: true,
+		multiLineStrings: true
+	}), ["bash", "bsh", "csh", "sh"]);
+	registerLangHandler(sourceDecorator({
+		keywords: PYTHON_KEYWORDS,
+		hashComments: true,
+		multiLineStrings: true,
+		tripleQuotedStrings: true
+	}), ["cv", "py", "python"]);
+	registerLangHandler(sourceDecorator({
+		keywords: PERL_KEYWORDS,
+		hashComments: true,
+		multiLineStrings: true,
+		regexLiterals: 2
+	}), ["perl", "pl", "pm"]);
+	registerLangHandler(sourceDecorator({
+		keywords: RUBY_KEYWORDS,
+		hashComments: true,
+		multiLineStrings: true,
+		regexLiterals: true
+	}), ["rb", "ruby"]);
+	registerLangHandler(sourceDecorator({
+		keywords: JSCRIPT_KEYWORDS,
+		cStyleComments: true,
+		regexLiterals: true
+	}), ["javascript", "js"]);
+	registerLangHandler(sourceDecorator({
+		keywords: COFFEE_KEYWORDS,
+		hashComments: 3,
+		cStyleComments: true,
+		multilineStrings: true,
+		tripleQuotedStrings: true,
+		regexLiterals: true
+	}), ["coffee"]);
+	registerLangHandler(sourceDecorator({
+		keywords: RUST_KEYWORDS,
+		cStyleComments: true,
+		multilineStrings: true
+	}), ["rc", "rs", "rust"]);
+	registerLangHandler(createSimpleLexer([], [
+		[PR_STRING, /^[\s\S]+/]
+	]), ["regex"]);
+	function applyDecorator(job) {
+		var opt_langExtension = job.langExtension;
+		try {
+			var sourceAndSpans = extractSourceSpans(job.sourceNode, job.pre);
+			var source = sourceAndSpans.sourceCode;
+			job.sourceCode = source;
+			job.spans = sourceAndSpans.spans;
+			job.basePos = 0;
+			langHandlerForExtension(opt_langExtension, source)(job);
+			recombineTagsAndDecorations(job);
+		} catch (e) {
+			if (win.console) {
+				console.log(e && e.stack || e);
+			}
+		}
+	}
+	function $prettyPrintOne(sourceCodeHtml, opt_langExtension, opt_numberLines) {
+		var container = document.createElement("div");
+		container.innerHTML = "<pre>" + sourceCodeHtml + "</pre>";
+		container = container.firstChild;
+		if (opt_numberLines) {
+			numberLines(container, opt_numberLines, true);
+		}
+		var job = {
+			langExtension: opt_langExtension,
+			numberLines: opt_numberLines,
+			sourceNode: container,
+			pre: 1
+		};
+		applyDecorator(job);
+		return container.innerHTML;
+	}
+	function $prettyPrint(opt_whenDone, opt_root) {
+		var root = opt_root || document.body;
+		var doc = root.ownerDocument || document;
+		function byTagName(tn) {
+			return root.getElementsByTagName(tn);
+		}
+		var codeSegments = [byTagName("pre"), byTagName("code"), byTagName("xmp")];
+		var elements = [];
+		for (var i = 0; i < codeSegments.length; ++i) {
+			for (var j = 0, n = codeSegments[i].length; j < n; ++j) {
+				elements.push(codeSegments[i][j]);
+			}
+		}
+		codeSegments = null;
+		var clock = Date;
+		if (!clock.now) {
+			clock = {
+				now: function() {
+					return +(new Date);
+				}
+			};
+		}
+		var k = 0;
+		var prettyPrintingJob;
+		var langExtensionRe = /\blang(?:uage)?-([\w.]+)(?!\S)/;
+		var prettyPrintRe = /\bprettyprint\b/;
+		var prettyPrintedRe = /\bprettyprinted\b/;
+		var preformattedTagNameRe = /pre|xmp/i;
+		var codeRe = /^code$/i;
+		var preCodeXmpRe = /^(?:pre|code|xmp)$/i;
+		var EMPTY = {};
+		function doWork() {
+			var endTime = (win.PR_SHOULD_USE_CONTINUATION ? clock.now() + 250 : Infinity);
+			for (; k < elements.length && clock.now() < endTime; k++) {
+				var cs = elements[k];
+				var attrs = EMPTY;
+				for (var preceder = cs;
+					(preceder = preceder.previousSibling); ) {
+					var nt = preceder.nodeType;
+					var value = (nt === 7 || nt === 8) && preceder.nodeValue;
+					if (value ? !/^\??prettify\b/.test(value) : (nt !== 3 || /\S/.test(preceder.nodeValue))) {
+						break;
+					}
+					if (value) {
+						attrs = {};
+						value.replace(/\b(\w+)=([\w:.%+-]+)/g, function(_, name, value) {
+							attrs[name] = value;
+						});
+						break;
+					}
+				}
+				var className = cs.className;
+				if ((attrs !== EMPTY || prettyPrintRe.test(className)) && !prettyPrintedRe.test(className)) {
+					var nested = false;
+					for (var p = cs.parentNode; p; p = p.parentNode) {
+						var tn = p.tagName;
+						if (preCodeXmpRe.test(tn) && p.className && prettyPrintRe.test(p.className)) {
+							nested = true;
+							break;
+						}
+					}
+					if (!nested) {
+						cs.className += " prettyprinted";
+						var langExtension = attrs.lang;
+						if (!langExtension) {
+							langExtension = className.match(langExtensionRe);
+							var wrapper;
+							if (!langExtension && (wrapper = childContentWrapper(cs)) && codeRe.test(wrapper.tagName)) {
+								langExtension = wrapper.className.match(langExtensionRe);
+							}
+							if (langExtension) {
+								langExtension = langExtension[1];
+							}
+						}
+						var preformatted;
+						if (preformattedTagNameRe.test(cs.tagName)) {
+							preformatted = 1;
+						} else {
+							var currentStyle = cs.currentStyle;
+							var defaultView = doc.defaultView;
+							var whitespace = (currentStyle ? currentStyle.whiteSpace : (defaultView && defaultView.getComputedStyle) ? defaultView.getComputedStyle(cs, null).getPropertyValue("white-space") : 0);
+							preformatted = whitespace && "pre" === whitespace.substring(0, 3);
+						}
+						var lineNums = attrs.linenums;
+						if (!(lineNums = lineNums === "true" || +lineNums)) {
+							lineNums = className.match(/\blinenums\b(?::(\d+))?/);
+							lineNums = lineNums ? lineNums[1] && lineNums[1].length ? +lineNums[1] : true : false;
+						}
+						if (lineNums) {
+							numberLines(cs, lineNums, preformatted);
+						}
+						prettyPrintingJob = {
+							langExtension: langExtension,
+							sourceNode: cs,
+							numberLines: lineNums,
+							pre: preformatted
+						};
+						applyDecorator(prettyPrintingJob);
+					}
+				}
+			}
+			if (k < elements.length) {
+				setTimeout(doWork, 250);
+			} else {
+				if ("function" === typeof opt_whenDone) {
+					opt_whenDone();
+				}
+			}
+		}
+		doWork();
+	}
+	var PR = win.PR = {
+		createSimpleLexer: createSimpleLexer,
+		registerLangHandler: registerLangHandler,
+		sourceDecorator: sourceDecorator,
+		PR_ATTRIB_NAME: PR_ATTRIB_NAME,
+		PR_ATTRIB_VALUE: PR_ATTRIB_VALUE,
+		PR_COMMENT: PR_COMMENT,
+		PR_DECLARATION: PR_DECLARATION,
+		PR_KEYWORD: PR_KEYWORD,
+		PR_LITERAL: PR_LITERAL,
+		PR_NOCODE: PR_NOCODE,
+		PR_PLAIN: PR_PLAIN,
+		PR_PUNCTUATION: PR_PUNCTUATION,
+		PR_SOURCE: PR_SOURCE,
+		PR_STRING: PR_STRING,
+		PR_TAG: PR_TAG,
+		PR_TYPE: PR_TYPE,
+		prettyPrintOne: IN_GLOBAL_SCOPE ? (win.prettyPrintOne = $prettyPrintOne) : (prettyPrintOne = $prettyPrintOne),
+		prettyPrint: prettyPrint = IN_GLOBAL_SCOPE ? (win.prettyPrint = $prettyPrint) : (prettyPrint = $prettyPrint)
+	};
+	if (typeof define === "function" && define.amd) {
+		define("google-code-prettify", [], function() {
+			return PR;
+		});
+	}
+})();
