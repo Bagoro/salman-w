@@ -10,28 +10,11 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>
 	<script src="jquery.ui.datepicker.js"></script>
 	<style>
-		.ui-datepicker-header {
-			position: relative;
-			padding: 0.3125em 2.0625em;
-			line-height: 1.75em;
-			text-align: center;
-		}
-		.ui-datepicker-header .ui-btn {
-			margin: -1px 0 0 0;
-		}
-		.ui-datepicker-calendar {
-			border-collapse: collapse;
-			line-height: 2;
-		}
-		.ui-datepicker-calendar .ui-btn {
-			margin: 0;
-			padding: 0;
-			width: 2em;
-			line-height: inherit;
-		}
-		.hasDatepicker + button {
-			margin: -1px 0 0 0;
-		}
+		.ui-datepicker-header { position: relative; padding: 0.3125em 2.0625em; line-height: 1.75em; text-align: center; }
+		.ui-datepicker-header .ui-btn { margin: -1px 0 0 0; }
+		.ui-datepicker-calendar { border-collapse: collapse; line-height: 2; }
+		.ui-datepicker-calendar .ui-btn { margin: 0; padding: 0; width: 2em; line-height: inherit; }
+		.hasDatepicker + button { margin: -1px 0 0 0; }
 	</style>
 </head>
 <body>
@@ -61,7 +44,7 @@
 					$.datepicker._generateHTML = function(inst) {
 						var html = this._generateHTML_old(inst);
 						html = html.replace(/ui-datepicker-header ui-widget-header ui-helper-clearfix/, "ui-datepicker-header ui-bar-inherit");
-						html = html.replace(/<a class="(ui-datepicker-prev ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-left  ui-icon-carat-l ui-btn-icon-notext$2"');
+						html = html.replace(/<a class="(ui-datepicker-prev ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext$2"');
 						html = html.replace(/<a class="(ui-datepicker-next ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-right ui-icon-carat-r ui-btn-icon-notext$2"');
 						html = html.replace(/<span class="ui-icon ui-icon-circle-triangle-.">(.+?)<\/span>/g, "$1");
 						html = html.replace(/<span class="ui-state-default"/g, '<span class="ui-btn"');
@@ -71,7 +54,7 @@
 					};
 				});
 				$(document).on("pagecreate", function() {
-					$("#DP1, #DP2").prop("readonly", true).datepicker({
+					$("#DP1, #DP2").datepicker({
 						showOn: "button"
 					}).next("button").addClass("ui-btn ui-btn-right ui-icon-grid ui-btn-icon-notext ui-corner-all");
 				});
