@@ -63,14 +63,17 @@
 			return false;
 		};
 		div_demoengine.appendChild(a_source);
-		if (top !== self) {
-			a_popout = document.createElement("a");
-			a_popout.className = "corner-l corner-r";
+		a_popout = document.createElement("a");
+		a_popout.className = "corner-l corner-r";
+		if (top === self) {
+			a_popout.href = ".";
+			a_popout.innerHTML = "Browse files";
+		} else {
 			a_popout.href = window.location.href;
 			a_popout.target = "_blank";
 			a_popout.innerHTML = "Open in new window";
-			div_demoengine.appendChild(a_popout);
 		}
+		div_demoengine.appendChild(a_popout);
 		div_source = document.createElement("div");
 		div_demoengine.appendChild(div_source);
 		loadXHR(window.location.href, function() {
