@@ -10,6 +10,9 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>
 	<script src="jquery.ui.datepicker.js"></script>
 	<style>
+		.ui-datepicker {
+			display: none;
+		}
 		.ui-datepicker-header {
 			position: relative;
 			padding: 0.3125em 2.0625em;
@@ -29,8 +32,27 @@
 			width: 2em;
 			line-height: inherit;
 		}
-		.hasDatepicker + button {
-			margin: -1px 0 0 0;
+		.ui-datepicker-today .ui-btn {
+			text-decoration: underline !important;
+		}
+		.ui-datepicker-days-cell-over .ui-btn {
+			border-color: inherit !important;
+		}
+		.ui-datepicker-buttonpane .ui-btn {
+			float: left;
+			margin: 0.5em 0 0;
+			padding: 0.5em 1em;
+		}
+		.ui-datepicker-buttonpane .ui-btn:last-child {
+			float: right;
+		}
+		.dp-input-button-wrap {
+			position: relative;
+			padding-right: 2.5em;
+		}
+		.dp-input-button-wrap .ui-btn {
+			top: 0.1875em;
+			margin: 0;
 		}
 	</style>
 </head>
@@ -42,12 +64,20 @@
 		<div role="main" class="ui-content">
 			<form action="index.html">
 				<div class="ui-field-contain">
-					<label for="DP1">Date 1</label>
+					<label for="DP1">Datepicker 1</label>
 					<input id="DP1" type="text">
 				</div>
 				<div class="ui-field-contain">
-					<label for="DP2">Date 2</label>
+					<label for="DP2">Datepicker 2</label>
 					<input id="DP2" type="text">
+				</div>
+				<div class="ui-field-contain">
+					<label for="DP3">Datepicker 3</label>
+					<input id="DP3" type="text" data-wrapper-class="dp-input-button-wrap">
+				</div>
+				<div class="ui-field-contain">
+					<label for="DP4">Datepicker 4</label>
+					<input id="DP4" type="text">
 				</div>
 			</form>
 			<script>
@@ -55,7 +85,7 @@
 				 * jQuery Mobile: jQuery UI Datepicker Monkey Patch
 				 * http://salman-w.blogspot.com/2014/03/jquery-ui-datepicker-on-mobile.html
 				 */
-				$(function() {
+				(function() {
 					$.datepicker.dpDiv.removeClass("ui-widget ui-widget-content ui-helper-clearfix").addClass("ui-content ui-overlay-shadow ui-body-a").unbind("mouseover mouseout");
 					$.datepicker._generateHTML_old = $.datepicker._generateHTML;
 					$.datepicker._generateHTML = function(inst) {
@@ -67,13 +97,24 @@
 						html = html.replace(/<span class="ui-state-default"/g, '<span class="ui-btn"');
 						html = html.replace(/<a class="ui-state-default ui-state-active"/g, '<a class="ui-btn ui-btn-active"');
 						html = html.replace(/<a class="ui-state-default(.*?)"/g, '<a class="ui-btn"');
+						html = html.replace(/ui-datepicker-buttonpane ui-widget-content/, "ui-datepicker-buttonpane");
+						html = html.replace(/ui-datepicker-current ui-state-default ui-priority-secondary/, "ui-datepicker-current ui-btn ui-btn-inline ui-mini");
+						html = html.replace(/ui-datepicker-close ui-state-default ui-priority-primary/, "ui-datepicker-close ui-btn ui-btn-inline ui-mini");
 						return html;
 					};
-				});
+				})();
 				$(document).on("pagecreate", function() {
-					$("#DP1, #DP2").datepicker({
-						showOn: "button"
-					}).next("button").addClass("ui-btn ui-btn-right ui-icon-grid ui-btn-icon-notext ui-corner-all");
+					$("#DP1").datepicker();
+					$("#DP2").datepicker().prop("readonly", true);
+					$("#DP3").datepicker().after(function() {
+						var that = this;
+						return $('<button type="button" class="ui-btn ui-btn-right ui-icon-carat-d ui-btn-icon-notext ui-corner-all">Show Datepicker</button>').on("vclick", function() {
+							$(that).datepicker("show");
+						});
+					});
+					$("#DP4").datepicker({
+						showButtonPanel: true
+					});
 				});
 			</script>
 		</div>

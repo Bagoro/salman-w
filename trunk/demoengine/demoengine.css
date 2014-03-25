@@ -10,6 +10,7 @@ body.active > #demoengine { display: block; }
 #demoengine div.active { display: block; }
 #demoengine pre { margin: 0; border: none; padding: 10px; font-family: Consolas, Courier New, monospace; background-color: #EEEEEE; }
 body > p:first-child, #demoengine + p { margin-top: 0; }
+body > div[data-role=page] { top: 36px !important; }
 @media print {
 	#demoengine { display: none; }
 }
