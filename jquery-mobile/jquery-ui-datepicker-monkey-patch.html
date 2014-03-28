@@ -54,6 +54,15 @@
 			top: 0.1875em;
 			margin: 0;
 		}
+		#dp-fullsize-popup {
+			width: 80%;
+		}
+		.ui-datepicker-inline .ui-datepicker-calendar {
+			width: 100%;
+		}
+		.ui-datepicker-inline .ui-datepicker-calendar .ui-btn {
+			width: auto;
+		}
 	</style>
 </head>
 <body>
@@ -79,14 +88,21 @@
 					<label for="DP4">Datepicker 4</label>
 					<input id="DP4" type="text">
 				</div>
+				<div class="ui-field-contain">
+					<label for="DP5">Datepicker 5</label>
+					<input id="DP5" type="text">
+				</div>
 			</form>
+			<div id="dp-fullsize" data-role="popup" data-dismissible="false" data-history="false" data-position-to="window">
+				<a href="#" data-rel="back" data-role="button" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+			</div>
 			<script>
 				/*
 				 * jQuery Mobile: jQuery UI Datepicker Monkey Patch
 				 * http://salman-w.blogspot.com/2014/03/jquery-ui-datepicker-on-mobile.html
 				 */
 				(function() {
-					$.datepicker.dpDiv.removeClass("ui-widget ui-widget-content ui-helper-clearfix").addClass("ui-content ui-overlay-shadow ui-body-a").unbind("mouseover mouseout");
+					$.datepicker._triggerClass += " ui-btn ui-btn-right ui-icon-carat-d ui-btn-icon-notext ui-corner-all";
 					$.datepicker._generateHTML_old = $.datepicker._generateHTML;
 					$.datepicker._generateHTML = function(inst) {
 						var html = this._generateHTML_old(inst);
@@ -95,25 +111,45 @@
 						html = html.replace(/<a class="(ui-datepicker-next ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-right ui-icon-carat-r ui-btn-icon-notext$2"');
 						html = html.replace(/<span class="ui-icon ui-icon-circle-triangle-.">(.+?)<\/span>/g, "$1");
 						html = html.replace(/<span class="ui-state-default"/g, '<span class="ui-btn"');
-						html = html.replace(/<a class="ui-state-default ui-state-active"/g, '<a class="ui-btn ui-btn-active"');
-						html = html.replace(/<a class="ui-state-default(.*?)"/g, '<a class="ui-btn"');
+						html = html.replace(/<a class="ui-state-default( ui-state-highlight)? ui-state-active( ui-priority-secondary)?"/g, '<a class="ui-btn ui-btn-active"');
+						html = html.replace(/<a class="ui-state-default( ui-state-highlight)?( ui-priority-secondary)?"/g, '<a class="ui-btn"');
 						html = html.replace(/ui-datepicker-buttonpane ui-widget-content/, "ui-datepicker-buttonpane");
 						html = html.replace(/ui-datepicker-current ui-state-default ui-priority-secondary/, "ui-datepicker-current ui-btn ui-btn-inline ui-mini");
 						html = html.replace(/ui-datepicker-close ui-state-default ui-priority-primary/, "ui-datepicker-close ui-btn ui-btn-inline ui-mini");
 						return html;
 					};
+					$.datepicker._newInst_old = $.datepicker._newInst;
+					$.datepicker._newInst = function(target, inline) {
+						var inst = this._newInst_old(target, inline);
+						if (inst.dpDiv.hasClass("ui-widget")) {
+							inst.dpDiv.removeClass("ui-widget ui-widget-content ui-helper-clearfix").addClass(inline ? "ui-content" : "ui-content ui-overlay-shadow ui-body-a").unbind("mouseover mouseout");
+						}
+						return inst;
+					};
 				})();
 				$(document).on("pagecreate", function() {
 					$("#DP1").datepicker();
 					$("#DP2").datepicker().prop("readonly", true);
-					$("#DP3").datepicker().after(function() {
-						var that = this;
-						return $('<button type="button" class="ui-btn ui-btn-right ui-icon-carat-d ui-btn-icon-notext ui-corner-all">Show Datepicker</button>').on("vclick", function() {
-							$(that).datepicker("show");
-						});
+					$("#DP3").datepicker({
+						showOn: "button",
+						beforeShow: function() {
+							$(this).prop("readonly", true);
+						},
+						onClose: function() {
+							$(this).prop("readonly", false);
+						}
 					});
 					$("#DP4").datepicker({
 						showButtonPanel: true
+					});
+					$("#DP5").on("focus", function() {
+						$("#dp-fullsize").popup("open");
+					});
+					$("#dp-fullsize").datepicker({
+						altField: "#DP5",
+						onSelect: function() {
+							$(this).popup("close");
+						}
 					});
 				});
 			</script>
