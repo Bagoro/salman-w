@@ -14,60 +14,62 @@
 	</script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>
 	<script src="jquery.ui.datepicker.js"></script>
+	<script>
+		/*
+		 * jQuery Mobile: jQuery UI Datepicker Monkey Patch
+		 * http://salman-w.blogspot.com/2014/03/jquery-ui-datepicker-for-jquery-mobile.html
+		 */
+		(function() {
+			// use a jQuery Mobile icon on trigger button
+			$.datepicker._triggerClass += " ui-btn ui-btn-right ui-icon-carat-d ui-btn-icon-notext ui-corner-all";
+			// replace jQuery UI CSS classes with jQuery Mobile CSS classes in the generated HTML
+			$.datepicker._generateHTML_old = $.datepicker._generateHTML;
+			$.datepicker._generateHTML = function(inst) {
+				var html = this._generateHTML_old(inst);
+				html = html.replace(/ui-datepicker-header ui-widget-header ui-helper-clearfix/, "ui-datepicker-header ui-bar-inherit");
+				html = html.replace(/<a class="(ui-datepicker-prev ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext$2"');
+				html = html.replace(/<a class="(ui-datepicker-next ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-right ui-icon-carat-r ui-btn-icon-notext$2"');
+				html = html.replace(/<span class="ui-icon ui-icon-circle-triangle-.">(.+?)<\/span>/g, "$1");
+				html = html.replace(/<span class="ui-state-default"/g, '<span class="ui-btn"');
+				html = html.replace(/<a class="ui-state-default( ui-state-highlight)? ui-state-active( ui-priority-secondary)?"/g, '<a class="ui-btn ui-btn-active"');
+				html = html.replace(/<a class="ui-state-default( ui-state-highlight)?( ui-priority-secondary)?"/g, '<a class="ui-btn"');
+				html = html.replace(/ui-datepicker-buttonpane ui-widget-content/, "ui-datepicker-buttonpane");
+				html = html.replace(/ui-datepicker-current ui-state-default ui-priority-secondary/, "ui-datepicker-current ui-btn ui-btn-inline ui-mini");
+				html = html.replace(/ui-datepicker-close ui-state-default ui-priority-primary/, "ui-datepicker-close ui-btn ui-btn-inline ui-mini");
+				return html;
+			};
+			// replace jQuery UI CSS classes with jQuery Mobile CSS classes on the datepicker div, unbind mouseover and mouseout events on the datepicker div
+			$.datepicker._newInst_old = $.datepicker._newInst;
+			$.datepicker._newInst = function(target, inline) {
+				var inst = this._newInst_old(target, inline);
+				if (inst.dpDiv.hasClass("ui-widget")) {
+					inst.dpDiv.removeClass("ui-widget ui-widget-content ui-helper-clearfix").addClass(inline ? "ui-content" : "ui-content ui-overlay-shadow ui-body-a").unbind("mouseover mouseout");
+				}
+				return inst;
+			};
+		})();
+	</script>
 	<style>
-		.ui-datepicker {
-			display: none;
-		}
-		.ui-datepicker-header {
-			position: relative;
-			padding: 0.3125em 2.0625em;
-			line-height: 1.75em;
-			text-align: center;
-		}
-		.ui-datepicker-header .ui-btn {
-			margin: -1px 0 0 0;
-		}
-		.ui-datepicker-calendar {
-			border-collapse: collapse;
-			line-height: 2;
-		}
-		.ui-datepicker-calendar .ui-btn {
-			margin: 0;
-			padding: 0;
-			width: 2em;
-			line-height: inherit;
-		}
-		.ui-datepicker-today .ui-btn {
-			text-decoration: underline !important;
-		}
-		.ui-datepicker-days-cell-over .ui-btn {
-			border-color: inherit !important;
-		}
-		.ui-datepicker-buttonpane .ui-btn {
-			float: left;
-			margin: 0.5em 0 0;
-			padding: 0.5em 1em;
-		}
-		.ui-datepicker-buttonpane .ui-btn:last-child {
-			float: right;
-		}
-		.dp-input-button-wrap {
-			position: relative;
-			padding-right: 2.5em;
-		}
-		.dp-input-button-wrap .ui-btn {
-			top: 0.1875em;
-			margin: 0;
-		}
-		#dp-fullsize-popup {
-			width: 80%;
-		}
-		.ui-datepicker-inline .ui-datepicker-calendar {
-			width: 100%;
-		}
-		.ui-datepicker-inline .ui-datepicker-calendar .ui-btn {
-			width: auto;
-		}
+		h3 { margin: 0.8em 0 0; font-size: 1em; }
+		.ui-datepicker { display: none; }
+		/* set height and left/right margin to accomodate prev/next icons */
+		.ui-datepicker-header { position: relative; padding: 0.3125em 2.0625em; line-height: 1.75em; text-align: center; }
+		.ui-datepicker-header .ui-btn { margin: -1px 0 0 0; }
+		/* fixed width layout for calendar; cells are fixed width */
+		.ui-datepicker-calendar { border-collapse: collapse; line-height: 2; }
+		.ui-datepicker-calendar .ui-btn { margin: 0; padding: 0; width: 2em; line-height: inherit; }
+		.ui-datepicker-today .ui-btn { text-decoration: underline !important; }
+		.ui-datepicker-days-cell-over .ui-btn { border-color: inherit !important; }
+		.ui-datepicker-buttonpane .ui-btn { float: left; margin: 0.5em 0 0; padding: 0.5em 1em; }
+		.ui-datepicker-buttonpane .ui-btn:last-child { float: right; }
+		/* class that can be added to datepicker <input> element's wrapper; makes room for trigger button */
+		.dp-input-button-wrap { position: relative; padding-right: 2.5em; }
+		.dp-input-button-wrap .ui-btn { top: 0.1875em; margin: 0; }
+		/* jQM framework wraps popup content inside a div with the ID <div-id>-popup */
+		#dp-fullsize-popup { width: 80%; }
+		/* fluid width layout for calendar; table is 100% wide; cells size automatically */
+		.ui-datepicker-inline .ui-datepicker-calendar { width: 100%; }
+		.ui-datepicker-inline .ui-datepicker-calendar .ui-btn { width: auto; }
 	</style>
 </head>
 <body>
@@ -77,24 +79,29 @@
 		</div>
 		<div role="main" class="ui-content">
 			<form action="index.html">
+				<h3>Default functionality (opens virtual keyboard)</h3>
 				<div class="ui-field-contain">
-					<label for="DP1">Datepicker 1</label>
+					<label for="DP1">Demo 1</label>
 					<input id="DP1" type="text">
 				</div>
+				<h3>Read-only Input (prevent virtual keyboard)</h3>
 				<div class="ui-field-contain">
-					<label for="DP2">Datepicker 2</label>
+					<label for="DP2">Demo 2</label>
 					<input id="DP2" type="text">
 				</div>
+				<h3>Show Button Panel</h3>
 				<div class="ui-field-contain">
-					<label for="DP3">Datepicker 3</label>
-					<input id="DP3" type="text" data-wrapper-class="dp-input-button-wrap">
+					<label for="DP3">Demo 3</label>
+					<input id="DP3" type="text">
 				</div>
+				<h3>Read-only + Show on Button</h3>
 				<div class="ui-field-contain">
-					<label for="DP4">Datepicker 4</label>
-					<input id="DP4" type="text">
+					<label for="DP4">Demo 4</label>
+					<input id="DP4" type="text" data-wrapper-class="dp-input-button-wrap">
 				</div>
+				<h3>Datepicker in Full-width Popup</h3>
 				<div class="ui-field-contain">
-					<label for="DP5">Datepicker 5</label>
+					<label for="DP5">Demo 5</label>
 					<input id="DP5" type="text">
 				</div>
 			</form>
@@ -103,39 +110,15 @@
 			</div>
 			<script>
 				/*
-				 * jQuery Mobile: jQuery UI Datepicker Monkey Patch
-				 * http://salman-w.blogspot.com/2014/03/jquery-ui-datepicker-on-mobile.html
+				 * Datepicker Demos
 				 */
-				(function() {
-					$.datepicker._triggerClass += " ui-btn ui-btn-right ui-icon-carat-d ui-btn-icon-notext ui-corner-all";
-					$.datepicker._generateHTML_old = $.datepicker._generateHTML;
-					$.datepicker._generateHTML = function(inst) {
-						var html = this._generateHTML_old(inst);
-						html = html.replace(/ui-datepicker-header ui-widget-header ui-helper-clearfix/, "ui-datepicker-header ui-bar-inherit");
-						html = html.replace(/<a class="(ui-datepicker-prev ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext$2"');
-						html = html.replace(/<a class="(ui-datepicker-next ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-right ui-icon-carat-r ui-btn-icon-notext$2"');
-						html = html.replace(/<span class="ui-icon ui-icon-circle-triangle-.">(.+?)<\/span>/g, "$1");
-						html = html.replace(/<span class="ui-state-default"/g, '<span class="ui-btn"');
-						html = html.replace(/<a class="ui-state-default( ui-state-highlight)? ui-state-active( ui-priority-secondary)?"/g, '<a class="ui-btn ui-btn-active"');
-						html = html.replace(/<a class="ui-state-default( ui-state-highlight)?( ui-priority-secondary)?"/g, '<a class="ui-btn"');
-						html = html.replace(/ui-datepicker-buttonpane ui-widget-content/, "ui-datepicker-buttonpane");
-						html = html.replace(/ui-datepicker-current ui-state-default ui-priority-secondary/, "ui-datepicker-current ui-btn ui-btn-inline ui-mini");
-						html = html.replace(/ui-datepicker-close ui-state-default ui-priority-primary/, "ui-datepicker-close ui-btn ui-btn-inline ui-mini");
-						return html;
-					};
-					$.datepicker._newInst_old = $.datepicker._newInst;
-					$.datepicker._newInst = function(target, inline) {
-						var inst = this._newInst_old(target, inline);
-						if (inst.dpDiv.hasClass("ui-widget")) {
-							inst.dpDiv.removeClass("ui-widget ui-widget-content ui-helper-clearfix").addClass(inline ? "ui-content" : "ui-content ui-overlay-shadow ui-body-a").unbind("mouseover mouseout");
-						}
-						return inst;
-					};
-				})();
 				$(document).on("pagecreate", function() {
 					$("#DP1").datepicker();
-					$("#DP2").datepicker().prop("readonly", true);
-					$("#DP3").datepicker({
+					$("#DP2").prop("readonly", true).datepicker();
+					$("#DP3").prop("readonly", true).datepicker({
+						showButtonPanel: true
+					});
+					$("#DP4").datepicker({
 						showOn: "button",
 						beforeShow: function() {
 							$(this).prop("readonly", true);
@@ -143,9 +126,6 @@
 						onClose: function() {
 							$(this).prop("readonly", false);
 						}
-					});
-					$("#DP4").datepicker({
-						showButtonPanel: true
 					});
 					$("#DP5").on("focus", function() {
 						$("#dp-fullsize").popup("open");
