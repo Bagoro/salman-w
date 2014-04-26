@@ -3,11 +3,11 @@ body { font: 100% Open Sans, Arial, sans-serif; background-color: #EEEEEE; }
 .section { margin: 0; }
 #navbar { display: none; }
 #wrapper { margin-left: 332px; background-color: #FFFFFF; }
-#header { float: left; margin-left: -332px; border-bottom: 4px solid #4D9BD6; width: 332px; color: #FFFFFF; background-color: #000000; }
+#header { float: left; margin-left: -332px; width: 332px; }
 #content { float: right; width: 100%; }
 #sidebar { float: left; clear: left; margin-left: -332px; width: 332px; }
 #cleared { clear: both; }
-#footer { border-top: 4px solid #4D9BD6; color: #FFFFFF; background-color: #000000; }
+#footer { }
 /* ELEMENTS */
 h1 { font-family: Georgia, Times New Roman, serif; font-size: 1.8em; font-weight: normal; line-height: 1; }
 h2 { font-size: 1em; }
@@ -25,14 +25,14 @@ code { border-radius: 4px; padding: 2px 8px; font-family: Consolas, Courier New,
 input { font-family: inherit; }
 /* WIDGETS */
 .widget { margin: 0; }
-#Header1 { padding: 16px; text-align: center; }
+#Header1 { border-bottom: 4px solid #4D9BD6; padding: 16px; color: #FFFFFF; background-color: #000000; text-align: center; }
 #Header1 h1 { margin: 0; color: #4D9BD6; }
 #Header1 p { margin: 0; padding: 0; }
+#HTML1 { z-index: 1; margin: 0 auto; padding: 16px; max-width: 420px; height: 32px; }
 #Blog1 { padding: 16px; }
 #sidebar h2 { margin: 0 8px; padding: 8px; color: #FFFFFF; background-color: #000000; }
 #sidebar .widget-content { padding: 16px; }
-#HTML1 { z-index: 1; }
-#HTML3 { padding: 16px; font-size: smaller; text-align: center; }
+#HTML3 { border-top: 4px solid #4D9BD6; padding: 16px; font-size: smaller; color: #FFFFFF; background-color: #000000; text-align: center; }
 /* ADSENSE */
 #adsense-header { margin-bottom: 16px; }
 #adsense-content { margin-top: 16px; margin-bottom: 16px; }
@@ -40,9 +40,10 @@ input { font-family: inherit; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
-.post-footer { margin: 16px 0; border: 1px solid; border-color: #CCCCCC #333333 #333333 #CCCCCC; padding: 8px; font-size: smaller; line-height: 1; background-color: #EEEEEE; }
-.post-comment-link { float: right; }
-.post-footer-line-3 { display: none; }
+.post-footer { margin: 16px 0; border: 1px solid; border-color: #CCCCCC #333333 #333333 #CCCCCC; padding: 8px; font-size: smaller; background-color: #EEEEEE; }
+.post-footer .post-comment-link { float: right; margin-right: 0; }
+.post-footer .post-share-buttons { margin-top: 0; }
+.post-footer .post-author, .post-footer .post-timestamp, .post-footer .reaction-buttons, .post-footer .star-ratings, .post-footer .post-backlinks, .post-footer .post-icons, .post-footer .post-location { display: none; }
 #gpluscomments { margin: 16px 0; }
 #blog-pager { margin: 16px auto; border-radius: 16px; width: 468px; line-height: 2; background-color: #EEEEEE; }
 #blog-pager-newer-link { float: left; width: 156px; }
@@ -50,8 +51,9 @@ input { font-family: inherit; }
 .home-link { display: block; margin: 0 auto; width: 156px; background-color: #DDDDDD; }
 .blog-feeds, .post-feeds { text-align: center; }
 /* CUSTOM */
-.gsc-control-cse { border: none !important; padding: 0 !important; background-color: transparent !important; }
-form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
+#HTML1 .gsc-control-cse { border: none; padding: 0; background-color: transparent; }
+#HTML1 form.gsc-search-box { margin: 0; padding: 0; }
+#HTML1 table.gsc-search-box { margin: 0; }
 #bu-related-posts { margin: 16px 0; }
 #bu-related-posts h4 { font-size: 1em; font-style: italic; font-weight: bold; color: inherit; }
 #bu-related-posts ul { padding: 0; overflow: hidden; list-style-type: none; }
@@ -69,7 +71,6 @@ form.gsc-search-box { margin: 0 !important; padding: 0 !important; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
 	#sidebar .widget { float: left; width: 50%; }
-	#sidebar #HTML1 { float: none; width: auto; }
 }
 @media screen and (max-width: 499px) {
 	#sidebar .widget { float: none; width: auto; }
