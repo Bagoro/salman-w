@@ -1,7 +1,5 @@
 /* LAYOUT */
 body { font: 100% Open Sans, Arial, sans-serif; background-color: #EEEEEE; }
-.section { margin: 0; }
-#navbar { display: none; }
 #wrapper { margin-left: 332px; background-color: #FFFFFF; }
 #header { float: left; margin-left: -332px; width: 332px; }
 #content { float: right; width: 100%; }
@@ -23,8 +21,9 @@ a { color: #4D9BD6; text-decoration: none; }
 a:hover { color: #33CC33; }
 code { border-radius: 4px; padding: 2px 8px; font-family: Consolas, Courier New, monospace; background-color: #EEEEEE; }
 input { font-family: inherit; }
-/* WIDGETS */
-.widget { margin: 0; }
+/* SECTIONS AND WIDGETS */
+.section, .widget { margin: 0; }
+#navbar { display: none; }
 #Header1 { border-bottom: 4px solid #4D9BD6; padding: 16px; color: #FFFFFF; background-color: #000000; text-align: center; }
 #Header1 h1 { margin: 0; color: #4D9BD6; }
 #Header1 p { margin: 0; padding: 0; }
@@ -34,9 +33,9 @@ input { font-family: inherit; }
 #sidebar .widget-content { padding: 16px; }
 #HTML3 { border-top: 4px solid #4D9BD6; padding: 16px; font-size: smaller; color: #FFFFFF; background-color: #000000; text-align: center; }
 /* ADSENSE */
-#adsense-header { margin-bottom: 16px; }
-#adsense-content { margin-top: 16px; margin-bottom: 16px; }
-#adsense-sidebar { margin-bottom: 16px; margin-left: 16px; margin-right: 16px; }
+#adsense-header { }
+#adsense-content { }
+#adsense-sidebar { }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
