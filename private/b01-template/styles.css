@@ -33,9 +33,11 @@ input { font-family: inherit; }
 #sidebar .widget-content { padding: 16px; }
 #HTML3 { border-top: 4px solid #4D9BD6; padding: 16px; font-size: smaller; color: #FFFFFF; background-color: #000000; text-align: center; }
 /* ADSENSE */
-#adsense-header { }
-#adsense-content { }
-#adsense-sidebar { }
+#adsense-header { padding-top: 16px; padding-left: 16px; padding-right: 16px; height: 90px; }
+#adsense-header > ins { position: relative; top: 50%; }
+#adsense-header > ins > ins { position: relative; top: -50%; }
+#adsense-content { margin-top: 16px; margin-bottom: 16px; }
+#adsense-sidebar { margin-bottom: 16px; margin-left: 16px; margin-right: 16px; height: 600px; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
@@ -70,6 +72,7 @@ input { font-family: inherit; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
 	#sidebar .widget { float: left; width: 50%; }
+	#adsense-sidebar { margin-top: 16px; height: auto; }
 }
 @media screen and (max-width: 499px) {
 	#sidebar .widget { float: none; width: auto; }
