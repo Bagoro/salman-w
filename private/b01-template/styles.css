@@ -36,7 +36,7 @@ input { font-family: inherit; }
 #adsense-header { padding-top: 16px; padding-left: 16px; padding-right: 16px; height: 90px; }
 #adsense-header > ins { position: relative; top: 50%; }
 #adsense-header > ins > ins { position: relative; top: -50%; }
-#adsense-content { margin-top: 16px; margin-bottom: 16px; }
+#adsense-content { margin-top: 32px; margin-bottom: 32px; }
 #adsense-sidebar { margin-bottom: 16px; margin-left: 16px; margin-right: 16px; height: 600px; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
