@@ -38,6 +38,7 @@ input { font-family: inherit; }
 #adsense-header > ins > ins { position: relative; top: -50%; }
 #adsense-content { margin: 16px 0; padding: 16px 0; }
 #adsense-sidebar { padding-bottom: 16px; padding-left: 16px; padding-right: 16px; height: 600px; }
+#adsense-linkunit { padding-bottom: 16px; padding-left: 16px; padding-right: 16px; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
@@ -71,6 +72,7 @@ input { font-family: inherit; }
 	#header { float: none; margin-left: 0; width: auto; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
+	#sidebar .section { overflow: hidden; }
 	#sidebar .widget { float: left; width: 50%; }
 	#adsense-sidebar { padding-top: 16px; height: auto; }
 }
