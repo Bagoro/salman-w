@@ -29,16 +29,17 @@ input { font-family: inherit; }
 #Header1 p { margin: 0; padding: 0; }
 #HTML1 { z-index: 1; margin: 0 auto; padding: 16px; max-width: 420px; height: 32px; }
 #Blog1 { padding: 16px; }
+#sidebar .section { overflow: hidden; }
 #sidebar h2 { margin: 0 8px; padding: 8px; color: #FFFFFF; background-color: #000000; }
 #sidebar .widget-content { padding: 16px; }
 #HTML3 { border-top: 4px solid #4D9BD6; padding: 16px; font-size: smaller; color: #FFFFFF; background-color: #000000; text-align: center; }
 /* ADSENSE */
-#adsense-header { padding-top: 16px; padding-left: 16px; padding-right: 16px; height: 90px; }
-#adsense-header > ins { position: relative; top: 50%; }
-#adsense-header > ins > ins { position: relative; top: -50%; }
-#adsense-content { margin: 16px 0; padding: 16px 0; }
-#adsense-sidebar { padding-bottom: 16px; padding-left: 16px; padding-right: 16px; height: 600px; }
-#adsense-linkunit { padding-bottom: 16px; padding-left: 16px; padding-right: 16px; }
+#adsense-content-1 { padding-top: 16px; padding-left: 16px; padding-right: 16px; height: 90px; }
+#adsense-content-1 > ins { position: relative; top: 50%; }
+#adsense-content-1 > ins > ins { position: relative; top: -50%; }
+#adsense-content-2 { margin: 16px 0; padding: 16px 0; }
+#adsense-sidebar-1 { padding-bottom: 16px; padding-left: 16px; padding-right: 16px; height: 600px; }
+#adsense-sidebar-2 { padding-bottom: 16px; padding-left: 16px; padding-right: 16px; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
 .jump-link { margin: 16px 0; }
@@ -72,9 +73,8 @@ input { font-family: inherit; }
 	#header { float: none; margin-left: 0; width: auto; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
-	#sidebar .section { overflow: hidden; }
 	#sidebar .widget { float: left; width: 50%; }
-	#adsense-sidebar { padding-top: 16px; height: auto; }
+	#adsense-sidebar-1 { padding-top: 16px; height: auto; }
 }
 @media screen and (max-width: 499px) {
 	#sidebar .widget { float: none; width: auto; }
