@@ -21,7 +21,7 @@ a { color: #4D9BD6; text-decoration: none; }
 a:hover { color: #33CC33; }
 code { border-radius: 4px; padding: 2px 8px; font-family: Consolas, Courier New, monospace; background-color: #EEEEEE; }
 input { font-family: inherit; }
-/* SECTIONS AND WIDGETS */
+/* SECTION AND WIDGETS */
 .section, .widget { margin: 0; }
 #navbar { display: none; }
 #Header1 { border-bottom: 4px solid #4D9BD6; padding: 16px; color: #FFFFFF; background-color: #000000; text-align: center; }
@@ -34,11 +34,9 @@ input { font-family: inherit; }
 #sidebar .widget-content { padding: 16px; }
 #HTML3 { border-top: 4px solid #4D9BD6; padding: 16px; font-size: smaller; color: #FFFFFF; background-color: #000000; text-align: center; }
 /* ADSENSE */
-#adsense-content-1 { padding-top: 16px; padding-left: 16px; padding-right: 16px; height: 90px; }
-#adsense-content-1 > ins { position: relative; top: 50%; }
-#adsense-content-1 > ins > ins { position: relative; top: -50%; }
-#adsense-content-2 { margin: 16px 0; padding: 16px 0; }
-#adsense-sidebar-1 { margin-bottom: 16px; margin-left: 16px; margin-right: 16px; height: 250px; }
+#adsense-content-1 { padding-top: 16px; padding-left: 16px; padding-right: 16px; }
+#adsense-content-2 { margin-top: 16px; margin-bottom: 16px; padding-top: 16px; padding-bottom: 16px; }
+#adsense-sidebar-1 { margin-bottom: 16px; margin-left: 16px; margin-right: 16px; }
 #adsense-sidebar-2 { margin-bottom: 16px; margin-left: 16px; margin-right: 16px; padding: 8px; height: 90px; background-color: #FFFFFF; }
 /* MAINBLOG */
 .post-body { margin: 16px 0; }
@@ -75,7 +73,7 @@ input { font-family: inherit; }
 	#content { float: none; width: auto; background-color: #FFFFFF; }
 	#sidebar { float: none; margin-left: 0; width: auto; }
 	#sidebar .widget { float: left; width: 50%; }
-	#adsense-sidebar-1 { margin-top: 16px; height: auto; }
+	#adsense-sidebar-1 { margin-top: 16px; }
 }
 @media screen and (max-width: 499px) {
 	#sidebar .widget { float: none; width: auto; }
