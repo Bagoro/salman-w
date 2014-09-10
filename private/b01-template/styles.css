@@ -26,7 +26,7 @@ input { font-family: inherit; }
 #navbar { display: none; }
 #Header1 { border-bottom: 4px solid #ADDCFF; padding: 16px; color: #FFFFFF; background-color: #4D9BD6; text-align: center; }
 #Header1 a { color: #ADDCFF; }
-#Header1 h1 { margin: 0; }
+#Header1 h1 { margin: 0; color: #ADDCFF; }
 #Header1 p { margin: 0; padding: 0; }
 #HTML1 { z-index: 1; margin: 0 auto; padding: 16px; max-width: 420px; height: 32px; }
 #Blog1 { padding: 16px; }
