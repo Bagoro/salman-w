@@ -24,16 +24,18 @@ input { font-family: inherit; }
 /* SECTION AND WIDGETS */
 .section, .widget { margin: 0; }
 #navbar { display: none; }
-#Header1 { border-bottom: 4px solid #4D9BD6; padding: 16px; color: #FFFFFF; background-color: #000000; text-align: center; }
-#Header1 h1 { margin: 0; color: #4D9BD6; }
+#Header1 { border-bottom: 4px solid #ADDCFF; padding: 16px; color: #FFFFFF; background-color: #4D9BD6; text-align: center; }
+#Header1 a { color: #ADDCFF; }
+#Header1 h1 { margin: 0; }
 #Header1 p { margin: 0; padding: 0; }
 #HTML1 { z-index: 1; margin: 0 auto; padding: 16px; max-width: 420px; height: 32px; }
 #Blog1 { padding: 16px; }
 #sidebar .section { overflow: hidden; }
-#sidebar h2 { margin: 0 8px; padding: 8px; color: #FFFFFF; background-color: #000000; }
+#sidebar h2 { margin: 0 8px; padding: 8px; color: #FFFFFF; background-color: #4D9BD6; }
 #sidebar .widget-content { padding: 16px; }
 #HTML2 .widget-content { min-height: 25px; }
-#HTML3 { border-top: 4px solid #4D9BD6; padding: 16px; font-size: smaller; color: #FFFFFF; background-color: #000000; text-align: center; }
+#HTML3 { border-top: 4px solid #ADDCFF; padding: 16px; font-size: smaller; color: #FFFFFF; background-color: #4D9BD6; text-align: center; }
+#HTML3 a { color: #ADDCFF; }
 /* ADSENSE */
 #adsense-content-1 { padding-top: 16px; padding-left: 16px; padding-right: 16px; }
 #adsense-content-2 { margin-top: 16px; margin-bottom: 16px; padding-top: 16px; padding-bottom: 16px; }
