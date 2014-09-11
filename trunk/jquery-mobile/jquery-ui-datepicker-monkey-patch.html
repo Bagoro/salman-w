@@ -13,7 +13,7 @@
 		});
 	</script>
 	<script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.2/jquery.mobile.min.js"></script>
-	<script src="jquery.ui.datepicker.js"></script>
+	<script src="jquery-ui.custom.js"></script>
 	<script>
 		/*
 		 * jQuery Mobile: jQuery UI Datepicker Monkey Patch
@@ -25,18 +25,18 @@
 			// replace jQuery UI CSS classes with jQuery Mobile CSS classes in the generated HTML
 			$.datepicker._generateHTML_old = $.datepicker._generateHTML;
 			$.datepicker._generateHTML = function(inst) {
-				var html = this._generateHTML_old(inst);
-				html = html.replace(/ui-datepicker-header ui-widget-header ui-helper-clearfix/, "ui-datepicker-header ui-bar-inherit");
-				html = html.replace(/<a class="(ui-datepicker-prev ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext$2"');
-				html = html.replace(/<a class="(ui-datepicker-next ui-corner-all)( ui-state-disabled)?"/, '<a class="$1 ui-btn ui-btn-right ui-icon-carat-r ui-btn-icon-notext$2"');
-				html = html.replace(/<span class="ui-icon ui-icon-circle-triangle-.">(.+?)<\/span>/g, "$1");
-				html = html.replace(/<span class="ui-state-default"/g, '<span class="ui-btn"');
-				html = html.replace(/<a class="ui-state-default( ui-state-highlight)? ui-state-active( ui-priority-secondary)?"/g, '<a class="ui-btn ui-btn-active"');
-				html = html.replace(/<a class="ui-state-default( ui-state-highlight)?( ui-priority-secondary)?"/g, '<a class="ui-btn"');
-				html = html.replace(/ui-datepicker-buttonpane ui-widget-content/, "ui-datepicker-buttonpane");
-				html = html.replace(/ui-datepicker-current ui-state-default ui-priority-secondary/, "ui-datepicker-current ui-btn ui-btn-inline ui-mini");
-				html = html.replace(/ui-datepicker-close ui-state-default ui-priority-primary/, "ui-datepicker-close ui-btn ui-btn-inline ui-mini");
-				return html;
+				return $("<div></div>").html(this._generateHTML_old(inst))
+					.find(".ui-datepicker-header").removeClass("ui-widget-header ui-helper-clearfix").addClass("ui-bar-inherit").end()
+					.find(".ui-datepicker-prev").addClass("ui-btn ui-btn-left ui-icon-carat-l ui-btn-icon-notext").end()
+					.find(".ui-datepicker-next").addClass("ui-btn ui-btn-right ui-icon-carat-r ui-btn-icon-notext").end()
+					.find(".ui-icon.ui-icon-circle-triangle-e, .ui-icon.ui-icon-circle-triangle-w").replaceWith(function() { return this.childNodes; }).end()
+					.find("span.ui-state-default").removeClass("ui-state-default").addClass("ui-btn").end()
+					.find("a.ui-state-default.ui-state-active").removeClass("ui-state-default ui-state-highlight ui-priority-secondary ui-state-active").addClass("ui-btn ui-btn-active").end()
+					.find("a.ui-state-default").removeClass("ui-state-default ui-state-highlight ui-priority-secondary").addClass("ui-btn").end()
+					.find(".ui-datepicker-buttonpane").removeClass("ui-widget-content").end()
+					.find(".ui-datepicker-current").removeClass("ui-state-default ui-priority-secondary").addClass("ui-btn ui-btn-inline ui-mini").end()
+					.find(".ui-datepicker-close").removeClass("ui-state-default ui-priority-primary").addClass("ui-btn ui-btn-inline ui-mini").end()
+					.html();
 			};
 			// replace jQuery UI CSS classes with jQuery Mobile CSS classes on the datepicker div, unbind mouseover and mouseout events on the datepicker div
 			$.datepicker._newInst_old = $.datepicker._newInst;
