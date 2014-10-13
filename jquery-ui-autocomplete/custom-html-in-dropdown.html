@@ -15,33 +15,65 @@
 			background-image: url(loading.gif);
 			vertical-align: text-bottom;
 		}
-		/* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_ */
-		/* ingeniously using general sibling combinator */
+		/* autocomplete adds the ui-autocomplete-loading class to the textbox when it is _busy_, use general sibling combinator ingeniously */
 		#autocomplete.ui-autocomplete-loading ~ .loading {
 			display: inline-block;
 		}
-		.ui-autocomplete .fl {
-			float: left;
-			margin-right: 8px;
+		.ui-autocomplete .m-name {
+			font-size: larger;
+			margin-right: 1em;
 		}
-		.ui-autocomplete .fr {
+		.ui-autocomplete .m-year {
+			font-size: larger;
 			float: right;
-			margin-left: 8px;
 		}
-		.ui-autocomplete .db {
+		.ui-autocomplete .m-cast {
 			display: block;
+			font-size: smaller;
 		}
-		/* star rating explained here: http://salman-w.blogspot.com/2012/08/star-ratings-using-css-sprites.html */
-		.ui-autocomplete .rg {
+		/* Rotten Tomatoes Branding */
+		.ui-autocomplete .rt-main {
 			display: block;
-			width: 130px;
-			height: 13px;
-			background: url(stars.png) 0 0;
+			font-size: smaller;
+			margin-left: 1em;
 		}
-		.ui-autocomplete .rg span {
+		.ui-autocomplete .rt-ico {
+			display: inline-block;
+			margin-right: .5em;
+			width: 16px;
+			height: 16px;
+			background-image: url(rt-icons.png);
+			vertical-align: bottom;
+		}
+		.ui-autocomplete .rt-ico.fresh {
+			background-position: 0 0;
+		}
+		.ui-autocomplete .rt-ico.rotten {
+			background-position: -16px 0;
+		}
+		.ui-autocomplete .rt-ico.certified_fresh {
+			background-position: -32px 0;
+		}
+		.ui-autocomplete .rt-val {
+			display: inline-block;
+			margin-right: .5em;
+		}
+		.ui-autocomplete .rt-bar {
+			display: inline-block;
+			margin-right: .5em;
+			width: 10em;
+			height: 1em;
+			background-color: #ECE4B5;
+		}
+		.ui-autocomplete .rt-bar span {
 			display: block;
-			height: 13px;
-			background: url(stars.png) 0 -13px;
+			height: 1em;
+		}
+		.ui-autocomplete .rt-bar.fresh span, .ui-autocomplete .rt-bar.certified_fresh span {
+			background-color: #C91B22;
+		}
+		.ui-autocomplete .rt-bar.rotten span {
+			background-color: #94B13C;
 		}
 	</style>
 </head>
@@ -56,9 +88,7 @@
 		 * http://salman-w.blogspot.com/2013/12/jquery-ui-autocomplete-examples.html
 		 */
 		$(function() {
-		// will return after RT branding is integrated
-		return;
-		$("#autocomplete").autocomplete({
+			$("#autocomplete").autocomplete({
 				delay: 500,
 				minLength: 3,
 				source: function(request, response) {
@@ -74,7 +104,8 @@
 								label: m.title,
 								year: m.year,
 								cast: m.abridged_cast.slice(0, 3).map(function(a) { return a.name; }).join(", "),
-								rating: m.ratings.audience_score,
+								rating: m.ratings.critics_score === -1 ? null : m.ratings.critics_score,
+								icon: m.ratings.critics_score === -1 ? null : m.ratings.critics_rating.toLowerCase().replace(/\s/g, "_"),
 								url: m.links.alternate
 							};
 						});
@@ -92,11 +123,16 @@
 					window.open(ui.item.url);
 				}
 			}).data("ui-autocomplete")._renderItem = function(ul, item) {
-				var $a = $("<a></a>").text(item.label);
-				$("<span class='fr'></span>").text(item.year).prependTo($a);
-				$("<small class='db'></small>").text(item.cast).appendTo($a);
-				$("<span class='fl rg'><span style='width: " + item.rating + "%;'></span></span>").appendTo($a);
-				$("<small class='db'></small>").text(item.rating + "/100").appendTo($a);
+				var $a = $("<a></a>");
+				$("<span class='m-year'></span>").text(item.year).appendTo($a);
+				$("<span class='m-name'></span>").text(item.label).appendTo($a);
+				$("<span class='m-cast'></span>").text(item.cast).appendTo($a);
+				if (item.rating && item.icon) {
+					var $tm = $("<span class='rt-main'>Rotten Tomatoes<sup>&reg;</sup> Score<br>Tomatometer<sup>&reg;</sup><br></span>").appendTo($a);
+					$("<span class='rt-ico'></span>").addClass(item.icon).appendTo($tm);
+					$("<span class='rt-val'></span>").text(item.rating + "%").appendTo($tm);
+					$("<span class='rt-bar'></span>").addClass(item.icon).appendTo($tm).append("<span style='width: " + item.rating + "%;'></span>");
+				}
 				return $("<li></li>").append($a).appendTo(ul);
 			};
 		});
