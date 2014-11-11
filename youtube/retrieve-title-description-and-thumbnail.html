@@ -58,9 +58,9 @@
 						return;
 					}
 					$("<img>", {
-						src: data.items[0].snippet.thumbnails.default.url,
-						width: data.items[0].snippet.thumbnails.default.width,
-						height: data.items[0].snippet.thumbnails.default.height
+						src: data.items[0].snippet.thumbnails.medium.url,
+						width: data.items[0].snippet.thumbnails.medium.width,
+						height: data.items[0].snippet.thumbnails.medium.height
 					}).appendTo("#video-data-1");
 					$("<h1></h1>").text(data.items[0].snippet.title).appendTo("#video-data-1");
 					$("<p></p>").text(data.items[0].snippet.description).appendTo("#video-data-1");
