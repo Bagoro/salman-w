@@ -10,6 +10,7 @@
 		#search-txt { float: left; width: 60%; }
 		#search-btn { float: right; width: 39%; }
 		#video-data-1 img { float: right; }
+		#video-data-1 p { white-space: pre-line; }
 	</style>
 </head>
 <body>
@@ -19,8 +20,7 @@
 		<input id="search-btn" type="button" value="Fetch Video Information">
 	</div>
 	<div id="video-data-1"></div>
-	<ul id="video-data-2">
-	</ul>
+	<ul id="video-data-2"></ul>
 	<script>
 		/*
 		 * YouTube: Retrieve Title, Description and Thumbnail
@@ -39,7 +39,7 @@
 				if (matches = videoid.match(/^http:\/\/www\.youtube\.com\/.*[?&]v=([^&]+)/i) || videoid.match(/^http:\/\/youtu\.be\/([^?]+)/i)) {
 					videoid = matches[1];
 				}
-				if (!videoid.match(/^[a-z0-9_-]{11}$/i)) {
+				if (videoid.match(/^[a-z0-9_-]{11}$/i) === null) {
 					alert("Unable to parse Video ID/URL.");
 					return;
 				}
@@ -49,7 +49,14 @@
 					id: videoid
 				}, function(data) {
 					$("#video-data-1, #video-data-2").html("");
-					$("#video-statistics").html("");
+					if (data.error) {
+						$("<p style='color: #F00;'></p>").text(data.error.message).appendTo("#video-data-1");
+						return;
+					}
+					if (data.items.length === 0) {
+						$("<p style='color: #F00;'></p>").text("Video not found.").appendTo("#video-data-1");
+						return;
+					}
 					$("<img>", {
 						src: data.items[0].snippet.thumbnails.default.url,
 						width: data.items[0].snippet.thumbnails.default.width,
@@ -57,10 +64,11 @@
 					}).appendTo("#video-data-1");
 					$("<h1></h1>").text(data.items[0].snippet.title).appendTo("#video-data-1");
 					$("<p></p>").text(data.items[0].snippet.description).appendTo("#video-data-1");
-					$("<li></li>").text("Published Date: " + data.items[0].snippet.publishedAt).appendTo("#video-data-2");
+					$("<li></li>").text("Published at: " + data.items[0].snippet.publishedAt).appendTo("#video-data-2");
 					$("<li></li>").text("View count: " + data.items[0].statistics.viewCount).appendTo("#video-data-2");
 					$("<li></li>").text("Favorite count: " + data.items[0].statistics.favoriteCount).appendTo("#video-data-2");
-					$("<li></li>").text("Likes/dislikes count: " + data.items[0].statistics.likeCount + " / " + data.items[0].statistics.dislikeCount).appendTo("#video-data-2");
+					$("<li></li>").text("Like count: " + data.items[0].statistics.likeCount).appendTo("#video-data-2");
+					$("<li></li>").text("Dislike count: " + data.items[0].statistics.dislikeCount).appendTo("#video-data-2");
 				});
 			});
 		});
